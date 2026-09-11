@@ -609,12 +609,14 @@ Instead of fitting a straight line, it fits a quadratic, polynomial through thre
     - $f_{k} = a_0x_{k}^{2} + a_1x_{k} + a_2$
 
 - Determining $a_0$, $a_1$, and $a_2$ from the equation,
-- $\begin{vmatrix} 
-f(x) & x^2 & x & 1 \\ 
-f_{k-2} & x^2_{k-2} & x_{k-2} & 1 \\ 
-f_{k-1} & x^2_{k-1} & x_{k-1} & 1 \\ 
+$$
+\begin{vmatrix}
+f(x) & x^2 & x & 1 \\
+f_{k-2} & x^2_{k-2} & x_{k-2} & 1 \\
+f_{k-1} & x^2_{k-1} & x_{k-1} & 1 \\
 f_{k} & x^2_{k} & x_{k} & 1
-\end{vmatrix}$
+\end{vmatrix}
+$$
 
 - $f(x) = \frac{(x - x_{k-1})(x - x_k)}{(x_{k-2} - x_{k-1})(x_{k-2} - x_k)}.f_{k-2} + \frac{(x - x_{k-2})(x - x_k)}{(x_{k-1} - x_{k-2})(x_{k-1} - x_k)}.f_{k-1} + \frac{(x - x_{k-2})(x - x_{k-1})}{(x_{k} - x_{k-2})(x_{k} - x_{k-1})}.f_{k} = 0$
 
