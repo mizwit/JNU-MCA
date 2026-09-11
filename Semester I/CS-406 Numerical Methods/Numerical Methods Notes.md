@@ -30,13 +30,13 @@ Since computers have limited memory, it cannot store a number with infinite digi
 - Decimal Number System has **base 10** with digits $0, 1, 2, 3, 4, 5, 6, 7, 8, 9$.
 - Any decimal number $N$ can be written as
     - $N = d_{n-1}d_{n-2}...d_{1}d_{0}.d{-1}{-2}...d_{-m}$
-    - where, $(N)_{10} = d_{n-1} \times 10^{n-1} + d_{n -2} \times 10^{n - 2} + ... + d_1 \times 10^{1} + d_{0} \times 10^{0} + d_{-1} \times 10^{-1} + ... + d_{-m} \times 10^{-m}$
+    - $(N)_{10} = d_{n-1} \times 10^{n-1} + ... + d_1 \times 10^{1} + d_{0} \times 10^{0} + d_{-1} \times 10^{-1} + ... + d_{-m} \times 10^{-m}$
 
 #### Binary Number System
 - Binary Number System has **base 2** with digits $0, 1$ called as **bits**.
 - Any binary number $N$ can be written as
     - $N = b_{n-1}b_{n-2}...b_{1}b_{0}.b{-1}{-2}...b_{-m}$
-    - where, $(N)_{2} = d_{n-1} \times 2^{n-1} + d_{n -2} \times 2^{n - 2} + ... + d_1 \times 2^{1} + d_{0} \times 2^{0} + d_{-1} \times 2^{-1} + ... + d_{-m} \times 2^{-m}$
+    - $(N)_{2} = d_{n-1} \times 2^{n-1} + ... + d_1 \times 2^{1} + d_{0} \times 2^{0} + d_{-1} \times 2^{-1} + ... + d_{-m} \times 2^{-m}$
 - Exercises:
     - Binary to Decimal conversion and vice versa.
 
@@ -44,7 +44,7 @@ Since computers have limited memory, it cannot store a number with infinite digi
 - Octal Number System has **base 8** with digits $0, 1, 2, 3, 4, 5, 6, 7$.
 - Any octal number $N$ can be written as
     - $N = o_{n-1}o_{n-2}...o_{1}o_{0}.o{-1}{-2}...o_{-m}$
-    - where, $(N)_{8} = d_{n-1} \times 8^{n-1} + d_{n -2} \times 8^{n - 2} + ... + d_1 \times 8^{1} + d_{0} \times 8^{0} + d_{-1} \times 8^{-1} + ... + d_{-m} \times 8^{-m}$
+    - $(N)_{8} = d_{n-1} \times 8^{n-1} + ... + d_1 \times 8^{1} + d_{0} \times 8^{0} + d_{-1} \times 8^{-1} + ... + d_{-m} \times 8^{-m}$
 - Exercises:
     - Octal to Decimal conversion and vice versa.
     - Octal to Binary conversion and vice versa.
@@ -53,7 +53,7 @@ Since computers have limited memory, it cannot store a number with infinite digi
 - Hexadecimal Number System has **base 16** with digits $0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F$.
 - Any hexadecimal number $N$ can be written as
     - $N = h_{n-1}h_{n-2}...h_{1}h_{0}.h{-1}{-2}...h_{-m}$
-    - where, $(N)_{16} = d_{n-1} \times 16^{n-1} + d_{n -2} \times 16^{n - 2} + ... + d_1 \times 16^{1} + d_{0} \times 16^{0} + d_{-1} \times 16^{-1} + ... + d_{-m} \times 16^{-m}$
+    - $(N)_{16} = d_{n-1} \times 16^{n-1} + ... + d_1 \times 16^{1} + d_{0} \times 16^{0} + d_{-1} \times 16^{-1} + ... + d_{-m} \times 16^{-m}$
 - Exercises:
     - Hexadecimal to Decimal conversion and vice versa.
     - Hexadecimal to Binary conversion and vice versa.
@@ -238,7 +238,9 @@ This method is used on the repeated applications of the intermediate value theor
 - Until stopping criteria is satisfied,
 - Return $c$
 
-### Bisection Method - Example 1
+### Exercises on Bisection Method
+
+#### Exercise 1
 Perform four iterations of the bisection method to find the approximate root of the equation $f(x) = x^3 - x - 1 = 0$.
 - Initial intervals $a = 1$ and $b = 2$
 - $f(1) = -1$, $f(2) = 5$
@@ -266,7 +268,7 @@ Perform four iterations of the bisection method to find the approximate root of 
     - So, root lies in the interval $(1.3125, 1.375)$.
 - Approximate value of the root, $r \approx \frac{1.3125 + 1.375}{2} = 1.34375$
 
-### Bisection Method - Example 2
+#### Exercise 2
 Perform five iterations of the bisection method to obtain the smallest possible positive root of the equation $f(x) = x^3 - 5x + 1 = 0$.
 - Initial intervals $a = 0$ and $b = 1$
 - $f(0) = (0)^3 - 5(0) + 1 = 1$
@@ -300,7 +302,7 @@ Perform five iterations of the bisection method to obtain the smallest possible 
     - So, root lies in the interval $(0.1875, 0.21875)$.
 - Approximate value of the root, $r \approx \frac{0.1875 + 0.21875}{2} = 0.203125$
 
-### Bisection Method - Example 3
+#### Exercise 3
 Perform five iterations of the bisection method to find the approximate root of the equation $f(x) = \cos(x) - x.e^x = 0$.
 
 - Initial interval $a = 0$ and $b = 1$
@@ -510,12 +512,82 @@ Instead of using a second line secant through the two points, Newton-Raphson use
 
 #### Exercise 1
 Let $f(x) = x^3 - x - 1 = 0$. Assume an initial approximation of $x_0 = 1.5$. Perform four iterations using Newton-Raphson Method.
+- $f'(x) = 3x^2 - 1$
+- Initial approximation, $x_0 = 1.5$
+- **Iteration 1:**
+    - $f(x_0) = f(1.5) = (1.5)^3 - 1.5 - 1 = 0.875$
+    - $f'(x_0) = f'(1.5) = 3(1.5)^2 - 1 = 5.75$
+    - $x_1 = x_0 - \frac{f(x_0)}{f'(x_0)} = 1.5 - \frac{0.875}{5.75}$
+    - $x_1 = 1.347826$
+- **Iteration 2:**
+    - $f(x_1) = f(1.347826) = (1.347826)^3 - 1.347826 - 1 = 0.100361$
+    - $f'(x_1) = f'(1.347826) = 3(1.347826)^2 - 1 = 4.449896$
+    - $x_2 = x_1 - \frac{f(x_1)}{f'(x_1)} = 1.347826 - \frac{0.100361}{4.449896}$
+    - $x_2 = 1.325271$
+- **Iteration 3:**
+    - $f(x_2) = f(1.325271) = (1.325271)^3 - 1.325271 - 1 = 0.002536$
+    - $f'(x_2) = f'(1.325271) = 3(1.325271)^2 - 1 = 4.269023$
+    - $x_3 = x_2 - \frac{f(x_2)}{f'(x_2)} = 1.325271 - \frac{0.002536}{4.269023}$
+    - $x_3 = 1.324677$
+- **Iteration 4:**
+    - $f(x_3) = f(1.324677) = (1.324677)^3 - 1.324677 - 1 = -0.000178$
+    - $f'(x_3) = f'(1.324677) = 3(1.324677)^2 - 1 = 4.264301$
+    - $x_4 = x_3 - \frac{f(x_3)}{f'(x_3)} = 1.324677 - \frac{-0.000178}{4.264301}$
+    - $x_4 = 1.324719$
+- Approximate value of the root, $r \approx 1.324719$
 
 #### Exercise 2
 Let $f(x) = x^3 - 5x + 1 = 0$. Assume an initial approximation of $x_0 = 0.5$. Perform four iterations using Newton-Raphson Method.
+- $f'(x) = 3x^2 - 5$
+- Initial approximation, $x_0 = 0.5$
+- **Iteration 1:**
+    - $f(x_0) = f(0.5) = (0.5)^3 - 5(0.5) + 1 = -1.375$
+    - $f'(x_0) = f'(0.5) = 3(0.5)^2 - 5 = -4.25$
+    - $x_1 = x_0 - \frac{f(x_0)}{f'(x_0)} = 0.5 - \frac{-1.375}{-4.25}$
+    - $x_1 = 0.176471$
+- **Iteration 2:**
+    - $f(x_1) = f(0.176471) = (0.176471)^3 - 5(0.176471) + 1 = 0.123143$
+    - $f'(x_1) = f'(0.176471) = 3(0.176471)^2 - 5 = -4.906574$
+    - $x_2 = x_1 - \frac{f(x_1)}{f'(x_1)} = 0.176471 - \frac{0.123143}{-4.906574}$
+    - $x_2 = 0.201567$
+- **Iteration 3:**
+    - $f(x_2) = f(0.201567) = (0.201567)^3 - 5(0.201567) + 1 = 0.000357$
+    - $f'(x_2) = f'(0.201567) = 3(0.201567)^2 - 5 = -4.878113$
+    - $x_3 = x_2 - \frac{f(x_2)}{f'(x_2)} = 0.201567 - \frac{0.000357}{-4.878113}$
+    - $x_3 = 0.201640$
+- **Iteration 4:**
+    - $f(x_3) = f(0.201640) = (0.201640)^3 - 5(0.201640) + 1 = -0.000002$
+    - $f'(x_3) = f'(0.201640) = 3(0.201640)^2 - 5 = -4.878023$
+    - $x_4 = x_3 - \frac{f(x_3)}{f'(x_3)} = 0.201640 - \frac{-0.000002}{-4.878023}$
+    - $x_4 = 0.201640$
+- Approximate value of the root, $r \approx 0.201640$
 
 #### Exercise 3
 Approximate the value of $(17)^{\frac{1}{3}}$. Assume an initial approximation of $x_0 = 2$. Perform four iterations using Newton-Raphson Method.
+- Let $(17)^{1/3} = x$. So, $f(x) = x^3 - 17 = 0$.
+- $f'(x) = 3x^2$
+- Initial approximation, $x_0 = 2$
+- **Iteration 1:**
+    - $f(x_0) = f(2) = (2)^3 - 17 = -9$
+    - $f'(x_0) = f'(2) = 3(2)^2 = 12$
+    - $x_1 = x_0 - \frac{f(x_0)}{f'(x_0)} = 2 - \frac{-9}{12}$
+    - $x_1 = 2.75$
+- **Iteration 2:**
+    - $f(x_1) = f(2.75) = (2.75)^3 - 17 = 3.796875$
+    - $f'(x_1) = f'(2.75) = 3(2.75)^2 = 22.6875$
+    - $x_2 = x_1 - \frac{f(x_1)}{f'(x_1)} = 2.75 - \frac{3.796875}{22.6875}$
+    - $x_2 = 2.582645$
+- **Iteration 3:**
+    - $f(x_2) = f(2.582645) = (2.582645)^3 - 17 = 0.226380$
+    - $f'(x_2) = f'(2.582645) = 3(2.582645)^2 = 20.010159$
+    - $x_3 = x_2 - \frac{f(x_2)}{f'(x_2)} = 2.582645 - \frac{0.226380}{20.010159}$
+    - $x_3 = 2.571332$
+- **Iteration 4:**
+    - $f(x_3) = f(2.571332) = (2.571332)^3 - 17 = 0.000997$
+    - $f'(x_3) = f'(2.571332) = 3(2.571332)^2 = 19.835241$
+    - $x_4 = x_3 - \frac{f(x_3)}{f'(x_3)} = 2.571332 - \frac{0.000997}{19.835241}$
+    - $x_4 = 2.571282$
+- Approximate value of $(17)^{1/3} \approx 2.571282$
 
 ---
 
@@ -523,5 +595,97 @@ Approximate the value of $(17)^{\frac{1}{3}}$. Assume an initial approximation o
 
 ![Summary of Root-Finding Methods](Images/1.jpeg)
 ![Final Summary of Root-Finding Methods](Images/2.jpeg)
+
+---
+
+## Muller's Method
+Instead of fitting a straight line, it fits a quadratic, polynomial through three points.
+
+- Lets consider a function $f(x) = a_0x^2 + a_1x + a_2 = 0$, which is a polynomial of degree two.
+- $a_0$, $a_1$, and $a_2$ are three arbitrary parameters to be determined by prescribing three approximate conditions $f(x)$ and/or its derivates.
+- If $x_{k - 2}$, $x_{k - 1}$, and $x_k$ are three approximations to the root of $f(x) = 0$, then we may determine $a_0$, $a_1$, and $a_2$ by using the condition as:
+    - $f_{k-2} = a_0x_{k-2}^{2} + a_1x_{k-2} + a_2$
+    - $f_{k-1} = a_0x_{k-1}^{2} + a_1x_{k-1} + a_2$
+    - $f_{k} = a_0x_{k}^{2} + a_1x_{k} + a_2$
+
+- Determining $a_0$, $a_1$, and $a_2$ from the equation,
+- $\begin{vmatrix} 
+f(x) & x^2 & x & 1 \\ 
+f_{k-2} & x^2_{k-2} & x_{k-2} & 1 \\ 
+f_{k-1} & x^2_{k-1} & x_{k-1} & 1 \\ 
+f_{k} & x^2_{k} & x_{k} & 1
+\end{vmatrix}$
+
+- $f(x) = \frac{(x - x_{k-1})(x - x_k)}{(x_{k-2} - x_{k-1})(x_{k-2} - x_k)}.f_{k-2} + \frac{(x - x_{k-2})(x - x_k)}{(x_{k-1} - x_{k-2})(x_{k-1} - x_k)}.f_{k-1} + \frac{(x - x_{k-2})(x - x_{k-1})}{(x_{k} - x_{k-2})(x_{k} - x_{k-1})}.f_{k} = 0$
+
+- When, $h = x - x_k$, $h_k = x_k - x_{k-1}$, and $h_{k-1} = x_{k-1} - x_{k-2}$,
+- $\frac{h(h + h_k)}{h_{k-1}(h_{k-1} + h_k)}.f_{k-2} - \frac{h(h + h_k + h_{k-1})}{h_k.h_{k-1}}.f_{k-1} + \frac{(h + h_k)(h + h_k + h_{k-1})}{h_k(h_k + h_{k-1})}.f_k = 0$
+
+- $\lambda = \frac{h}{h_k}$, $\lambda_{k} = \frac{h_k}{h_{k-1}}$, and $\partial_{k} = 1 + \lambda_{k}$
+- $C_k\lambda^{2} + g_k\lambda + \partial_{k} f_k = 0$,
+- Where, $g_k = \lambda^2_{k}f_{k-2} - \partial^2_{k}f_{k-1} + (\lambda_{k} + \partial_{k})f_k$
+- And, $C_k = \lambda_{k}(\lambda_{k}f_{k-2} - \partial_k f_{k-1} + f_k)$
+
+- $\lambda = \frac{-g_k \pm \sqrt{g_k^2 - 4\partial_k f_k C_k}}{2C_k}$
+- Or, $\lambda = \frac{-2\partial_k f_k}{g_k \pm \sqrt{g^2_{k} - 4\partial_k f_k C_k}}$
+- Choosing the sign in the denominator to maximize magnitude.
+    - If $g_2 < 0 \implies \text{minus sign}$
+    - If $g_2 > 0 \implies \text{plus sign}$
+
+- $\lambda_{k+1} = \frac{h}{h_k} = \frac{x - x_k}{x_k - x_{k-1}}$
+- $x_{k+1} = x_k + (x_k - x_{k-1})\lambda_{k+1}$
+- Or, $x_{k+1} = x_k + h_k\lambda_{k+1}$
+
+#### Exercise 1
+Perform three iterations of the Muller's Method to find the smallest positive root of the equation $f(x) = x^3 - 5x + 1 = 0$
+- The smallest root lies in the interval $(0, 1)$.
+- Let $x_0 = 0$, $x_1 = 0.5$, and $x_2 = 1$.
+- So, $f_0​ = 1$, $f_1​ = −1.375$, and $f_2 ​= −3$.
+- **Iteration 1:**
+    - $h_1 = x_1 - x_0 = 0.5$, $h_2 = x_2 - x_1 = 0.5$
+    - $\lambda_2 = \frac{h_2}{h_1} = \frac{0.5}{0.5} = 1$
+    - $\partial_2 = 1 + \lambda_2 = 1 + 1 = 2$
+    - $g_2 = 1^2(1) - 2^2(-1.375) + (1 + 2)(-3) = -2.5$
+    - $C_2 = 1(1(1) - 2(-1.375) + (-3)) = 0.75$
+    - Since, $g_2 < 0$:
+    - $\lambda_3 = \frac{-2(2)(-3)}{-2.5 - \sqrt{(-2.5)^2 - 4(2)(-3)(0.75)}}$
+    - $\lambda_3 = \frac{12}{-2.5 - \sqrt{24.25}} \approx -1.616286$
+    - $x_3 = x_2 + h_2\lambda_3 = 1 + 0.5(-1.616286) = 0.191857$
+    - $f_3 = f(x_3) = (0.191857)^3 - 5(0.191857) + 1 \approx 0.047777$
+- **Iteration 2:**
+    - $h_2 = 0.5$, $h_3 = x_3 - x_2 = -0.808143$
+    - $\lambda_3 = \frac{h_3}{h_2} = \frac{-0.808143}{0.5} = -1.616286$
+    - $\partial_3 = 1 + \lambda_3 = 1 - 1.616286 = -0.616286$
+    - $g_3 = (-1.616286)^2(-1.375) - (-0.616286)^2(-3) + (-1.616286 - 0.616286)(0.047777) \approx -2.559261$
+    - $C_3 = -1.616286((-1.616286)(-1.375) - (-0.616286)(-3) + 0.047777) \approx -0.680961$
+    - Since, $g_3 < 0$:
+    - $\lambda_4 = \frac{-2(-0.616286)(0.047777)}{-2.559261 - \sqrt{(-2.559261)^2 - 4(-0.616286)(0.047777)(-0.680961)}}$
+    - $\lambda_4 \approx -0.011540$
+    - $x_4 = x_3 + h_3\lambda_4 = 0.191857 + (-0.808143)(-0.011540) = 0.201183$
+    - $f_4 = f(x_4) = (0.201183)^3 - 5(0.201183) + 1 \approx 0.002230$
+- **Iteration 3:**
+    - $h_3 = -0.808143$, $h_4 = x_4 - x_3 = 0.009326$
+    - $\lambda_4 = \frac{h_4}{h_3} = \frac{0.009326}{-0.808143} = -0.011540$
+    - $\partial_4 = 1 + \lambda_4 = 1 - 0.011540 = 0.988460$
+    - $g_4 = (-0.011540)^2(-3) - (0.988460)^2(0.047777) + (-0.011540 + 0.988460)(0.002230) \approx -0.044902$
+    - $C_4 = -0.011540((-0.011540)(-3) - (0.988460)(0.047777) + 0.002230) \approx 0.000120$
+    - Since, $g_4 < 0$:
+    - $\lambda_5 = \frac{-2(0.988460)(0.002230)}{-0.044902 - \sqrt{(-0.044902)^2 - 4(0.988460)(0.002230)(0.000120)}}$
+    - $\lambda_5 \approx 0.049093$
+    - $x_5 = x_4 + h_4\lambda_5 = 0.201183 + (0.009326)(0.049093) = 0.201641$
+- Approximate value of root, $r \approx 0.201641$
+
+### Advantages of Muller's Method
+- Does not require derivative.
+- Uses quadratic approximations.
+- Can find complex roots.
+- Does not require a bracketing interval.
+- Can be applied to general non-linear equations.
+
+### Limitations of Muller's Method
+- Requires three initial approximations.
+- More computationally complicated.
+- Numerical issues can occur.
+- No general global convergence guaranteed.
 
 ---
