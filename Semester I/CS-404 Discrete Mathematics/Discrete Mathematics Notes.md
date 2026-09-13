@@ -255,7 +255,7 @@ Let $X' = P' \wedge Q'$, $\ Y' = R' \vee P'$, $\ Z' = R' \vee Q'$, and finally $
 | 1    | 1    | 0    | 0    | 1    | 1    | 1    | 1    |
 | 1    | 1    | 1    | 1    | 1    | 1    | 1    | 1    |
 
-Since the $A'$ and $B'$ columns agree on **every** row, $A' = B'$ is a tautology — the distributive law holds.
+Since the $A'$ and $B'$ columns agree on **every** row, $A' = B'$ is a tautology, the distributive law holds.
 
 ## Minterms and Maxterms
 
