@@ -593,8 +593,9 @@ Approximate the value of $(17)^{\frac{1}{3}}$. Assume an initial approximation o
 
 ## Summary of Root-Finding Methods
 
-![Summary of Root-Finding Methods](Images/1.jpeg)
 ![Final Summary of Root-Finding Methods](Images/2.jpeg)
+
+![Summary of Root-Finding Methods](Images/1.jpeg)
 
 ---
 
