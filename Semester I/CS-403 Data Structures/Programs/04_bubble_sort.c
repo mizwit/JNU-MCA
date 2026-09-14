@@ -28,9 +28,10 @@ int main()
     print_array(arr, N);
     printf("----------\n");
     
-    int total_comps = 0, total_swaps = 0;
+    int total_comps = 0, total_swaps = 0, pass_number = 0;
     for (int i = 0; i < N - 1; i++)
     {
+        pass_number++;
         for (int j = 0; j < N - 1 - i; j++)
         {   
             total_comps++;
@@ -42,7 +43,7 @@ int main()
                 total_swaps++;
             }
         }
-        printf("Array after Pass #%d: ", i + 1);  // Print AFTER inner loop
+        printf("Array after Pass #%d: ",pass_number);
         print_array(arr, N);
     }
     printf("----------\n");
@@ -53,6 +54,7 @@ int main()
     
     printf("Total Number of Comparisions: %d\n", total_comps);
     printf("Total Number of Swaps: %d\n", total_swaps);
-
+    printf("Passes after it became sorted: %d\n", pass_number);
+    
     return 0;
 }
