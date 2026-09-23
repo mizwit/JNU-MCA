@@ -122,7 +122,7 @@ int main()
 {
     printf("\n\n");
 
-    printf("TASK 2: Implementation of Queue\n");
+    printf("TASK 1: Implementation of Queue\n");
     printf("-------\n");
     struct Queue q;
     q.front = -1;
@@ -139,7 +139,7 @@ int main()
     display_queue(&q);
     printf("\n\n");
 
-    printf("TASK 3: Implementation of Stack using Two Queues\n");
+    printf("TASK 2: Implementation of Stack using Two Queues\n");
     printf("-------\n");
     struct Queue q1, q2;
     q1.front = -1;

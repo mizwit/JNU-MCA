@@ -343,7 +343,7 @@ int main()
     printf(">> Comparing the two linked lists...\n");
     compare_linked_lists(head, head2);
     printf(">> \n");
-    printf(">> Firt Linked List: \n>> ");
+    printf(">> First Linked List: \n>> ");
     display_linked_list(head);
     printf(">> Second Linked List: \n>> ");
     display_linked_list(head);

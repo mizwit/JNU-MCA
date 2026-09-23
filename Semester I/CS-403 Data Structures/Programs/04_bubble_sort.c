@@ -21,9 +21,18 @@ void print_array(int arr[], int size) {
 
 int main()
 {
-    int N = 10;
-    int arr[10] = {83, 4, 16, 47, 33, 38, 92, 19, 25, 2};
-    
+    printf("----------\n");
+    int N;
+    printf("Size of the array: ");
+    scanf("%d", &N);
+    int arr[N];
+    for (int i = 0; i < N; i++)
+    {
+        printf("Enter element #%d: ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+
+    printf("----------\n");
     printf("Unsorted Array: ");
     print_array(arr, N);
     printf("----------\n");
@@ -46,8 +55,8 @@ int main()
         printf("Array after Pass #%d: ",pass_number);
         print_array(arr, N);
     }
-    printf("----------\n");
-    
+
+    printf("----------\n");    
     printf("Sorted Array: ");
     print_array(arr, N);
     printf("----------\n");
@@ -55,6 +64,7 @@ int main()
     printf("Total Number of Comparisions: %d\n", total_comps);
     printf("Total Number of Swaps: %d\n", total_swaps);
     printf("Passes after it became sorted: %d\n", pass_number);
+    printf("----------\n");
     
     return 0;
 }
