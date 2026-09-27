@@ -589,13 +589,69 @@ Approximate the value of $(17)^{\frac{1}{3}}$. Assume an initial approximation o
     - $x_4 = 2.571282$
 - Approximate value of $(17)^{1/3} \approx 2.571282$
 
+#### Exercise 4 - Matrix Iteration
+Obtain the complex roots of the equation $f(z) = z^3 + 1 = 0$ correct to eight decimal places. Use the initial approximation of the root as $(x_0, y_0) = (0.25, 0.25)$. Compare the exact values of the roots which is $(1 \pm \frac{i\sqrt{3}}{2})$.
+- Substituting $z = x + iy$ in the eqaution:
+    - $(x + iy)^3 + 1 = (x^3 - 3xy^2 + 1) + i(3x^2y - y^3) = 0$
+    - Here, $U(x, y) = x^3 - 3xy^2 + 1$ and $V(x,y) = 3x^2y - y^3$
+- Formulating the Jacobian Matrix:
+    - $J = \begin{bmatrix} U_x && U_y \\ V_x && V_y \end{bmatrix} = \begin{bmatrix} \frac{\delta U}{\delta x} && \frac{\delta U}{\delta y} \\ \frac{\delta V}{\delta x} && \frac{\delta V}{\delta y} \end{bmatrix}$
+    - Here, $\frac{\delta U}{\delta x} = 3x^2 - 3y^2$, $\frac{\delta U}{\delta y} = -6xy$, $\frac{\delta V}{\delta x} = 6xy$, and $\frac{\delta V}{\delta y} = 3x^2 - 3y^2$.
+    - $\therefore J = \begin{bmatrix} 3x^2 - 3y^2 && -6xy \\ 6xy && 3x^2 - 3y^2 \end{bmatrix}$
+- Determinant of $J$: 
+    - $D_J = (3x^2 - 3y^2)(3x^2 - 3y^2) + 36x^2y^2$
+    - $D_J = 9(x^2 - y^2)^2 + 36x^2y^2$
+    - $D_J = 9(x^2 + y^2)^2$
+- Inverse of $J$:
+    - $J^{-1} = \frac{1}{D_J}Adj$
+    - $J^{-1} = \frac{1}{9(x^2 + y^2)^2}\begin{bmatrix} 3x^2 - 3y^2 && 6xy \\ -6xy && 3x^2 - 3y^2 \end{bmatrix}$
+- Newton-Raphson Matrix Iteration Formula:
+    - $\begin{bmatrix} x_{k + 1} \\ y_{k + 1} \end{bmatrix} = \begin{bmatrix} x_{k} \\ y_{k} \end{bmatrix} - J^{-1}\begin{bmatrix} U(x_k, y_k) \\ V(x_k, y_k) \end{bmatrix}$
+    - $\begin{bmatrix} x_{k + 1} \\ y_{k + 1} \end{bmatrix} = \begin{bmatrix} x_{k} \\ y_{k} \end{bmatrix} - \frac{1}{9(x_k^2 + y_k^2)^2}\begin{bmatrix} 3x_k^2 - 3y_k^2 && 6x_ky_k \\ -6x_ky_k && 3x_k^2 - 3y_k^2 \end{bmatrix} \begin{bmatrix} x_k^3 - 3x_ky_k^2 + 1 \\ 3x_k^2y_k - y_k^3 \end{bmatrix}$
+- **Iteration 1:**
+    - $D_0 = 9(0.25^2 + 0.25^2)^2 = 9(0.125)^2 = 0.140625$
+    - $\begin{bmatrix} x_{1} \\ y_{1} \end{bmatrix} = \begin{bmatrix} 0.25 \\ 0.25 \end{bmatrix} - \frac{1}{0.140625} \begin{bmatrix} 0 && 0.375 \\ -0.375 && 0 \end{bmatrix} \begin{bmatrix} 0.96875 \\ 0.03125 \end{bmatrix}$
+    - $\begin{bmatrix} x_{1} \\ y_{1} \end{bmatrix} = \begin{bmatrix} 0.16666667 \\ 2.83333333 \end{bmatrix}$
+- **Iteration 2**:
+    - $D_1 = 9(x_1^2 + y_1^2)^2 = 9(0.16666667^2 + 2.83333333^2)^2 = 584.02777778$
+    - $U(x_1,y_1) = -3.00925926$, $\quad V(x_1,y_1) = -22.50925926$
+    - $\begin{bmatrix} x_{2} \\ y_{2} \end{bmatrix} = \begin{bmatrix} 0.16666667 \\ 2.83333333 \end{bmatrix} - \dfrac{1}{584.02777778} \begin{bmatrix} -24 && 2.83333333 \\ -2.83333333 && -24 \end{bmatrix} \begin{bmatrix} -3.00925926 \\ -22.50925926 \end{bmatrix}$
+    - $\begin{bmatrix} x_{2} \\ y_{2} \end{bmatrix} = \begin{bmatrix} 0.15220505 \\ 1.89374026 \end{bmatrix}$
+- **Iteration 3**:
+    - $D_2 = 9(x_2^2 + y_2^2)^2 = 9(0.15220505^2 + 1.89374026^2)^2 = 117.25111943$
+    - $U(x_2,y_2) = -0.63401099$, $\quad V(x_2,y_2) = -6.65981678$
+    - $\begin{bmatrix} x_{3} \\ y_{3} \end{bmatrix} = \begin{bmatrix} 0.15220505 \\ 1.89374026 \end{bmatrix} - \dfrac{1}{117.25111943} \begin{bmatrix} -10.68925735 && 1.72942095 \\ -1.72942095 && -10.68925735 \end{bmatrix} \begin{bmatrix} -0.63401099 \\ -6.65981678 \end{bmatrix}$
+    - $\begin{bmatrix} x_{3} \\ y_{3} \end{bmatrix} = \begin{bmatrix} 0.19263553 \\ 1.27724322 \end{bmatrix}$
+- **Iteration 4**:
+    - $D_3 = 9(x_3^2 + y_3^2)^2 = 9(0.19263553^2 + 1.27724322^2)^2 = 25.05378984$
+    - $U(x_3,y_3) = 0.06438032$, $\quad V(x_3,y_3) = -1.94144150$
+    - $\begin{bmatrix} x_{4} \\ y_{4} \end{bmatrix} = \begin{bmatrix} 0.19263553 \\ 1.27724322 \end{bmatrix} - \dfrac{1}{25.05378984} \begin{bmatrix} -4.78272540 && 1.47625459 \\ -1.47625459 && -4.78272540 \end{bmatrix} \begin{bmatrix} 0.06438032 \\ -1.94144150 \end{bmatrix}$
+    - $\begin{bmatrix} x_{4} \\ y_{4} \end{bmatrix} = \begin{bmatrix} 0.31932197 \\ 0.91041889 \end{bmatrix}$
+
 ---
 
 ## Summary of Root-Finding Methods
 
-![Final Summary of Root-Finding Methods](Images/2.jpeg)
+| **Feature** | **Bisection** | **Secant** | **Regular Falsi** | **Newton-Raphson** |
+| :--- | :--- | :--- | :--- | :--- |
+| **Type** | Bracketing | Open | Bracketing | Open |
+| **Basic idea** | Midpoint | Secant line | Secant + Bracket | Tangent line |
+| **Initial values** | $(a, b)$ | $(x_0, x_1)$ | $(a, b)$ | $(x_0)$ |
+| **Sign Change required** | Yes | No | Yes | No |
+| **Derivative required** | No | No | No | **Yes** |
+| **Maintains bracket** | Yes | No | Yes | No |
+| **Convergence guarantee** | Under standard conditions | No | Under standard conditions | No, globally |
+| **Speed near root** | Slow | Fast | Moderate/ variable | **Very fast** |
+| **Approx order** | $(1)$ | $(1.618)$ | Variable/ typically linear | $(2)$ locally |
 
-![Summary of Root-Finding Methods](Images/1.jpeg)
+### Final Summary of Root-Finding Methods
+
+| **Method** | **Bracket?** | **Derivative?** | **Convergence** | **Main Strength** |
+| :--- | :--- | :--- | :--- | :--- |
+| **Bisection** | Yes | No | Linear | Reliability |
+| **Regular Falsi** | Yes | No | Generally linear | Reliability + Interpolation |
+| **Secant** | No | No | Superlinear, $(p \approx 1.618)$ | Speed without derivative |
+| **Newton-Raphson** | No | Yes | Quadratic, $(p = 2)$ locally | Very fast convergence |
 
 ---
 
@@ -683,5 +739,212 @@ Perform three iterations of the Muller's Method to find the smallest positive ro
 - More computationally complicated.
 - Numerical issues can occur.
 - No general global convergence guaranteed.
+
+---
+
+## Interpolation
+
+Let us assume we know some values of function $(x_0, y_0), (x_1, y_1), (x_2, y_2) \dots$. But we do not know the value of that function at some point lying in between the known points. **Interpolation** is the process of estimating that unknown value.
+- **Definition:** Interpolation is the process of estimating the value of a function at an intermediate point using known data points.
+- **Need for Interpolation:**
+    - In practical numerical problems, we frequently have tabulated or measured data rather than an explicit mathematical function. 
+    - For example: Temperature, population data, experimental observations, vehicle speeds at different times, sensor measurements, travel time data, etc.
+
+> **Interpolation** estimates a value *inside* the range of known data points. Example: $x = 10$ and $x = 30$ are given, find $x = 20$.
+> 
+> **Experpolation** estimates a value *outside* the known range. Example: $x = 10$ and $x = 30$ are given, find $x = 60$.
+
+### Polynomial Interpolation
+- Suppose we have '$n + 1$' data points, $(x_0, y_0), (x_1, y_1), (x_2, y_2), \dots (x_n, y_n)$.
+- Based on that we can construct a polynomial of degree at most $n$:
+    - $P_n(x) = a_0 + a_1x + a_2x^2 + \dots a_nx^n$
+    - Such that, $P_n(x_i) = y_i \forall i = 0, 1, 2, \dots n$.
+- Example: 
+    - A polynomial of degree at most 1: $P_1(x) = a_0 + a_1x$.
+    - A polynomial of degree at most 2: $P_2(x) = a_0 + a_1x + a_2x^2$.
+
+#### Exercise: Two Point Interpolation
+Let $f(1) = 2$ and $f(3) = 6$. Find $f(2)$ using linear interpolation.
+- We know, $P_1(x) = a + bx$
+- $P(1) = 2, \therefore a + b = 2$
+- $P(3) = 6, \therefore a + 3b = 6$
+- Subtracting them, $2b = 4, \therefore b = 2$
+- Substituing $b$ we get, $a = 0$
+
+## Linear Interpolation
+- For two data points $(x_0, y_0)$ and $(x_1, y_1)$, the linear interpolation formula is:
+    - $y = y_0 + \frac{x - x_0}{x_1 - x_0}(y_1 - y_0)$
+
+---
+
+## Larange Interpolation
+- Suppose we have $(n + 1)$ data points, $(x_0, y_0), (x_1, y_1), (x_2, y_2), \dots (x_n, y_n)$.
+- The Larange Interpolation Formula:
+    - $P_n(x) = \Sigma_{i = 0}^{n} y_iL_i(x)$
+    - Where, $L_i(x) = \Pi_{j = 0, j \ne i}^{n} \frac{x - x_j}{x_i - x_j}$
+- Example: For three points $(x_0, y_0), (x_1, y_1), and (x_2, y_2)$.
+    - $L_0 = \frac{(x - x_1)(x - x_2)}{(x_0 - x_1)(x_0 - x_2)}$
+    - $L_1 = \frac{(x - x_0)(x - x_2)}{(x_1 - x_0)(x_1 - x_2)}$
+    - $L_2 = \frac{(x - x_0)(x - x_1)}{(x_2 - x_0)(x_2 - x_1)}$
+    - $P_2(x) = y_0L_0(x) + y_1L_1(x) + y_2L_2(x)$
+
+### Exercises
+
+#### Exercise 1
+
+| $x$ | $1$ | $2$ | $4$ |
+| :-- | :-- | :-- | :-- |
+| $y$ | $1$ | $4$ | $16$ |
+
+Find f(3) using Linear Interpolation.
+- $L_0 =  \frac{(3 - 2)(3 - 4)}{(1 - 2)(1 - 4)} = -\frac{1}{3}$
+- $L_1 = \frac{(3 - 1)(3 - 4)}{(2 - 1)(2 - 4)} = 1$
+- $L_2 = \frac{(3 - 1)(3 - 2)}{(4 - 1)(4 - 2)} = \frac{1}{3}$
+- $P_2(3) = 1 \times -\frac{1}{3} + 4 \times 1 + 16 \times \frac{1}{3} = \frac{27}{3}$
+- $\therefore f(3) = 9$
+
+### Advantages of Larange Interpolation
+- Simple direct formula.
+- No need to solve simultaneous equations for the coefficients.
+- Works with unequally spaced data points.
+- Easy to use when only one interpolation value is required.
+
+### Limitations of Larange Interpolation
+- Formula becomes lengthy when many points are used.
+- If a new data point is added, the polynomial generally has to be reconstructed.
+- Repeated calculations can become combursome.
+- For many data points, Newton divided differences are often more convinient.
+
+---
+
+## Newton Forward Interpolation
+- Suppose the values of the data points are $x_0, x_1, x_2, \dots x_n$ and $x_1 - x_0 = x_2 - x_1 = x_3 - x_2 = \dots x_n - x_{n - 1} = h$, then the data is called **equally spaced**.
+
+| $x$ | $0$ | $1$ | $2$ | $3$ | $4$ | $5$ | $6$ |
+| :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
+| $f(x)$ | $1$ | $4$ | $6$ | $10$ | $15$ | $17$ | $22$ |
+
+- Therefore, $x_i = x_0 + ih \forall i = 0, 1, 2, \dots n$.
+- 
+
+### Forward Difference Operator
+
+- The forward difference operator is represented by $\Delta$, and $\Delta f(x) = f(x+h) - f(x)$.
+- For a set of equally spaced data $(x_0,y_0), (x_1,y_1), \dots, (x_n,y_n)$:
+
+| $x$ | $x_0$ | $x_1$ | $x_2$ | $x_3$ |
+| :-- | :-- | :-- | :-- | :-- |
+| $y$ | $y_0$ | $y_1$ | $y_2$ | $y_3$ |
+
+- **First forward difference:** $\Delta y_i = y_{i+1} - y_i$
+    - $\Delta y_0 = y_1 - y_0$
+    - $\Delta y_1 = y_2 - y_1$
+    - $\Delta y_2 = y_3 - y_2$
+- **Second forward difference:** $\Delta^2 y_i = \Delta y_{i+1} - \Delta y_i$
+    - $\Delta^2 y_0 = \Delta y_1 - \Delta y_0$
+- **Third forward difference:** $\Delta^3 y_i = \Delta^2 y_{i+1} - \Delta^2 y_i$
+    - $\Delta^3 y_0 = \Delta^2 y_1 - \Delta^2 y_0$
+
+### Building a Difference Table
+
+| $x$ | $0$ | $1$ | $2$ | $3$ | $4$ |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| $y$ | $1$ | $2$ | $5$ | $10$ | $17$ |
+
+- **1st forward differences:**
+    - $\Delta y_0 = 2 - 1 = 1$
+    - $\Delta y_1 = 5 - 2 = 3$
+    - $\Delta y_2 = 10 - 5 = 5$
+    - $\Delta y_3 = 17 - 10 = 7$
+- **2nd forward differences:**
+    - $\Delta^2 y_0 = 3 - 1 = 2$
+    - $\Delta^2 y_1 = 5 - 3 = 2$
+    - $\Delta^2 y_2 = 7 - 5 = 2$
+- **3rd forward differences:**
+    - $\Delta^3 y_0 = 2 - 2 = 0$
+    - $\Delta^3 y_1 = 2 - 2 = 0$
+- **4th forward difference:**
+    - $\Delta^4 y_0 = 0 - 0 = 0$
+
+**Final difference table:**
+
+| $n$ | $y$ | $\Delta y$ | $\Delta^2y$ | $\Delta^3y$ |
+| :-- | :-- | :-- | :-- | :-- |
+| $0$ | $1$ | $1$ | $2$ | $0$ |
+| $1$ | $2$ | $3$ | $2$ | $0$ |
+| $2$ | $5$ | $5$ | $2$ |  |
+| $3$ | $10$ | $7$ |  |  |
+| $4$ | $17$ |  |  |  |
+
+- Constant 1st differences indicate a polynomial of degree $1$, that means a linear polynomial.
+- Constant 2nd differences indicate a polynomial of degree $2$, that means a quadratic polynomial.
+- Constant 3rd differences indicate a polynomial of degree $3$, that means a cubic polynomial.
+- In this example, since $\Delta^2y$ is constant at $2$, the underlying function is exactly quadratic.
+
+### Newton Forward Interpolation Formula (N.F.I.F)
+
+- Suppose the knows data points $(x_0,y_0), (x_1,y_1), \dots, (x_n,y_n)$ with equal spacing $h$:
+    - $p = \frac{x - x_0}{h}$
+- Then the **N.F.I.F** is:
+$$f(x) \approx P_n(x) = y_0 + p\,\Delta y_0 + \frac{p(p-1)}{2!}\Delta^2 y_0 + \frac{p(p-1)(p-2)}{3!}\Delta^3 y_0 + \cdots + \frac{p(p-1)(p-2)\cdots(p-n+1)}{n!}\Delta^n y_0$$
+
+### Exercises
+
+#### Exercise 1
+Find $f(1.5)$ using N.F Interpolation, using the table above where $x_0=0$ and $h=1$.
+- $p = \dfrac{x - x_0}{h} = \dfrac{1.5 - 0}{1} = 1.5$
+- $f(1.5) \approx P_n(1.5) = y_0 + p\,\Delta y_0 + \dfrac{p(p-1)}{2!}\Delta^2y_0$
+- $f(1.5) = 1 + (1.5)(1) + \dfrac{(1.5)(0.5)}{2}(2)$
+- $f(1.5) = 1 + 1.5 + 0.75 = 3.25$
+- $\therefore f(1.5) = 3.25$
+
+#### Exercise 2
+
+| $x$ | $10$ | $20$ | $30$ | $40$ | $50$ |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| $y$ | $100$ | $400$ | $900$ | $1600$ | $2500$ |
+
+Find $f(25)$ using N.F.I method.
+- $x = 25$, $x_0=10$, $h=10 \Rightarrow p = \dfrac{25-10}{10} = 1.5$
+- $\Delta y_0 = 300$, $\Delta^2y_0 = 200$ (from the difference table; $\Delta^3y_0=0$ since $y=x^2$ is exactly quadratic)
+- $f(25) \approx 100 + (1.5)(300) + \dfrac{(1.5)(0.5)}{2}(200)$
+- $f(25) = 100 + 450 + 75 = 625$
+- $\therefore f(25) = 625$
+
+#### Exercise 3
+
+| $x$ | $1$ | $2$ | $3$ | $4$ |
+| :-- | :-- | :-- | :-- | :-- |
+| $y$ | $1$ | $8$ | $27$ | $64$ |
+
+Find $f(2.5)$ using Newton Forward Interpolation.
+- $x_0 = 1$, $h=1 \Rightarrow p = \dfrac{2.5-1}{1} = 1.5$
+- Difference table: $\Delta y_0 = 7$, $\Delta^2y_0 = 12$, $\Delta^3y_0 = 6$
+- $P_3(2.5) = y_0 + p\Delta y_0 + \dfrac{p(p-1)}{2!}\Delta^2y_0 + \dfrac{p(p-1)(p-2)}{3!}\Delta^3y_0$
+- $P_3(2.5) = 1 + (1.5)(7) + \dfrac{(1.5)(0.5)}{2}(12) + \dfrac{(1.5)(0.5)(-0.5)}{6}(6)$
+- $P_3(2.5) = 1 + 10.5 + 4.5 - 0.375 = 15.625$
+- $\therefore f(2.5) = 15.625$
+
+#### Exercise 4
+
+| $x$ | $10$ | $15$ | $20$ | $25$ |
+| :-- | :-- | :-- | :-- | :-- |
+| $f(x)$ | $100$ | $225$ | $400$ | $625$ |
+
+Find $f(12)$ using Newton Forward Interpolation.
+- $x_0 = 10$, $h=5 \Rightarrow p = \dfrac{12-10}{5} = 0.4$
+- Difference table: $\Delta y_0 = 125$, $\Delta^2y_0 = 50$, $\Delta^3y_0 = 0$
+- $P_3(12) = y_0 + p\Delta y_0 + \dfrac{p(p-1)}{2!}\Delta^2y_0 + \dfrac{p(p-1)(p-2)}{3!}\Delta^3y_0$
+- $P_3(12) = 100 + (0.4)(125) + \dfrac{(0.4)(-0.6)}{2}(50) + 0$
+- $P_3(12) = 100 + 50 - 6 = 144$
+- $\therefore f(12) = 144$
+
+<br>
+
+> **Why Newton Forward Interpolation is used when the required value is near the beginning of the equally spaced table:**
+> 
+> Newton Forward Interpolation builds its correction terms from $x_0$ (the **first** point in the table), using $p = \dfrac{x-x_0}{h}$. 
+> When $x$ is close to $x_0$, $p$ is small (typically $|p|<1$), which makes each successive term in the series — $\dfrac{p(p-1)}{2!}\Delta^2y_0$, $\dfrac{p(p-1)(p-2)}{3!}\Delta^3y_0$, etc. — rapidly shrink in magnitude, so the series converges quickly and only a few terms are needed for good accuracy. 
+> If $x$ were instead near the *end* of the table, $p$ would be large, forcing many terms to be included for the same accuracy — which is why **Newton Backward Interpolation** (built from $x_n$, the last point, with an analogous small parameter) is preferred in that case instead.
 
 ---
