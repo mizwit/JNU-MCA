@@ -36,7 +36,7 @@ Since computers have limited memory, it cannot store a number with infinite digi
 - Binary Number System has **base 2** with digits $0, 1$ called as **bits**.
 - Any binary number $N$ can be written as
     - $N = b_{n-1}b_{n-2}...b_{1}b_{0}.b{-1}{-2}...b_{-m}$
-    - $(N)_{2} = d_{n-1} \times 2^{n-1} + ... + d_1 \times 2^{1} + d_{0} \times 2^{0} + d_{-1} \times 2^{-1} + ... + d_{-m} \times 2^{-m}$
+    - $(N)_{2} = b_{n-1} \times 2^{n-1} + ... + b_1 \times 2^{1} + b_{0} \times 2^{0} + b_{-1} \times 2^{-1} + ... + b_{-m} \times 2^{-m}$
 - Exercises:
     - Binary to Decimal conversion and vice versa.
 
@@ -44,7 +44,7 @@ Since computers have limited memory, it cannot store a number with infinite digi
 - Octal Number System has **base 8** with digits $0, 1, 2, 3, 4, 5, 6, 7$.
 - Any octal number $N$ can be written as
     - $N = o_{n-1}o_{n-2}...o_{1}o_{0}.o{-1}{-2}...o_{-m}$
-    - $(N)_{8} = d_{n-1} \times 8^{n-1} + ... + d_1 \times 8^{1} + d_{0} \times 8^{0} + d_{-1} \times 8^{-1} + ... + d_{-m} \times 8^{-m}$
+    - $(N)_{8} = o_{n-1} \times 8^{n-1} + ... + o_1 \times 8^{1} + o_{0} \times 8^{0} + o_{-1} \times 8^{-1} + ... + o_{-m} \times 8^{-m}$
 - Exercises:
     - Octal to Decimal conversion and vice versa.
     - Octal to Binary conversion and vice versa.
@@ -53,7 +53,7 @@ Since computers have limited memory, it cannot store a number with infinite digi
 - Hexadecimal Number System has **base 16** with digits $0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F$.
 - Any hexadecimal number $N$ can be written as
     - $N = h_{n-1}h_{n-2}...h_{1}h_{0}.h{-1}{-2}...h_{-m}$
-    - $(N)_{16} = d_{n-1} \times 16^{n-1} + ... + d_1 \times 16^{1} + d_{0} \times 16^{0} + d_{-1} \times 16^{-1} + ... + d_{-m} \times 16^{-m}$
+    - $(N)_{16} = h_{n-1} \times 16^{n-1} + ... + h_1 \times 16^{1} + h_{0} \times 16^{0} + h_{-1} \times 16^{-1} + ... + h_{-m} \times 16^{-m}$
 - Exercises:
     - Hexadecimal to Decimal conversion and vice versa.
     - Hexadecimal to Binary conversion and vice versa.
@@ -76,7 +76,7 @@ Since computers have limited memory, it cannot store a number with infinite digi
 
 ---
 
-## Errors
+## The Propagation of Error
 - In numerical computation, the values used in a calculation are often approximated. 
 - So, the error $e$ is $e = x - \overline{x}$, where $x$ is the **true value** and $\overline{x}$ is the **approximated value**.
 - In terms of magnitude, $|e| = |x - \overline{x}|$
@@ -91,11 +91,11 @@ It is the quantity $R$ which must be added to the finite representation of a com
 ### The Truncation Error
 It is the quantity $t$ that must be added to the true representation of the quantity in order for the result to be exactly equal to the quantity we are seeking to generate.
 
-### The Propagation of Error
+### Propagation of Error in One Variable
 - Consider $y = f(x)$. If $x$ contains an error, then the calculated value of $y$ will also contain an error.
 - The propagation of an error is the process by which errors present in input data or intermediate computations effect the accuracy of the final computed result.
 
-#### Absolute Error
+### Absolute Error
 - Let $y = f(x)$ and $x$ contain a small error $dx$.
 - From Taylor Expansion, $f(x + dx) \approx f(x) + f'(x).dx$
 - We know, $dy = f(x + dx) - f(x)$
@@ -107,7 +107,7 @@ It is the quantity $t$ that must be added to the true representation of the quan
     - $dy = (2 \times 10) \times 0.1$
     - $dy = 2$
 
-#### Relative Error
+### Relative Error
 - $|\frac{dy}{y}| = |\frac{x.f'(x)}{f(x)}|.|\frac{dx}{x}|$
 - From the previous example:
     - $\frac{x.f'(x)}{f(x)} = \frac{x.2x}{x^2} = 2$
@@ -115,7 +115,7 @@ It is the quantity $t$ that must be added to the true representation of the quan
     - $\frac{dy}{y} = 0.02$
     - Approximately $2\%$ error in  $x^2$.
 
-#### Propagation of Error in Several Variables
+### Propagation of Error in Several Variables
 - Consider, $z = f(x, y)$
 - $dz = \frac{\partial f}{\partial x}.dx + \frac{\partial f}{\partial y}.dy$
 - The maximum possible absolute error can be computed as:
@@ -130,31 +130,19 @@ It is the quantity $t$ that must be added to the true representation of the quan
 | Max absolute error: | Max absolute error: | Relative error: | Relative error: |
 | $\vert dz \vert \le \vert dx \vert + \vert dy \vert$ | $\vert dz \vert \le \vert dx \vert + \vert dy \vert$ |  $\vert \frac{dz}{z} \vert \le \vert \frac{dx}{x} \vert + \vert \frac{dy}{y} \vert$ | $\vert \frac{dz}{z} \vert \le \vert \frac{dx}{x} \vert + \vert \frac{dy}{y} \vert$ |
 
-#### Error Propagation Exercises
+### Error Propagation Exercises
+
+#### Exercise 1
+$x = \sqrt{10} = 3.16227766$ and by chopping/rounding off, we get $\overline{x} = 3.1623$. Find the absolute error, relative error and percentage error.
+- Absolute error $= |x - \overline{x}| = 3.16227766 - 3.1623 = 0.00002234$.
+- Relative error $= \frac{2.234 \times 10^{-5}}{3.16227766} = 7.06 \times 10^{-6}$
+- Percentage error $= 7.06 \times 10^{-4}\%$.
+
+#### Exercise - HW
 
 1. $y = x^3$, where $x = 2$, with error as $0.01$. Find approximate and relative error.
-    - Given, $y = x^3$, $x = 2$, and $dx = 0.01$.
-    - $f'(x) = 3x^2$
-    - $|dy| = |f'(x)|.|dx| = 3x^2.dx$
-    - $dy = 3 \times 2^2 \times 0.01$
-    - **Approximate error:** $|dy| = 0.12$
-    - $|\frac{dy}{y}| = |\frac{x.f'(x)}{f(x)}|.|\frac{dx}{x}|$
-    - $\frac{x.f'(x)}{f(x)} = \frac{x.3x^2}{x^3}= 3$
-    - $|\frac{dy}{y}| = 3 \times |\frac{dx}{x}| = 3 \times \frac{0.01}{2}$
-    - **Relative error:** $|\frac{dy}{y}| = 0.015 = 1.5\%$
-
 2. $z = x + y$, where $x = 10 \pm 0.1$ and $y = 20 \pm 0.2$. Find maximum error in $z$.
-    - $|dz| \le |dx| + |dy|$
-    - $|dz| \le 0.1 + 0.2$
-    - **Maximum absolute error:** $|dz| \le 0.3$
-
 3. $A = L.W$, where $L = 20 + 0.1$ cm and $W = 10 + 0.05$ cm. Find in A, the maximum error and relative error.
-    - $dz = y.dx + x.dy$
-    - $dz = 10(0.1) + 20(0.05)$
-    - **Maximum error:** $dz = 2 cm^2$
-    - $|\frac{dz}{z}| \le |\frac{dx}{x}| + |\frac{dy}{y}|$
-    - $|\frac{dz}{z}| \le \frac{0.1}{20} + \frac{0.05}{10}$
-    - **Relative error:** $|\frac{dz}{z}| = 0.01 = 1\%$
 
 ### Accuracy
 It refers to how close an approximate value is to the true or exact value.
@@ -166,7 +154,7 @@ It refers to the degree of consistency or fineness of the numerical representati
 
 ---
 
-## Solutions of Non-linear Equations (Finding Roots)
+## Solutions of Non-linear Equations (Root Finding Methods)
 - Non-linear equations are equations that can be generally written as $f(x) = 0$, where $f(x)$ is non-linear in $x$.
 - Examples:
     - $x^2 - x = 0$
@@ -302,40 +290,8 @@ Perform five iterations of the bisection method to obtain the smallest possible 
     - So, root lies in the interval $(0.1875, 0.21875)$.
 - Approximate value of the root, $r \approx \frac{0.1875 + 0.21875}{2} = 0.203125$
 
-#### Exercise 3
-Perform five iterations of the bisection method to find the approximate root of the equation $f(x) = \cos(x) - x.e^x = 0$.
-
-- Initial interval $a = 0$ and $b = 1$
-- $f(0) = \cos(0) - (0)e^0 = 1$
-- $f(1) = \cos(1) - (1)e^1 = 0.540302 - 2.718282 = -2.177980$
-- $f(0).f(1) < 0$.
-- So, root lies in the interval $(0, 1)$.
-- **Iteration 1:**
-    - Midpoint, $c = \frac{0 + 1}{2} = 0.5$
-    - $f(c) = f(0.5) = \cos(0.5) - (0.5)e^{0.5} = 0.877583 - 0.824361 = 0.053222$
-    - $f(0.5).f(1) < 0$
-    - So, root lies in the interval $(0.5, 1)$.
-- **Iteration 2:**
-    - Midpoint, $c = \frac{0.5 + 1}{2} = 0.75$
-    - $f(c) = f(0.75) = \cos(0.75) - (0.75)e^{0.75} = 0.731689 - 1.587750 = -0.856061$
-    - $f(0.5).f(0.75) < 0$
-    - So, root lies in the interval $(0.5, 0.75)$.
-- **Iteration 3:**
-    - Midpoint, $c = \frac{0.5 + 0.75}{2} = 0.625$
-    - $f(c) = f(0.625) = \cos(0.625) - (0.625)e^{0.625} = 0.810963 - 1.167654 = -0.356691$
-    - $f(0.5).f(0.625) < 0$
-    - So, root lies in the interval $(0.5, 0.625)$.
-- **Iteration 4:**
-    - Midpoint, $c = \frac{0.5 + 0.625}{2} = 0.5625$
-    - $f(c) = f(0.5625) = \cos(0.5625) - (0.5625)e^{0.5625} = 0.845924 - 0.987218 = -0.141294$
-    - $f(0.5).f(0.5625) < 0$
-    - So, root lies in the interval $(0.5, 0.5625)$.
-- **Iteration 5:**
-    - Midpoint, $c = \frac{0.5 + 0.5625}{2} = 0.53125$
-    - $f(c) = f(0.53125) = \cos(0.53125) - (0.53125)e^{0.53125} = 0.862176 - 0.903686 = -0.041510$
-    - $f(0.5).f(0.53125) < 0$
-    - So, root lies in the interval $(0.5, 0.53125)$.
-- Approximate value of the root, $r \approx \frac{0.5 + 0.53125}{2} = 0.515625$
+#### Exercise - H.W
+1. Perform five iterations of the bisection method to find the approximate root of the equation $f(x) = \cos(x) - x.e^x = 0$.
 
 ### Error Bound for Bisection Method
 - How accurate is the Bisection Method?
@@ -412,12 +368,12 @@ Perform five iterations of the bisection method to find the approximate root of 
 ### Limitations of the Secant Method
 - Convergence is not guaranteed for arbitrary initial guesses.
 - The approximation can move away from the root.
-- It may encounter division by a vert small quantity if $f(x_k) - f(x_{k - 1})$ is approximately zero.
+- It may encounter division by a very small quantity if $f(x_k) - f(x_{k - 1})$ is approximately zero.
 
-> If the approximations are such that $f_k.f_{k-1} \lt 0$, then the other method is known as **Regular Falsi Method**.
+> If the approximations are such that $f_k.f_{k-1} \lt 0$, then the other method is known as **Regula Falsi Method**.
 
-### Exercises on Secant and Regular Falsi Methods
-The real root of the equation $f(x) = x^3 - 5x + 1 = 0$ lies in the interval $(0, 1)$. Perform four iterations of the Secant Method and the Regular Falsi Method to obtain the root.
+### Exercises on Secant and Regula Falsi Methods
+The real root of the equation $f(x) = x^3 - 5x + 1 = 0$ lies in the interval $(0, 1)$. Perform four iterations of the Secant Method and the Regula Falsi Method to obtain the root.
 
 #### Using Secant Method
 - Let $x_0 = 0$ and $x_1 = 1$.
@@ -499,7 +455,7 @@ Instead of using a second line secant through the two points, Newton-Raphson use
 - Very fast near the root.
 - Usually requires fewer iterations.
 - Simple iteration formula.
-- Does not require bracketing intervals like bisection or regular falsi methods.
+- Does not require bracketing intervals like bisection or Regula falsi methods.
 - Useful for many non-linear problems.
 
 ### Limitations of Newton-Raphson Method
@@ -536,67 +492,18 @@ Let $f(x) = x^3 - x - 1 = 0$. Assume an initial approximation of $x_0 = 1.5$. Pe
     - $x_4 = 1.324719$
 - Approximate value of the root, $r \approx 1.324719$
 
-#### Exercise 2
-Let $f(x) = x^3 - 5x + 1 = 0$. Assume an initial approximation of $x_0 = 0.5$. Perform four iterations using Newton-Raphson Method.
-- $f'(x) = 3x^2 - 5$
-- Initial approximation, $x_0 = 0.5$
-- **Iteration 1:**
-    - $f(x_0) = f(0.5) = (0.5)^3 - 5(0.5) + 1 = -1.375$
-    - $f'(x_0) = f'(0.5) = 3(0.5)^2 - 5 = -4.25$
-    - $x_1 = x_0 - \frac{f(x_0)}{f'(x_0)} = 0.5 - \frac{-1.375}{-4.25}$
-    - $x_1 = 0.176471$
-- **Iteration 2:**
-    - $f(x_1) = f(0.176471) = (0.176471)^3 - 5(0.176471) + 1 = 0.123143$
-    - $f'(x_1) = f'(0.176471) = 3(0.176471)^2 - 5 = -4.906574$
-    - $x_2 = x_1 - \frac{f(x_1)}{f'(x_1)} = 0.176471 - \frac{0.123143}{-4.906574}$
-    - $x_2 = 0.201567$
-- **Iteration 3:**
-    - $f(x_2) = f(0.201567) = (0.201567)^3 - 5(0.201567) + 1 = 0.000357$
-    - $f'(x_2) = f'(0.201567) = 3(0.201567)^2 - 5 = -4.878113$
-    - $x_3 = x_2 - \frac{f(x_2)}{f'(x_2)} = 0.201567 - \frac{0.000357}{-4.878113}$
-    - $x_3 = 0.201640$
-- **Iteration 4:**
-    - $f(x_3) = f(0.201640) = (0.201640)^3 - 5(0.201640) + 1 = -0.000002$
-    - $f'(x_3) = f'(0.201640) = 3(0.201640)^2 - 5 = -4.878023$
-    - $x_4 = x_3 - \frac{f(x_3)}{f'(x_3)} = 0.201640 - \frac{-0.000002}{-4.878023}$
-    - $x_4 = 0.201640$
-- Approximate value of the root, $r \approx 0.201640$
+#### Exercise - H.W
+1. Let $f(x) = x^3 - 5x + 1 = 0$. Assume an initial approximation of $x_0 = 0.5$. Perform four iterations using Newton-Raphson Method.
+2. Approximate the value of $(17)^{\frac{1}{3}}$. Assume an initial approximation of $x_0 = 2$. Perform four iterations using Newton-Raphson Method.
 
-#### Exercise 3
-Approximate the value of $(17)^{\frac{1}{3}}$. Assume an initial approximation of $x_0 = 2$. Perform four iterations using Newton-Raphson Method.
-- Let $(17)^{1/3} = x$. So, $f(x) = x^3 - 17 = 0$.
-- $f'(x) = 3x^2$
-- Initial approximation, $x_0 = 2$
-- **Iteration 1:**
-    - $f(x_0) = f(2) = (2)^3 - 17 = -9$
-    - $f'(x_0) = f'(2) = 3(2)^2 = 12$
-    - $x_1 = x_0 - \frac{f(x_0)}{f'(x_0)} = 2 - \frac{-9}{12}$
-    - $x_1 = 2.75$
-- **Iteration 2:**
-    - $f(x_1) = f(2.75) = (2.75)^3 - 17 = 3.796875$
-    - $f'(x_1) = f'(2.75) = 3(2.75)^2 = 22.6875$
-    - $x_2 = x_1 - \frac{f(x_1)}{f'(x_1)} = 2.75 - \frac{3.796875}{22.6875}$
-    - $x_2 = 2.582645$
-- **Iteration 3:**
-    - $f(x_2) = f(2.582645) = (2.582645)^3 - 17 = 0.226380$
-    - $f'(x_2) = f'(2.582645) = 3(2.582645)^2 = 20.010159$
-    - $x_3 = x_2 - \frac{f(x_2)}{f'(x_2)} = 2.582645 - \frac{0.226380}{20.010159}$
-    - $x_3 = 2.571332$
-- **Iteration 4:**
-    - $f(x_3) = f(2.571332) = (2.571332)^3 - 17 = 0.000997$
-    - $f'(x_3) = f'(2.571332) = 3(2.571332)^2 = 19.835241$
-    - $x_4 = x_3 - \frac{f(x_3)}{f'(x_3)} = 2.571332 - \frac{0.000997}{19.835241}$
-    - $x_4 = 2.571282$
-- Approximate value of $(17)^{1/3} \approx 2.571282$
-
-#### Exercise 4 - Matrix Iteration
+#### Exercise - Matrix Iteration
 Obtain the complex roots of the equation $f(z) = z^3 + 1 = 0$ correct to eight decimal places. Use the initial approximation of the root as $(x_0, y_0) = (0.25, 0.25)$. Compare the exact values of the roots which is $(1 \pm \frac{i\sqrt{3}}{2})$.
 - Substituting $z = x + iy$ in the eqaution:
     - $(x + iy)^3 + 1 = (x^3 - 3xy^2 + 1) + i(3x^2y - y^3) = 0$
     - Here, $U(x, y) = x^3 - 3xy^2 + 1$ and $V(x,y) = 3x^2y - y^3$
 - Formulating the Jacobian Matrix:
-    - $J = \begin{bmatrix} U_x && U_y \\ V_x && V_y \end{bmatrix} = \begin{bmatrix} \frac{\delta U}{\delta x} && \frac{\delta U}{\delta y} \\ \frac{\delta V}{\delta x} && \frac{\delta V}{\delta y} \end{bmatrix}$
-    - Here, $\frac{\delta U}{\delta x} = 3x^2 - 3y^2$, $\frac{\delta U}{\delta y} = -6xy$, $\frac{\delta V}{\delta x} = 6xy$, and $\frac{\delta V}{\delta y} = 3x^2 - 3y^2$.
+    - $J = \begin{bmatrix} U_x && U_y \\ V_x && V_y \end{bmatrix} = \begin{bmatrix} \frac{\partial U}{\partial x} && \frac{\partial U}{\partial y} \\ \frac{\partial V}{\partial x} && \frac{\partial V}{\partial y} \end{bmatrix}$
+    - Here, $\frac{\partial U}{\partial x} = 3x^2 - 3y^2$, $\frac{\partial U}{\partial y} = -6xy$, $\frac{\partial V}{\partial x} = 6xy$, and $\frac{\partial V}{\partial y} = 3x^2 - 3y^2$.
     - $\therefore J = \begin{bmatrix} 3x^2 - 3y^2 && -6xy \\ 6xy && 3x^2 - 3y^2 \end{bmatrix}$
 - Determinant of $J$: 
     - $D_J = (3x^2 - 3y^2)(3x^2 - 3y^2) + 36x^2y^2$
@@ -632,7 +539,7 @@ Obtain the complex roots of the equation $f(z) = z^3 + 1 = 0$ correct to eight d
 
 ## Summary of Root-Finding Methods
 
-| **Feature** | **Bisection** | **Secant** | **Regular Falsi** | **Newton-Raphson** |
+| **Feature** | **Bisection** | **Secant** | **Regula Falsi** | **Newton-Raphson** |
 | :--- | :--- | :--- | :--- | :--- |
 | **Type** | Bracketing | Open | Bracketing | Open |
 | **Basic idea** | Midpoint | Secant line | Secant + Bracket | Tangent line |
@@ -649,7 +556,7 @@ Obtain the complex roots of the equation $f(z) = z^3 + 1 = 0$ correct to eight d
 | **Method** | **Bracket?** | **Derivative?** | **Convergence** | **Main Strength** |
 | :--- | :--- | :--- | :--- | :--- |
 | **Bisection** | Yes | No | Linear | Reliability |
-| **Regular Falsi** | Yes | No | Generally linear | Reliability + Interpolation |
+| **Regula Falsi** | Yes | No | Generally linear | Reliability + Interpolation |
 | **Secant** | No | No | Superlinear, $(p \approx 1.618)$ | Speed without derivative |
 | **Newton-Raphson** | No | Yes | Quadratic, $(p = 2)$ locally | Very fast convergence |
 
@@ -825,10 +732,8 @@ Find f(3) using Linear Interpolation.
 | $f(x)$ | $1$ | $4$ | $6$ | $10$ | $15$ | $17$ | $22$ |
 
 - Therefore, $x_i = x_0 + ih \forall i = 0, 1, 2, \dots n$.
-- 
 
 ### Forward Difference Operator
-
 - The forward difference operator is represented by $\Delta$, and $\Delta f(x) = f(x+h) - f(x)$.
 - For a set of equally spaced data $(x_0,y_0), (x_1,y_1), \dots, (x_n,y_n)$:
 
@@ -842,10 +747,11 @@ Find f(3) using Linear Interpolation.
     - $\Delta y_2 = y_3 - y_2$
 - **Second forward difference:** $\Delta^2 y_i = \Delta y_{i+1} - \Delta y_i$
     - $\Delta^2 y_0 = \Delta y_1 - \Delta y_0$
+    - $\Delta^2 y_1 = \Delta y_2 - \Delta y_1$
 - **Third forward difference:** $\Delta^3 y_i = \Delta^2 y_{i+1} - \Delta^2 y_i$
     - $\Delta^3 y_0 = \Delta^2 y_1 - \Delta^2 y_0$
 
-### Building a Difference Table
+### Forward Difference Table
 
 | $x$ | $0$ | $1$ | $2$ | $3$ | $4$ |
 | :-- | :-- | :-- | :-- | :-- | :-- |
@@ -882,7 +788,6 @@ Find f(3) using Linear Interpolation.
 - In this example, since $\Delta^2y$ is constant at $2$, the underlying function is exactly quadratic.
 
 ### Newton Forward Interpolation Formula (N.F.I.F)
-
 - Suppose the knows data points $(x_0,y_0), (x_1,y_1), \dots, (x_n,y_n)$ with equal spacing $h$:
     - $p = \frac{x - x_0}{h}$
 - Then the **N.F.I.F** is:
@@ -911,40 +816,366 @@ Find $f(25)$ using N.F.I method.
 - $f(25) = 100 + 450 + 75 = 625$
 - $\therefore f(25) = 625$
 
-#### Exercise 3
+#### Exercises - H.W
+1. Find $f(2.5)$ using Newton Forward Interpolation.
 
-| $x$ | $1$ | $2$ | $3$ | $4$ |
-| :-- | :-- | :-- | :-- | :-- |
-| $y$ | $1$ | $8$ | $27$ | $64$ |
+    | $x$ | $1$ | $2$ | $3$ | $4$ |
+    | :-- | :-- | :-- | :-- | :-- |
+    | $y$ | $1$ | $8$ | $27$ | $64$ |
 
-Find $f(2.5)$ using Newton Forward Interpolation.
-- $x_0 = 1$, $h=1 \Rightarrow p = \dfrac{2.5-1}{1} = 1.5$
-- Difference table: $\Delta y_0 = 7$, $\Delta^2y_0 = 12$, $\Delta^3y_0 = 6$
-- $P_3(2.5) = y_0 + p\Delta y_0 + \dfrac{p(p-1)}{2!}\Delta^2y_0 + \dfrac{p(p-1)(p-2)}{3!}\Delta^3y_0$
-- $P_3(2.5) = 1 + (1.5)(7) + \dfrac{(1.5)(0.5)}{2}(12) + \dfrac{(1.5)(0.5)(-0.5)}{6}(6)$
-- $P_3(2.5) = 1 + 10.5 + 4.5 - 0.375 = 15.625$
-- $\therefore f(2.5) = 15.625$
+2. Find $f(12)$ using Newton Forward Interpolation.
 
-#### Exercise 4
+    | $x$ | $10$ | $15$ | $20$ | $25$ |
+    | :-- | :-- | :-- | :-- | :-- |
+    | $f(x)$ | $100$ | $225$ | $400$ | $625$ |
 
-| $x$ | $10$ | $15$ | $20$ | $25$ |
-| :-- | :-- | :-- | :-- | :-- |
-| $f(x)$ | $100$ | $225$ | $400$ | $625$ |
-
-Find $f(12)$ using Newton Forward Interpolation.
-- $x_0 = 10$, $h=5 \Rightarrow p = \dfrac{12-10}{5} = 0.4$
-- Difference table: $\Delta y_0 = 125$, $\Delta^2y_0 = 50$, $\Delta^3y_0 = 0$
-- $P_3(12) = y_0 + p\Delta y_0 + \dfrac{p(p-1)}{2!}\Delta^2y_0 + \dfrac{p(p-1)(p-2)}{3!}\Delta^3y_0$
-- $P_3(12) = 100 + (0.4)(125) + \dfrac{(0.4)(-0.6)}{2}(50) + 0$
-- $P_3(12) = 100 + 50 - 6 = 144$
-- $\therefore f(12) = 144$
-
-<br>
-
-> **Why Newton Forward Interpolation is used when the required value is near the beginning of the equally spaced table:**
-> 
-> Newton Forward Interpolation builds its correction terms from $x_0$ (the **first** point in the table), using $p = \dfrac{x-x_0}{h}$. 
-> When $x$ is close to $x_0$, $p$ is small (typically $|p|<1$), which makes each successive term in the series — $\dfrac{p(p-1)}{2!}\Delta^2y_0$, $\dfrac{p(p-1)(p-2)}{3!}\Delta^3y_0$, etc. — rapidly shrink in magnitude, so the series converges quickly and only a few terms are needed for good accuracy. 
-> If $x$ were instead near the *end* of the table, $p$ would be large, forcing many terms to be included for the same accuracy — which is why **Newton Backward Interpolation** (built from $x_n$, the last point, with an analogous small parameter) is preferred in that case instead.
+3. Explain why Newton Forward Interpolation is used when the required value is near the beginning of the equally spaced table.
 
 ---
+
+## Newton Backward Interpolation
+
+- Suppose the data points $x_0, x_1, x_2, \dots x_n$ are equally spaced with $x_i = x_0 + ih$, as before.
+- Newton Backward Interpolation builds the polynomial starting from the last point $(x_n, y_n)$, so it is used when the required value lies near the end of the table.
+
+    | $x$ | $0$ | $1$ | $2$ | $3$ | $4$ |
+    | :-- | :-- | :-- | :-- | :-- | :-- |
+    | $f(x)$ | $1$ | $2$ | $5$ | $10$ | $17$ |
+
+### Backward Difference Operator
+- The backward difference operator is represented by $\nabla$, and $\nabla f(x) = f(x) - f(x-h)$.
+- For a set of equally spaced data $(x_0,y_0), (x_1,y_1), \dots, (x_n,y_n)$:
+
+    | $x$ | $x_0$ | $x_1$ | $x_2$ | $x_3$ |
+    | :-- | :-- | :-- | :-- | :-- |
+    | $y$ | $y_0$ | $y_1$ | $y_2$ | $y_3$ |
+
+- First backward difference: $\nabla y_i = y_i - y_{i-1}$
+    - $\nabla y_1 = y_1 - y_0$
+    - $\nabla y_2 = y_2 - y_1$
+    - $\nabla y_3 = y_3 - y_2$
+- Second backward difference: $\nabla^2 y_i = \nabla y_i - \nabla y_{i-1}$
+    - $\nabla^2 y_2 = \nabla y_2 - \nabla y_1$
+    - $\nabla^2 y_3 = \nabla y_3 - \nabla y_2$
+- Third backward difference: $\nabla^3 y_i = \nabla^2 y_i - \nabla^2 y_{i-1}$
+    - $\nabla^3 y_3 = \nabla^2 y_3 - \nabla^2 y_2$
+
+### Backward Difference Table
+- 1st backward differences:
+    - $\nabla y_1 = 2 - 1 = 1$
+    - $\nabla y_2 = 5 - 2 = 3$
+    - $\nabla y_3 = 10 - 5 = 5$
+    - $\nabla y_4 = 17 - 10 = 7$
+- 2nd backward differences:
+    - $\nabla^2 y_2 = 3 - 1 = 2$
+    - $\nabla^2 y_3 = 5 - 3 = 2$
+    - $\nabla^2 y_4 = 7 - 5 = 2$
+- 3rd backward differences:
+    - $\nabla^3 y_3 = 2 - 2 = 0$
+    - $\nabla^3 y_4 = 2 - 2 = 0$
+
+- **Final difference table:**
+
+    | $x$ | $y$ | $\nabla y$ | $\nabla^2 y$ | $\nabla^3 y$ |
+    | :-- | :-- | :-- | :-- | :-- |
+    | 0 | 1 | | | | |
+    | 1 | 2 | 1 | | |
+    | 2 | 5 | 3 | 2 | |
+    | 3 | 10 | 5 | 2 | 0 |
+    | 4 | 17 | 7 | 2 | 0 |
+
+### Newton Backward Interpolation Formula (N.B.I.F)
+- Suppose the known data points $(x_0,y_0), (x_1,y_1), \dots, (x_n,y_n)$ with equal spacing $h$:
+    - $p = \dfrac{x - x_n}{h}$
+- Then the N.B.I.F is:
+
+$$f(x) \approx P_n(x) = y_n + p\,\nabla y_n + \frac{p(p+1)}{2!}\nabla^2 y_n + \frac{p(p+1)(p+2)}{3!}\nabla^3 y_n + \cdots + \frac{p(p+1)(p+2)\cdots(p+n-1)}{n!}\nabla^n y_n$$
+
+### Exercises
+
+#### Exercise 1
+Find $f(3.5)$ using N.B. Interpolation, using the table above.
+- $p = \dfrac{x - x_n}{h} = \dfrac{3.5 - 4}{1} = -0.5$
+- $f(3.5) \approx P_n(3.5) = y_n + p\,\nabla y_n + \dfrac{p(p+1)}{2!}\nabla^2y_n$
+- $f(3.5) = 17 + (-0.5)(7) + \dfrac{(-0.5)(0.5)}{2}(2)$
+- $f(3.5) = 17 - 3.5 - 0.25 = 13.25$
+- $\therefore f(3.5) = 13.25$
+
+---
+
+## Newton Divided Difference Interpolation
+
+- First divided difference: 
+    - $f[x_0, x_1] = \frac{f(x_1) - f(x_0)}{x_1 - x_0}$
+- Second divided difference: 
+    - $f[x_0, x_1, x_2] = \frac{f[x_1, x_2] - f[x_0, x_1]}{x_2 - x_0}$
+- General divided difference: 
+    - $f[x_i, \cdots x_{i + k}] = \frac{f[x_{i + 1}, \cdots x_{i + k}] - f[x_i, \cdots x_{i + k - 1}]}{x_{i + k} - x_i}$
+
+    | $x$ | $1$ | $2$ | $4$ | $7$ |
+    | :-- | :-- | :-- | :-- | :-- |
+    | $f(x)$ | $1$ | $4$ | $16$ | $19$ |
+
+### Divided Difference Table
+- First divided difference: 
+    - $f[1, 2] = \frac{f(2) - f(1)}{2 - 1} = 3$
+    - $f[2, 4] = \frac{f(4) - f(2)}{4 - 2} = 6$
+    - $f[4, 7] = \frac{f(7) - f(4)}{7 - 4} = 1$
+- Second divided difference:
+    - $f[1, 2, 4] = \frac{f[2, 4] - f[1, 2]}{4 - 1} = 1$
+    - $f[2, 4, 7] = \frac{f[4, 7] - f[2, 4]}{7 - 2} = -1$
+- Third divided difference:
+    - $f[1, 2, 4, 7] = \frac{f[2, 4, 7] - f[1, 2, 4]}{7 - 1} = -\frac{1}{3}$
+
+- **Final Difference Table:**
+
+    | $x$ | $y$ | $\Delta y$ | $\Delta^2 y$ | $\Delta^3 y$ |
+    | :-- | :-- | :-- | :-- | :-- |
+    | $1$ | $1$ | $3$ | $1$ | -$\frac{1}{3}$ |
+    | $2$ | $4$ | $6$ | $-1$ | |
+    | $4$ | $16$ | $1$ | | |
+    | $7$ | $19$ | | | |
+
+### Divided Difference Formula
+$$P_n(x) = f[x_0] + (x - x_0)f[x_0, x_1] + (x - x_0)(x - x_1)f[x_0, x_1, x_2] + (x - x_0)(x - x_1)(x - x_2)f[x_0, x_1, x_2, x_3] + \cdots (x - x_0) \cdots (x - x_{n - 1})f[x_0, x_1, \cdots x_n]$$
+
+### Exercises
+
+#### Exercise 1
+Construct the divided difference table for the data
+    
+| $x$ | $0.5$ | $1.5$ | $3.0$ | $5.0$ | $6.5$ | $8.0$ |
+| :-- | :-- | :-- | :-- | :-- | :-- | :-- |
+| $f(x)$ | $1.625$ | $5.875$ | $31.0$ | $131.0$ | $282.125$ | $521.0$ |
+
+Hence, find the interpolating polynomial and approximation to the value of $f(7)$.
+- Frst divided differences:
+    - $f[0.5, 1.5] = \frac{5.875 - 1.625}{1.5 - 0.5} = 4.25$
+    - $f[1.5, 3.0] = \frac{31.0 - 5.875}{3.0 - 1.5} = 16.75$
+    - $f[3.0, 5.0] = \frac{131.0 - 31.0}{5.0 - 3.0} = 50$
+    - $f[5.0, 6.5] = \frac{282.125 - 131.0}{6.5 - 5.0} = 100.75$
+    - $f[6.5, 8.0] = \frac{521.0 - 282.125}{8.0 - 6.5} = 159.25$
+- Second divided differences:
+    - $f[0.5, 1.5, 3.0] = \frac{16.75 - 4.25}{3.0 - 0.5} = 5$
+    - $f[1.5, 3.0, 5.0] = \frac{50 - 16.75}{5.0 - 1.5} = 9.5$
+    - $f[3.0, 5.0, 6.5] = \frac{100.75 - 50}{6.5 - 3.0} = 14.5$
+    - $f[5.0, 6.5, 8.0] = \frac{159.25 - 100.75}{8.0 - 5.0} = 19.5$
+- Third divided differences:
+    - $f[0.5, 1.5, 3.0, 5.0] = \frac{9.5 - 5}{5.0 - 0.5} = 1$
+    - $f[1.5, 3.0, 5.0, 6.5] = \frac{14.5 - 9.5}{6.5 - 1.5} = 1$
+    - $f[3.0, 5.0, 6.5, 8.0] = \frac{19.5 - 14.5}{8.0 - 3.0} = 1$
+- Fourth divided differences:
+    - $f[0.5, 1.5, 3.0, 5.0, 6.5] = \frac{1 - 1}{6.5 - 0.5} = 0$
+    - $f[1.5, 3.0, 5.0, 6.5, 8.0] = \frac{1 - 1}{8.0 - 1.5} = 0$
+- Fifth divided difference:
+    - $f[0.5, 1.5, 3.0, 5.0, 6.5, 8.0] = \frac{0 - 0}{8.0 - 0.5} = 0$
+
+- Divided difference table:
+
+    |$x$ | $f[x]$ | 1st | 2nd | 3rd | 4th | 5th |
+    | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
+    | $0.5$ | $1.625$ | $4.25$ | $5$ | $1$ | $0$ | $0$ |
+    | $1.5$ | $5.875$ | $16.75$ | $9.5$ | $1$ | $0$ | |
+    | $3.0$ | $31.0$ | $50$ | $14.5$ | $1$ | | |
+    | $5.0$ | $131.0$ | $100.75$ | $19.5$ | | | |
+    | $6.5$ | $282.125$ | $159.25$ | | | | |
+    | $8.0$ | $521.0$ | | | | | |
+
+- $P_3(x) = 1.625 + 4.25(x - 0.5) + 5(x - 0.5)(x - 1.5) + 1\cdot(x - 0.5)(x - 1.5)(x - 3.0)$
+    - $5(x-0.5)(x-1.5) = 5x^2 - 10x + 3.75$
+    - $(x-0.5)(x-1.5)(x-3) = x^3 - 5x^2 + 6.75x - 2.25$
+- $P_3(x) = x^3 + (5-5)x^2 + (4.25 - 10 + 6.75)x + (1.625 - 2.125 + 3.75 - 2.25)$
+- $\therefore P_3(x) = x^3 + x + 1$
+- Approximation of $f(7)$:
+    - $P_3(7) = 7^3 + 7 + 1 = 351$
+
+
+#### Exercise - H.W
+1. Construct the difference table for the sequence of values $f(x) = (0, 0, 0, \epsilon, 0, 0, 0)$, where $\epsilon$ is an error. Also show that:
+    1. The error spreads and increases in magnitude as the order of difference increases.
+    2. The errors in each column have binomial coefficients.
+
+---
+
+## System of Linear Equations
+
+### Linear Equation
+- A linear equation in one variable has the form $ax = b$, where $a$ and $b$ are known constants and $x$ is unknown.
+- Ex: $2x = 6 \Rightarrow x = 3$.
+- A linear equation in two variables is $a_1x_1 + a_2x_2 = b$.
+- A linear equation in three variables is $a_1x_1 + a_2x_2 + a_3x_3 = b$.
+- A linear equation contains variables only to the first power.
+- No product of variables such as $xy$.
+- No powers such as $x^2, x^3$, etc.
+- No functions such as $\sin(x), e^x$, etc.
+- Ex:
+    - $2x + 3y = 5$ is a linear equation.
+    - $x^2 + 6 = y$ is not a linear equation.
+    - $xy + z = 6$ is not a linear equation.
+    - $x\sin x + y$ is not a linear equation.
+
+### System of Linear Equations
+- Suppose we have more than one linear equation involving the same unknowns.
+- Ex: $2x + y = 5$ and $x - y = 1$.
+- General form:
+    - $a_{11}x_1 + a_{12}x_2 = b_1$
+    - $a_{21}x_1 + a_{22}x_2 = b_2$
+
+### Matrix Form
+- Writing all equations separately becomes inconvenient when $n$ becomes large. 
+- Therefore, we use matrices.
+- Ex: $2x + 3y = 8$ and $4x + 5y = 14$.
+- The coefficients of $x$ and $y$ form the matrix 
+    - $A = \begin{bmatrix} 2 & 3 \\ 4 & 5 \end{bmatrix}$.
+- The unknowns form the vector 
+    - $X = \begin{bmatrix} x \\ y \end{bmatrix}$.
+- The right hand side forms 
+    - $B = \begin{bmatrix} 8 \\ 14 \end{bmatrix}$.
+- Matrix form: $AX = B$, where
+    - $A \to$ coefficient matrix $= \begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1} & a_{n2} & \cdots & a_{nn} \end{bmatrix}$
+    - $X \to$ unknown / variable vector $= \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}$
+    - $B \to$ constant / right hand vector $= \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix}$
+- Ex: Convert the following equations to matrix form.
+    - $3x + 2y - z = 7$
+    - $x - 4y + 2z = -1$
+    - $2x + y + 3z = 12$
+    - $\begin{bmatrix} 3 & 2 & -1 \\ 1 & -4 & 2 \\ 2 & 1 & 3 \end{bmatrix}\begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} 7 \\ -1 \\ 12 \end{bmatrix}$
+
+### Augmented Matrix
+- There is another very useful representation.
+- Ex: $2x + 3y = 8$ and $4x + 5y = 14$.
+    - $A = \begin{bmatrix} 2 & 3 \\ 4 & 5 \end{bmatrix}$,
+    - $B = \begin{bmatrix} 8 \\ 14 \end{bmatrix}$
+- $[A \mid B] = \left[\begin{array}{cc|c} 2 & 3 & 8 \\ 4 & 5 & 14 \end{array}\right]$
+
+### Direct vs Iterative Methods
+
+#### Direct Methods
+- Direct methods attempt to obtain the solution through a finite sequence of algebraic operations.
+- Examples: 
+    1. LU Decomposition
+    2. Gauss-Jordan
+    3. Gaussian Elimination
+
+#### Iterative Methods
+- Iterative methods start with an initial approximation and repeatedly improve it.
+- Eg: $x^{(0)} \to x^{(1)} \to x^{(2)} \to x^{(3)} \to \cdots$
+- Until the solution satisfies our chosen tolerance.
+- Eg: Jacobi method, Gauss-Seidel method.
+
+### Geometrical Interpretation
+- Consider $a_1x + b_1y = c_1$ and $a_2x + b_2y = c_2$. 
+- Each equation represents a straight line.
+- There are 3 possibilities:
+    1. Unique solution
+    2. No solution
+    3. Infinitely many solutions
+
+#### I. Unique Solution:
+- Two lines intersect at exactly one point.
+- Eg: $x + y = 5$, $x - y = 1$.
+- The lines intersect at $(3, 2)$.
+
+#### II. No Solution:
+- Two lines are parallel and distinct.
+-vEg: $x + y = 2$ and $x + y = 5$.
+
+#### III. Infinitely Many Solutions:
+- Two equations represent the same line.
+- Eg: $x + y = 2$ and $2x + 2y = 4$.
+
+### Consistent and Inconsistent Systems
+- A system is consistent if it has at least one solution (unique or infinitely many solutions). Otherwise it is inconsistent.
+- A system is called inconsistent if it has no solution.
+
+### Square and Non-Square Systems
+- Square: number of unknowns is the same as the number of equations given.
+- Non-square: number of equations given is less than the number of unknowns $\to$ cannot find a unique solution.
+
+### Determinant and Uniqueness
+- For a square system $AX = B$:
+- If $\det A \neq 0$, then $A$ is non-singular and the system has a unique solution.
+- If $\det A = 0$, then $A$ is singular and the system does not have a unique solution.
+- Eg: $2x + y = 5$, $x - y = 1$.
+    - $A = \begin{bmatrix} 2 & 1 \\ 1 & -1 \end{bmatrix}$
+$\det A = (2)(-1) - (1)(1) = -3 \neq 0$
+    - $\therefore$ the system has a unique solution.
+
+### Exercises - H.W
+1. Convert the following system into matrix form. Identify $A$, $X$ & $B$. Also write the augmented matrix.
+    - $2x + 3y - z = 5$
+    - $x - 2y + 4z = 7$
+    - $3x + y + 2z = 10$
+2. Classify the following system: $x + y = 4$ and $2x + 2y = 8$. Is it consistent? And how many solutions?
+3. Determine whether $2x + y = 3$, $4x + 2y = 10$ has a unique solution, no solution or infinitely many solutions.
+4. Calculate the determinant of $A = \begin{bmatrix} 3 & 2 \\ 1 & 4 \end{bmatrix}$ and state whether the corresponding square system can have a unique solution.
+
+---
+
+## Gaussian Elimination Method
+
+- Suppose we have,
+    - $a_{11}x_1 + a_{12}x_2 + a_{13}x_3 = b_1$
+    - $a_{21}x_1 + a_{22}x_2 + a_{23}x_3 = b_2$
+    - $a_{31}x_1 + a_{32}x_2 + a_{33}x_3 = b_3$
+- First, eliminate $x_1$ from equations 2 and 3.
+- Then eliminate $x_2$ from equation 3.
+- Then we obtain,
+    - $u_{11}x_1 + u_{12}x_2 + u_{13}x_3 = c_1$
+    - $u_{22}x_2 + u_{23}x_3 = c_2$
+    - $u_{33}x_3 = c_3$
+- This is an upper triangular system.
+
+### Elementary Row Operations
+- **Operation 1:** Interchange two rows. $R_1 \leftrightarrow R_2$
+    - Ex: $\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \leftrightarrow \begin{bmatrix} 3 & 4 \\ 1 & 2 \end{bmatrix}$
+- **Operation 2:** Multiply a row by a non-zero constant. $R_2 \to kR_2$, $k \neq 0$
+    - Ex: $R_2 \to 2R_2$
+- **Operation 3:** Add a multiple of one row to another row. $R_i \to R_i + kR_j$
+    - Ex: $R_2 \to R_2 - 2R_1$
+
+#### Example
+Find the solution using the Gaussian Elimination Method.
+    - $x + y + z = 6$
+    - $2x + 3y + z = 11$
+    - $x + 2y + 3z = 14$
+- Augmented matrix: $\left[\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 2 & 3 & 1 & 11 \\ 1 & 2 & 3 & 14 \end{array}\right]$
+- Step 1: Eliminate $x$
+    - $R_2 \to R_2 - 2R_1$ and $R_3 \to R_3 - R_1$
+    - $\left[\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 0 & 1 & -1 & -1 \\ 0 & 1 & 2 & 8 \end{array}\right]$
+- Step 2: Eliminate $y$
+    - $R_3 \to R_3 - R_2$
+    - $\left[\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 0 & 1 & -1 & -1 \\ 0 & 0 & 3 & 9 \end{array}\right]$
+- Step 3: Solve $z$
+    - $3z = 9$
+    - $z = 3$
+- Step 4: Solve $y$
+    - $y - z = -1$
+    - $y - 3 = -1$
+    - $y = 2$
+- Step 5: Solve $x$
+    - $x + y + z = 6$
+    - $x + 5 = 6$
+    - $x = 1$
+- $\therefore x = 1,\ y = 2,\ z = 3$
+
+### General Gaussian Elimination Algorithm
+- For $AX = B$, we transform the augmented matrix $[A \mid B]$ into $[U \mid C]$, where $U$ is the upper triangular matrix.
+- For the first pivot $a_{11}$:
+- Calculate the multiplier $m_{i1} = \dfrac{a_{i1}}{a_{11}}$ and perform $R_i \to R_i - m_{i1}R_1$ for $i = 2, 3, \dots, n$.
+- Then move to the second pivot $a_{22}^{(new)}$ and eliminate the elements below it.
+
+>> **Pivot:**
+>> A pivot is the key element which is used to eliminate the entries below it.
+>> For $\begin{bmatrix} 2 & 1 & -1 \\ 0 & 3 & 4 \\ 0 & 0 & 5 \end{bmatrix}$, the pivots are $2, 3, 5$.
+
+### Exercises - H.W
+1. Solve using the Gaussian Elimination Method.
+    - $2x + y + z = 10$
+    - $4x - 6y + 3z = -2$
+    - $-2x + 7y + 2z = 13$
+2. Using the Gaussian Elimination Method, find $x$, $y$, $z$ and the pivot elements.
+    - $2x + 3y + z = 10$
+    - $4x + y + 2z = 12$
+    - $-2x + 2y + 3z = 5$
+3. Explain why row interchange is necessary before applying to the following matrix $\begin{bmatrix} 0 & 2 & 1 \\ 4 & 5 & 6 \\ 2 & 3 & 4 \end{bmatrix}$
