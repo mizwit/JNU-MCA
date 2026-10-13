@@ -301,3 +301,68 @@ $\left[\begin{array}{cc|c} 2 & 1 & 3 \\ 0 & 0 & 4 \end{array}\right]$
 - $\therefore$ elimination can now proceed.
 
 ---
+
+#### 18. Solve using Gauss-Jordan Method
+- $2x + y - z = 8$
+- $x + 2y + z = 7$
+- $3x - y + 2z = 7$
+- Form augmented matrix:
+    - $\left[\begin{array}{ccc|c} 2 & 1 & -1 & 8 \\ 1 & 2 & 1 & 7 \\ 3 & -1 & 2 & 7 \end{array}\right] \to \left[\begin{array}{ccc|c} 1 & 0 & 0 & x \\ 0 & 1 & 0 & y \\ 0 & 0 & 1 & z \end{array}\right]$
+- $R_1 \leftrightarrow R_2$ (so that the first pivot is $1$)
+    - $\left[\begin{array}{ccc|c} 1 & 2 & 1 & 7 \\ 2 & 1 & -1 & 8 \\ 3 & -1 & 2 & 7 \end{array}\right]$
+- $R_2 \to R_2 - 2R_1$
+    - $\left[\begin{array}{ccc|c} 1 & 2 & 1 & 7 \\ 0 & -3 & -3 & -6 \\ 3 & -1 & 2 & 7 \end{array}\right]$
+- $R_3 \to R_3 - 3R_1$
+    - So, $\left[\begin{array}{ccc|c} 1 & 2 & 1 & 7 \\ 0 & -3 & -3 & -6 \\ 0 & -7 & -1 & -14 \end{array}\right]$
+- $R_2 \to -\dfrac{1}{3}R_2$
+    - So, $\left[\begin{array}{ccc|c} 1 & 2 & 1 & 7 \\ 0 & 1 & 1 & 2 \\ 0 & -7 & -1 & -14 \end{array}\right]$
+- $R_1 \to R_1 - 2R_2$
+    - So, $\left[\begin{array}{ccc|c} 1 & 0 & -1 & 3 \\ 0 & 1 & 1 & 2 \\ 0 & -7 & -1 & -14 \end{array}\right]$
+- $R_3 \to R_3 + 7R_2$
+    - So, $\left[\begin{array}{ccc|c} 1 & 0 & -1 & 3 \\ 0 & 1 & 1 & 2 \\ 0 & 0 & 6 & 0 \end{array}\right]$
+- $R_3 \to \dfrac{1}{6}R_3$
+    - So, $\left[\begin{array}{ccc|c} 1 & 0 & -1 & 3 \\ 0 & 1 & 1 & 2 \\ 0 & 0 & 1 & 0 \end{array}\right]$
+- $R_1 \to R_1 + R_3$
+    - So, $\left[\begin{array}{ccc|c} 1 & 0 & 0 & 3 \\ 0 & 1 & 1 & 2 \\ 0 & 0 & 1 & 0 \end{array}\right]$
+- $R_2 \to R_2 - R_3$
+    - So, $\left[\begin{array}{ccc|c} 1 & 0 & 0 & 3 \\ 0 & 1 & 0 & 2 \\ 0 & 0 & 1 & 0 \end{array}\right]$
+- Therefore, $x = 3$, $y = 2$ and $z = 0$.
+
+---
+
+#### 19. Solve using L.U. Decomposition.
+- $2x + y = 5$
+- $4x + 3y = 11$
+- $AX = B$
+- $A = \begin{bmatrix} 2 & 1 \\ 4 & 3 \end{bmatrix}$, $\quad X = \begin{bmatrix} x \\ y \end{bmatrix}$, $\quad B = \begin{bmatrix} 5 \\ 11 \end{bmatrix}$
+- $A = LU$, where $L = \begin{bmatrix} 1 & 0 \\ l_{21} & 1 \end{bmatrix}$ and $U = \begin{bmatrix} u_{11} & u_{12} \\ 0 & u_{22} \end{bmatrix}$
+- $u_{11} = a_{11} = 2$, $\quad u_{12} = a_{12} = 1$
+- $l_{21} = \dfrac{a_{21}}{u_{11}} = \dfrac{4}{2} = 2$
+- $u_{22} = a_{22} - l_{21}u_{12} = 3 - (2)(1) = 1$
+- Hence, $A = \underbrace{\begin{bmatrix} 1 & 0 \\ 2 & 1 \end{bmatrix}}_{L}\underbrace{\begin{bmatrix} 2 & 1 \\ 0 & 1 \end{bmatrix}}_{U}$
+- $LU = \begin{bmatrix} 1 & 0 \\ 2 & 1 \end{bmatrix}\begin{bmatrix} 2 & 1 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 2 & 1 \\ 4 & 3 \end{bmatrix} = A$
+- Now solve $LY = B$
+    - $\begin{bmatrix} 1 & 0 \\ 2 & 1 \end{bmatrix}\begin{bmatrix} y_1 \\ y_2 \end{bmatrix} = \begin{bmatrix} 5 \\ 11 \end{bmatrix}$
+    - $y_1 = 5$
+    - $2y_1 + y_2 = 11$
+- So, $y_2 = 1$.
+- $Y = \begin{bmatrix} 5 \\ 1 \end{bmatrix}$
+- Now solve $UX = Y$
+    - $\begin{bmatrix} 2 & 1 \\ 0 & 1 \end{bmatrix}\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 5 \\ 1 \end{bmatrix}$
+    - $2x + y = 5$
+    - $y = 1$
+- So, $y = 1$, $2x + 1 = 5$, $x = 2$.
+- Therefore, $x = 2$ and $y = 1$.
+
+---
+
+#### 20. Why is LU Decomposition particularly useful when several systems have the same coefficient matrix but different right hand side vectors?
+- $A = LU$ depends only on the coefficient matrix $A$, and not on $B$.
+- Factorization is done only once, which requires order of $n^3$ arithmetic operations for a dense $n \times n$ matrix.
+- For each new right hand side vector $B$, we only need to solve:
+    - $LY = B$ by forward substitution, and
+    - $UX = Y$ by back substitution.
+- Each of these requires only order of $n^2$ operations.
+- $\therefore$ the expensive factorization is not repeated for every new $B$.
+
+---

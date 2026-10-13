@@ -52,3 +52,14 @@
     - $-2x + 2y + 3z = 5$
 
 17. Explain why row interchange is necessary before applying to the following matrix $\begin{bmatrix} 0 & 2 & 1 \\ 4 & 5 & 6 \\ 2 & 3 & 4 \end{bmatrix}$
+
+18. Solve using Gauss-Jordan Method
+    - $2x + y - z = 8$
+    - $x + 2y + z = 7$
+    - $3x - y + 2z = 7$
+
+19. Solve using L.U. Decomposition.
+    - $2x + y = 5$
+    - $4x + 3y = 11$
+
+20. Why is LU Decomposition particularly useful when several systems have the same coefficient matrix but different right hand side vectors?

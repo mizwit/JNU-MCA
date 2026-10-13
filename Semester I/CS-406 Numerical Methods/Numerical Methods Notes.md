@@ -1179,3 +1179,134 @@ Find the solution using the Gaussian Elimination Method.
     - $4x + y + 2z = 12$
     - $-2x + 2y + 3z = 5$
 3. Explain why row interchange is necessary before applying to the following matrix $\begin{bmatrix} 0 & 2 & 1 \\ 4 & 5 & 6 \\ 2 & 3 & 4 \end{bmatrix}$
+
+---
+
+## Gauss-Jordan Method
+$$[A \mid B] \to [I \mid X]$$
+- In Gauss-Jordan, we continue eliminating both:
+    - below the pivot, and
+    - above the pivot.
+- The coefficient matrix becomes the identity matrix.
+- $I = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$
+- Therefore, $[A \mid B] \to [I \mid X]$.
+
+### Elementary Row Operations
+- **Operation 1:** Interchange rows. $R_i \leftrightarrow R_j$
+- **Operation 2:** Multiply a row by a non-zero constant. $R_i \to kR_i$, $k \neq 0$
+- **Operation 3:** Add a multiple of one row to another. $R_i \to R_i + kR_j$
+
+### Example
+- Solve using Gauss-Jordan Method
+    - $x + y + z = 6$
+    - $2x + 3y + z = 11$
+    - $x + 2y + 3z = 14$
+- Form augmented matrix: $\left[\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 2 & 3 & 1 & 11 \\ 1 & 2 & 3 & 14 \end{array}\right] \to \left[\begin{array}{ccc|c} 1 & 0 & 0 & 1 \\ 0 & 1 & 0 & 2 \\ 0 & 0 & 1 & 3 \end{array}\right]$
+- $R_2 \to R_2 - 2R_1$
+    - $\left[\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 0 & 1 & -1 & -1 \\ 1 & 2 & 3 & 14 \end{array}\right]$
+- Then, $R_3 \to R_3 - R_1$
+    - $\left[\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 0 & 1 & -1 & -1 \\ 0 & 1 & 2 & 8 \end{array}\right]$
+- Then, $R_3 \to R_3 - R_2$
+    - So, $\left[\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 0 & 1 & -1 & -1 \\ 0 & 0 & 3 & 9 \end{array}\right]$
+- Then, $R_3 \to \dfrac{1}{3}R_3$
+    - So, $\left[\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 0 & 1 & -1 & -1 \\ 0 & 0 & 1 & 3 \end{array}\right]$
+- Then, $R_2 \to R_2 + R_3$
+    - So, $\left[\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 0 & 1 & 0 & 2 \\ 0 & 0 & 1 & 3 \end{array}\right]$
+- Then, $R_1 \to R_1 - R_3$
+    - So, $\left[\begin{array}{ccc|c} 1 & 1 & 0 & 3 \\ 0 & 1 & 0 & 2 \\ 0 & 0 & 1 & 3 \end{array}\right]$
+- Now, $R_1 \to R_1 - R_2$
+    - $\left[\begin{array}{ccc|c} 1 & 0 & 0 & 1 \\ 0 & 1 & 0 & 2 \\ 0 & 0 & 1 & 3 \end{array}\right]$
+- Therefore, $x = 1$, $y = 2$ and $z = 3$.
+
+### General Structure of Gauss-Jordan Method
+- $[A \mid B]$ for an $n \times n$ system.
+- We perform row operations until: $[I \mid X]$
+- For a $3 \times 3$ system:
+    - $\left[\begin{array}{ccc|c} a_{11} & a_{12} & a_{13} & b_1 \\ a_{21} & a_{22} & a_{23} & b_2 \\ a_{31} & a_{32} & a_{33} & b_3 \end{array}\right]$ 
+    - becomes $\left[\begin{array}{ccc|c} 1 & 0 & 0 & x \\ 0 & 1 & 0 & y \\ 0 & 0 & 1 & z \end{array}\right]$
+
+### Exercises - H.W
+1. Solve using Gauss-Jordan Method
+    - $2x + y - z = 8$
+    - $x + 2y + z = 7$
+    - $3x - y + 2z = 7$
+
+---
+
+## LU Decomposition
+$$A = LU$$
+- $A \to$ original coefficient matrix
+- $L \to$ lower triangular matrix
+- $U \to$ upper triangular matrix
+
+### Basic Concept
+- $AX = B$
+- Using LU Decomposition:
+    - $AX = B \Rightarrow LUX = B$
+- Let $UX = Y$
+- Then, we get two systems:
+    - $LY = B$ to find $Y$
+    - $UX = Y$ to find $X$
+
+### General Structure of LU Decomposition
+- For a $3 \times 3$ system, $A = LU$ where:
+    - $A = \begin{bmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{bmatrix}$
+    - $L = \begin{bmatrix} 1 & 0 & 0 \\ l_{21} & 1 & 0 \\ l_{31} & l_{32} & 1 \end{bmatrix}$,
+    - $U = \begin{bmatrix} u_{11} & u_{12} & u_{13} \\ 0 & u_{22} & u_{23} \\ 0 & 0 & u_{33} \end{bmatrix}$
+- $u_{11} = a_{11}$, $\quad u_{12} = a_{12}$, $\quad u_{13} = a_{13}$
+- $l_{21} = \dfrac{a_{21}}{u_{11}}$, $\quad l_{31} = \dfrac{a_{31}}{u_{11}}$
+- $u_{22} = a_{22} - l_{21}u_{12}$
+- $u_{23} = a_{23} - l_{21}u_{13}$
+- $l_{32} = \dfrac{a_{32} - l_{31}u_{12}}{u_{22}}$
+- $u_{33} = a_{33} - l_{31}u_{13} - l_{32}u_{23}$
+
+### Example
+- Solve using LU Decomposition
+    - $x + y + z = 6$
+    - $2x + 3y + z = 11$
+    - $x + 2y + 3z = 14$
+- $AX = B$
+- $A = \begin{bmatrix} 1 & 1 & 1 \\ 2 & 3 & 1 \\ 1 & 2 & 3 \end{bmatrix}$, $\quad X = \begin{bmatrix} x \\ y \\ z \end{bmatrix}$, $\quad B = \begin{bmatrix} 6 \\ 11 \\ 14 \end{bmatrix}$
+- $A = LU$
+- For Row 2: $R_2 \to R_2 - 2R_1$
+- For Row 3: $R_3 \to R_3 - R_1$
+- This generates: $\left[\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 0 & 1 & -1 & -1 \\ 0 & 1 & 2 & 8 \end{array}\right]$
+- Then $R_3 \to R_3 - R_2$
+    - $\left[\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 0 & 1 & -1 & -1 \\ 0 & 0 & 3 & 9 \end{array}\right]$
+- $U = \begin{bmatrix} 1 & 1 & 1 \\ 0 & 1 & -1 \\ 0 & 0 & 3 \end{bmatrix}$
+- Similarly, $L = \begin{bmatrix} 1 & 0 & 0 \\ 2 & 1 & 0 \\ 1 & 1 & 1 \end{bmatrix}$
+- Hence,$A = \underbrace{\begin{bmatrix} 1 & 0 & 0 \\ 2 & 1 & 0 \\ 1 & 1 & 1 \end{bmatrix}}_{L}\underbrace{\begin{bmatrix} 1 & 1 & 1 \\ 0 & 1 & -1 \\ 0 & 0 & 3 \end{bmatrix}}_{U}$
+- $LU = \begin{bmatrix} 1 & 0 & 0 \\ 2 & 1 & 0 \\ 1 & 1 & 1 \end{bmatrix}\begin{bmatrix} 1 & 1 & 1 \\ 0 & 1 & -1 \\ 0 & 0 & 3 \end{bmatrix} = \begin{bmatrix} 1 & 1 & 1 \\ 2 & 3 & 1 \\ 1 & 2 & 3 \end{bmatrix} = A$
+- Now solve $LY = B$
+    - $\begin{bmatrix} 1 & 0 & 0 \\ 2 & 1 & 0 \\ 1 & 1 & 1 \end{bmatrix}\begin{bmatrix} y_1 \\ y_2 \\ y_3 \end{bmatrix} = \begin{bmatrix} 6 \\ 11 \\ 14 \end{bmatrix}$
+    - $y_1 = 6$
+    - $2y_1 + y_2 = 11$
+    - $y_1 + y_2 + y_3 = 14$
+- So, $y_2 = -1$, $y_3 = 9$.
+- $Y = \begin{bmatrix} 6 \\ -1 \\ 9 \end{bmatrix}$
+- Now solve $UX = Y$
+    - $\begin{bmatrix} 1 & 1 & 1 \\ 0 & 1 & -1 \\ 0 & 0 & 3 \end{bmatrix}\begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} 6 \\ -1 \\ 9 \end{bmatrix}$
+    - $x + y + z = 6$
+    - $y - z = -1$
+    - $3z = 9$
+- So, $z = 3$, $y = 2$, $x = 1$.
+
+### Advantages of LU Decomposition
+- Useful for solving multiple systems with the same coefficient matrix.
+- Separates factorization from solving the system.
+- Can be used to calculate determinants and matrix inverses.
+- Uses forward and back substitution after factorization.
+
+### Limitations of LU Decomposition
+- Factorization can fail without pivoting, if a required pivot is zero.
+- Small pivots can cause numerical instability.
+- Pivoting may require a permutation matrix, giving $PA = LU$ rather than a simple $A = LU$.
+- Factorization requires order of $n^3$ arithmetic operations for a dense $n \times n$ matrix.
+
+### Exercises - H.W
+1. Solve using L.U. Decomposition.
+    - $2x + y = 5$
+    - $4x + 3y = 11$
+2. Why is LU Decomposition particularly useful when several systems have the same coefficient matrix but different right hand side vectors?
+
+---
