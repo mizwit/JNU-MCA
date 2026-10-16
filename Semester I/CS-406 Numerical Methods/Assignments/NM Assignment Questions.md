@@ -63,3 +63,7 @@
     - $4x + 3y = 11$
 
 20. Why is LU Decomposition particularly useful when several systems have the same coefficient matrix but different right hand side vectors?
+
+21. Use Fixed Point Iteration to solve $x^2 + x - 2 = 0$, using $x = (2 - x)^{1/2}$ and $x_0 = 1.5$, and perform 3 iterations.
+
+22. Explain why choosing a different rearrangement of the same equation may change convergence.

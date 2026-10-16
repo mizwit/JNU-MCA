@@ -366,3 +366,29 @@ $\left[\begin{array}{cc|c} 2 & 1 & 3 \\ 0 & 0 & 4 \end{array}\right]$
 - $\therefore$ the expensive factorization is not repeated for every new $B$.
 
 ---
+
+#### 21. Use Fixed Point Iteration to solve $x^2 + x - 2 = 0$, using $x = (2 - x)^{1/2}$ and $x_0 = 1.5$, and perform 3 iterations.
+- $g(x) = (2 - x)^{1/2}$
+- **Iteration 1:**
+    - $x_0 = 1.5$
+    - $x_1 = g(x_0) = (2 - 1.5)^{1/2} = (0.5)^{1/2} \approx 0.707107$
+- **Iteration 2:**
+    - $x_1 = 0.707107$
+    - $x_2 = g(x_1) = (2 - 0.707107)^{1/2} = (1.292893)^{1/2} \approx 1.137055$
+- **Iteration 3:**
+    - $x_2 = 1.137055$
+    - $x_3 = g(x_2) = (2 - 1.137055)^{1/2} = (0.862945)^{1/2} \approx 0.928949$
+- Approximate value of the root, $r \approx 0.928949$
+
+#### 22. Explain why choosing a different rearrangement of the same equation may change convergence.
+- Each rearrangement $x = g(x)$ gives a different function $g$, and so a different $g'(x)$.
+- Convergence depends on $|g'(x)|$ near the fixed point. The method converges if $|g'(r)| < 1$ and diverges if $|g'(r)| > 1$.
+- The root of $x^2 + x - 2 = 0$ is $x = 1$. Take two rearrangements:
+- Rearrangement 1: $x = (2 - x)^{1/2}$
+    - $g(x) = (2-x)^{1/2}$, $\quad g'(x) = -\dfrac{1}{2(2-x)^{1/2}}$
+    - $|g'(1)| = \dfrac{1}{2} < 1 \Rightarrow$ converges.
+- Rearrangement 2: $x = 2 - x^2$
+    - $g(x) = 2 - x^2$, $\quad g'(x) = -2x$
+    - $|g'(1)| = 2 > 1 \Rightarrow$ the fixed point is repelling, so the iterates move away from the root.
+- With $x_0 = 1.5$: $x_1 = -0.25$, $x_2 = 1.9375$, $x_3 = -1.753906, \dots$ (not approaching $1$).
+- $\therefore$ the same equation, with the same root and the same $x_0$, converges for one rearrangement and diverges for another, because $|g'(x)|$ near the root differs.

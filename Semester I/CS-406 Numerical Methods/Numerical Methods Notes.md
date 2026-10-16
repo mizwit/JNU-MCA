@@ -15,7 +15,7 @@ Taught by [Prof. Anuj Sachan](https://www.jnu.ac.in/content/anujsachan)
 
 ---
 
-## Finite Data Representation
+# Finite Data Representation
 Since computers have limited memory, it cannot store a number with infinite digits such as $\pi$ or $\frac{1}{3}$. This introduces the fundamental concept of **Finite Data Representation**.
 
 ### Fixed Point Numbers
@@ -76,7 +76,7 @@ Since computers have limited memory, it cannot store a number with infinite digi
 
 ---
 
-## The Propagation of Error
+# The Propagation of Error
 - In numerical computation, the values used in a calculation are often approximated. 
 - So, the error $e$ is $e = x - \overline{x}$, where $x$ is the **true value** and $\overline{x}$ is the **approximated value**.
 - In terms of magnitude, $|e| = |x - \overline{x}|$
@@ -154,7 +154,7 @@ It refers to the degree of consistency or fineness of the numerical representati
 
 ---
 
-## Solutions of Non-linear Equations (Root Finding Methods)
+# Solutions of Non-linear Equations (Root Finding Methods)
 - Non-linear equations are equations that can be generally written as $f(x) = 0$, where $f(x)$ is non-linear in $x$.
 - Examples:
     - $x^2 - x = 0$
@@ -649,7 +649,82 @@ Perform three iterations of the Muller's Method to find the smallest positive ro
 
 ---
 
-## Interpolation
+## Fixed-Point Iteration Method
+
+In this method, we will transform an equation into a suitable form and repeatedly substitute the previous approximation to obtain the next approximation.
+
+### Fixed Point
+- Suppose we have a function $g(x)$. 
+- A number $r$ is called a fixed point of $g(x)$ if $g(r) = r$.
+- Ex: $g(x) = \dfrac{x+2}{3}$
+    - At a fixed point, $g(x) = x$.
+    - Therefore, $\dfrac{x+2}{3} = x \Rightarrow x + 2 = 3x \Rightarrow x = 1$.
+    - $g(1) = \dfrac{1+2}{3} = 1$.
+    - Hence, $x = 1$ is a fixed point.
+
+### Conversion of an Equation into Fixed Point Form
+- Let us assume we have an equation $f(x) = 0$.
+- First, we rearrange it into the form $x = g(x)$.
+- The root of the original equation is then a fixed point of $g(x)$, provided the rearrangement preserves the relevant solutions.
+- Ex: $x^3 - x - 1 = 0 \to x^3 = x + 1 \to x = (x+1)^{1/3}$
+- The fixed point iteration formula is
+$$x_{n+1} = g(x_n)$$
+
+### Algorithm of Fixed Point Iteration Method
+- **Step 1:** Choose an initial guess $x_0$.
+- **Step 2:** Rewrite $f(x) = 0$ as $x = g(x)$.
+- **Step 3:** Calculate $x_{n+1} = g(x_n)$.
+- **Step 4:** Check whether $|x_{n+1} - x_n| < \epsilon$.
+- **Step 5:** If satisfied, stop; otherwise repeat Step 3.
+
+### Example
+Find the root of $x^3 - x - 1 = 0$ using the fixed-point iteration method. Take $x_0 = 1$ and perform 5 iterations.
+- $x^3 - x - 1 = 0 \Rightarrow x^3 = x + 1 \Rightarrow x = (x+1)^{1/3}$
+- $g(x) = (x+1)^{1/3}$
+- **Iteration 1:**
+    - $x_0 = 1$
+    - $x_1 = g(x_0) = (1+1)^{1/3} = (2)^{1/3} \approx 1.259921$
+- **Iteration 2:**
+    - $x_1 = 1.259921$
+    - $x_2 = g(x_1) = (1.259921+1)^{1/3} = (2.259921)^{1/3} \approx 1.312294$
+- **Iteration 3:**
+    - $x_2 = 1.312294$
+    - $x_3 = g(x_2) = (1.312294+1)^{1/3} = (2.312294)^{1/3} \approx 1.322354$
+- **Iteration 4:**
+    - $x_3 = 1.322354$
+    - $x_4 = g(x_3) = (1.322354+1)^{1/3} = (2.322354)^{1/3} \approx 1.324269$
+- **Iteration 5:**
+    - $x_4 = 1.324269$
+    - $x_5 = g(x_4) = (1.324269+1)^{1/3} = (2.324269)^{1/3} \approx 1.324633$
+- Approximate value of the root, $r \approx 1.324633$
+
+### Convergence of Fixed Point Iteration Method
+- Convergence depends on the choice of $g(x)$ and the initial approximation.
+- A common sufficient condition for convergence is $|g'(x)| \le K < 1$ throughout the interval containing the fixed point, with $g$ mapping that interval into itself.
+- This condition means that the magnitude of the derivative must remain below $1$ throughout the interval.
+- If $|g'(r)| < 1$, the fixed point is locally attracting, under the usual differentiability assumptions.
+- If $|g'(r)| > 1$, the fixed point is locally repelling.
+- If $|g'(r)| = 1$, this test is inconclusive; further analysis is needed.
+
+### Advantages of Fixed Point Iteration
+- Simple to understand and implement.
+- Does not require direct evaluation of $f'(x)$.
+- Each iteration is straightforward.
+- Can be effective when a suitable rearrangement is available.
+
+### Limitations of Fixed Point Iteration
+- The method may diverge for an unsuitable $g(x)$.
+- The choice of rearrangement can determine whether the method converges.
+- Convergence may be slow.
+- A small change between successive approximations does not, by itself, guarantee that the true error is small.
+
+### Exercises - H.W.
+1. Use Fixed Point Iteration to solve $x^2 + x - 2 = 0$, using $x = (2 - x)^{1/2}$ and $x_0 = 1.5$, and perform 3 iterations.
+2. Explain why choosing a different rearrangement of the same equation may change convergence.
+
+---
+
+# Interpolation
 
 Let us assume we know some values of function $(x_0, y_0), (x_1, y_1), (x_2, y_2) \dots$. But we do not know the value of that function at some point lying in between the known points. **Interpolation** is the process of estimating that unknown value.
 - **Definition:** Interpolation is the process of estimating the value of a function at an intermediate point using known data points.
@@ -997,7 +1072,7 @@ Hence, find the interpolating polynomial and approximation to the value of $f(7)
 
 ---
 
-## System of Linear Equations
+# System of Linear Equations
 
 ### Linear Equation
 - A linear equation in one variable has the form $ax = b$, where $a$ and $b$ are known constants and $x$ is unknown.
