@@ -1,6 +1,6 @@
 # CS-406: Numerical Methods Assignment - Solutions
 
-#### 1. $y = x^3$, where $x = 2$, with error as $0.01$. Find approximate and relative error.
+### 1. $y = x^3$, where $x = 2$, with error as $0.01$. Find approximate and relative error.
 - Given, $y = x^3$, $x = 2$, and $dx = 0.01$.
 - $f'(x) = 3x^2$
 - $|dy| = |f'(x)|.|dx| = 3x^2.dx$
@@ -13,14 +13,14 @@
 
 ---
 
-#### 2. $z = x + y$, where $x = 10 \pm 0.1$ and $y = 20 \pm 0.2$. Find maximum error in $z$.
+### 2. $z = x + y$, where $x = 10 \pm 0.1$ and $y = 20 \pm 0.2$. Find maximum error in $z$.
 - $|dz| \le |dx| + |dy|$
 - $|dz| \le 0.1 + 0.2$
 - **Maximum absolute error:** $|dz| \le 0.3$
 
 ---
 
-#### 3. $A = L.W$, where $L = 20 + 0.1$ cm and $W = 10 + 0.05$ cm. Find in A, the maximum error and relative error.
+### 3. $A = L.W$, where $L = 20 + 0.1$ cm and $W = 10 + 0.05$ cm. Find in A, the maximum error and relative error.
 - $dz = y.dx + x.dy$
 - $dz = 10(0.1) + 20(0.05)$
 - **Maximum error:** $dz = 2 cm^2$
@@ -30,7 +30,7 @@
 
 ---
 
-#### 4. Perform five iterations of the bisection method to find the approximate root of the equation $f(x) = \cos(x) - x.e^x = 0$.
+### 4. Perform five iterations of the bisection method to find the approximate root of the equation $f(x) = \cos(x) - x.e^x = 0$.
 - Initial interval $a = 0$ and $b = 1$
 - $f(0) = \cos(0) - (0)e^0 = 1$
 - $f(1) = \cos(1) - (1)e^1 = 0.540302 - 2.718282 = -2.177980$
@@ -65,7 +65,7 @@
 
 ---
 
-#### 5. Let $f(x) = x^3 - 5x + 1 = 0$. Assume an initial approximation of $x_0 = 0.5$. Perform four iterations using Newton-Raphson Method.
+### 5. Let $f(x) = x^3 - 5x + 1 = 0$. Assume an initial approximation of $x_0 = 0.5$. Perform four iterations using Newton-Raphson Method.
 - $f'(x) = 3x^2 - 5$
 - Initial approximation, $x_0 = 0.5$
 - **Iteration 1:**
@@ -92,7 +92,7 @@
 
 ---
 
-#### 6. Approximate the value of $(17)^{\frac{1}{3}}$. Assume an initial approximation of $x_0 = 2$. Perform four iterations using Newton-Raphson Method.
+### 6. Approximate the value of $(17)^{\frac{1}{3}}$. Assume an initial approximation of $x_0 = 2$. Perform four iterations using Newton-Raphson Method.
 - Let $(17)^{1/3} = x$. So, $f(x) = x^3 - 17 = 0$.
 - $f'(x) = 3x^2$
 - Initial approximation, $x_0 = 2$
@@ -120,7 +120,7 @@
 
 ---
 
-#### 7. Find $f(2.5)$ using Newton Forward Interpolation.
+### 7. Find $f(2.5)$ using Newton Forward Interpolation.
 
 | $x$ | $1$ | $2$ | $3$ | $4$ |
 | :-- | :-- | :-- | :-- | :-- |
@@ -135,7 +135,7 @@
 
 ---
 
-#### 8. Find $f(12)$ using Newton Forward Interpolation.
+### 8. Find $f(12)$ using Newton Forward Interpolation.
 
 | $x$ | $10$ | $15$ | $20$ | $25$ |
 | :-- | :-- | :-- | :-- | :-- |
@@ -150,14 +150,14 @@
 
 ---
 
-#### 9. Explain why Newton Forward Interpolation is used when the required value is near the beginning of the equally spaced table.
+### 9. Explain why Newton Forward Interpolation is used when the required value is near the beginning of the equally spaced table.
 - Newton Forward Interpolation builds its correction terms from $x_0$ (the **first** point in the table), using $p = \dfrac{x-x_0}{h}$. 
 - When $x$ is close to $x_0$, $p$ is small (typically $|p|<1$), which makes each successive term in the series — $\dfrac{p(p-1)}{2!}\Delta^2y_0$, $\dfrac{p(p-1)(p-2)}{3!}\Delta^3y_0$, etc. rapidly shrink in magnitude, so the series converges quickly and only a few terms are needed for good accuracy. 
 - If $x$ were instead near the *end* of the table, $p$ would be large, forcing many terms to be included for the same accuracy which is why **Newton Backward Interpolation** (built from $x_n$, the last point) is preferred in that case instead.
 
 ---
 
-#### 10. Construct the difference table for the sequence of values $f(x) = (0, 0, 0, \epsilon, 0, 0, 0)$, where $\epsilon$ is an error. Also show that:
+### 10. Construct the difference table for the sequence of values $f(x) = (0, 0, 0, \epsilon, 0, 0, 0)$, where $\epsilon$ is an error. Also show that:
     1. The error spreads and increases in magnitude as the order of difference increases.
     2. The errors in each column have binomial coefficients.
 
@@ -179,7 +179,7 @@
 
 ---
 
-#### 11. Convert the following system into matrix form. Identify $A$, $X$ & $B$. Also write the augmented matrix.
+### 11. Convert the following system into matrix form. Identify $A$, $X$ & $B$. Also write the augmented matrix.
 - $2x + 3y - z = 5$
 - $x - 2y + 4z = 7$
 - $3x + y + 2z = 10$
@@ -192,7 +192,7 @@
 
 ---
 
-#### 12. Classify the following system: $x + y = 4$ and $2x + 2y = 8$. Is it consistent? And how many solutions?
+### 12. Classify the following system: $x + y = 4$ and $2x + 2y = 8$. Is it consistent? And how many solutions?
 - $A = \begin{bmatrix} 1 & 1 \\ 2 & 2 \end{bmatrix}$, 
 - $B = \begin{bmatrix} 4 \\ 8 \end{bmatrix}$
 - $\det A = (1)(2) - (1)(2) = 0$, so $A$ is singular.
@@ -205,7 +205,7 @@ $\left[\begin{array}{cc|c} 1 & 1 & 4 \\ 0 & 0 & 0 \end{array}\right]$
 
 ---
 
-#### 13. Determine whether $2x + y = 3$, $4x + 2y = 10$ has a unique solution, no solution or infinitely many solutions.
+### 13. Determine whether $2x + y = 3$, $4x + 2y = 10$ has a unique solution, no solution or infinitely many solutions.
 - $A = \begin{bmatrix} 2 & 1 \\ 4 & 2 \end{bmatrix}$, 
 - $B = \begin{bmatrix} 3 \\ 10 \end{bmatrix}$
 - $\det A = (2)(2) - (1)(4) = 0$, so $A$ is singular and the system does not have a unique solution.
@@ -218,14 +218,14 @@ $\left[\begin{array}{cc|c} 2 & 1 & 3 \\ 0 & 0 & 4 \end{array}\right]$
 
 ---
 
-#### 14. Calculate the determinant of $A = \begin{bmatrix} 3 & 2 \\ 1 & 4 \end{bmatrix}$ and state whether the corresponding square system can have a unique solution.
+### 14. Calculate the determinant of $A = \begin{bmatrix} 3 & 2 \\ 1 & 4 \end{bmatrix}$ and state whether the corresponding square system can have a unique solution.
 - $\det A = (3)(4) - (2)(1) = 12 - 2 = 10$
 - $\det A = 10 \neq 0$, so $A$ is non-singular.
 - $\therefore$ the corresponding square system $AX = B$ has a unique solution.
 
 ---
 
-#### 15. Solve using the Gaussian Elimination Method.
+### 15. Solve using the Gaussian Elimination Method.
 - $2x + y + z = 10$
 - $4x - 8y + 3z = 2$
 - $-2x + 7y + 2z = 13$
@@ -255,7 +255,7 @@ $\left[\begin{array}{cc|c} 2 & 1 & 3 \\ 0 & 0 & 4 \end{array}\right]$
 
 ---
 
-#### 16. Using the Gaussian Elimination Method, find $x$, $y$, $z$ and the pivot elements.
+### 16. Using the Gaussian Elimination Method, find $x$, $y$, $z$ and the pivot elements.
 - $2x + 3y + z = 10$
 - $4x + y + 2z = 12$
 - $-2x + 2y + 3z = 5$
@@ -286,7 +286,7 @@ $\left[\begin{array}{cc|c} 2 & 1 & 3 \\ 0 & 0 & 4 \end{array}\right]$
 
 ---
 
-#### 17. Explain why row interchange is necessary before applying to the following matrix $\begin{bmatrix} 0 & 2 & 1 \\ 4 & 5 & 6 \\ 2 & 3 & 4 \end{bmatrix}$
+### 17. Explain why row interchange is necessary before applying to the following matrix $\begin{bmatrix} 0 & 2 & 1 \\ 4 & 5 & 6 \\ 2 & 3 & 4 \end{bmatrix}$
 - The first pivot is $a_{11} = 0$.
 - The multipliers are $m_{i1} = \dfrac{a_{i1}}{a_{11}}$:
     - $m_{21} = \dfrac{4}{0}$ and $m_{31} = \dfrac{2}{0}$, which are undefined (division by zero).
@@ -302,7 +302,7 @@ $\left[\begin{array}{cc|c} 2 & 1 & 3 \\ 0 & 0 & 4 \end{array}\right]$
 
 ---
 
-#### 18. Solve using Gauss-Jordan Method
+### 18. Solve using Gauss-Jordan Method
 - $2x + y - z = 8$
 - $x + 2y + z = 7$
 - $3x - y + 2z = 7$
@@ -330,7 +330,7 @@ $\left[\begin{array}{cc|c} 2 & 1 & 3 \\ 0 & 0 & 4 \end{array}\right]$
 
 ---
 
-#### 19. Solve using L.U. Decomposition.
+### 19. Solve using L.U. Decomposition.
 - $2x + y = 5$
 - $4x + 3y = 11$
 - $AX = B$
@@ -356,7 +356,7 @@ $\left[\begin{array}{cc|c} 2 & 1 & 3 \\ 0 & 0 & 4 \end{array}\right]$
 
 ---
 
-#### 20. Why is LU Decomposition particularly useful when several systems have the same coefficient matrix but different right hand side vectors?
+### 20. Why is LU Decomposition particularly useful when several systems have the same coefficient matrix but different right hand side vectors?
 - $A = LU$ depends only on the coefficient matrix $A$, and not on $B$.
 - Factorization is done only once, which requires order of $n^3$ arithmetic operations for a dense $n \times n$ matrix.
 - For each new right hand side vector $B$, we only need to solve:
@@ -367,7 +367,7 @@ $\left[\begin{array}{cc|c} 2 & 1 & 3 \\ 0 & 0 & 4 \end{array}\right]$
 
 ---
 
-#### 21. Use Fixed Point Iteration to solve $x^2 + x - 2 = 0$, using $x = (2 - x)^{1/2}$ and $x_0 = 1.5$, and perform 3 iterations.
+### 21. Use Fixed Point Iteration to solve $x^2 + x - 2 = 0$, using $x = (2 - x)^{1/2}$ and $x_0 = 1.5$, and perform 3 iterations.
 - $g(x) = (2 - x)^{1/2}$
 - **Iteration 1:**
     - $x_0 = 1.5$
@@ -380,7 +380,9 @@ $\left[\begin{array}{cc|c} 2 & 1 & 3 \\ 0 & 0 & 4 \end{array}\right]$
     - $x_3 = g(x_2) = (2 - 1.137055)^{1/2} = (0.862945)^{1/2} \approx 0.928949$
 - Approximate value of the root, $r \approx 0.928949$
 
-#### 22. Explain why choosing a different rearrangement of the same equation may change convergence.
+---
+
+### 22. Explain why choosing a different rearrangement of the same equation may change convergence.
 - Each rearrangement $x = g(x)$ gives a different function $g$, and so a different $g'(x)$.
 - Convergence depends on $|g'(x)|$ near the fixed point. The method converges if $|g'(r)| < 1$ and diverges if $|g'(r)| > 1$.
 - The root of $x^2 + x - 2 = 0$ is $x = 1$. Take two rearrangements:
@@ -392,3 +394,33 @@ $\left[\begin{array}{cc|c} 2 & 1 & 3 \\ 0 & 0 & 4 \end{array}\right]$
     - $|g'(1)| = 2 > 1 \Rightarrow$ the fixed point is repelling, so the iterates move away from the root.
 - With $x_0 = 1.5$: $x_1 = -0.25$, $x_2 = 1.9375$, $x_3 = -1.753906, \dots$ (not approaching $1$).
 - $\therefore$ the same equation, with the same root and the same $x_0$, converges for one rearrangement and diverges for another, because $|g'(x)|$ near the root differs.
+
+---
+
+### 23. Construct a quadratic spline for $(0, 1), (1, 2), (2, 5)$ using $F''(0) = 0$.
+
+| $x$ | $0$ | $1$ | $2$ |
+| :-- | :-- | :-- | :-- |
+| $f(x)$ | $1$ | $2$ | $5$ |
+
+- Assume:
+    - $P_1(x) = a_1x^2 + b_1x + c_1$ for $[0, 1]$ and 
+    - $P_2(x) = a_2x^2 + b_2x + c_2$ for $[1, 2]$.
+- **First polynomial:**
+    - $F''(0) = 0 \Rightarrow 2a_1 = 0 \Rightarrow a_1 = 0$
+    - $P_1(0) = 1 \Rightarrow c_1 = 1$
+    - $P_1(1) = 2 \Rightarrow b_1 + c_1 = 2 \Rightarrow b_1 = 1$
+    - $P_1(x) = x + 1$
+- **Second polynomial:**
+    - $P_2(1) = a_2 + b_2 + c_2 = 2 \quad - eq.1$
+    - $P_2(2) = 4a_2 + 2b_2 + c_2 = 5 \quad - eq.2$
+    - $P_1'(1) = P_2'(1) \Rightarrow 1 = 2a_2 + b_2 \quad - eq.3$
+    - From $eq.3$: 
+        - $b_2 = 1 - 2a_2$
+    - Substitute into $eq.1$: 
+        - $a_2 + 1 - 2a_2 + c_2 = 2 \Rightarrow c_2 = 1 + a_2$
+    - Substitute into $eq.2$: 
+        - $4a_2 + 2(1 - 2a_2) + c_2 = 5 \Rightarrow 2 + c_2 = 5 \Rightarrow c_2 = 3$
+    - $a_2 = c_2 - 1 = 2$, $\quad b_2 = 1 - 2(2) = -3$
+    - $P_2(x) = 2x^2 - 3x + 3$
+- $F(x) = \begin{cases} x + 1 & ; \ 0 \le x \le 1 \\ 2x^2 - 3x + 3 & ; \ 1 \le x \le 2 \end{cases}$

@@ -16,6 +16,7 @@ Taught by [Prof. Anuj Sachan](https://www.jnu.ac.in/content/anujsachan)
 ---
 
 # Finite Data Representation
+
 Since computers have limited memory, it cannot store a number with infinite digits such as $\pi$ or $\frac{1}{3}$. This introduces the fundamental concept of **Finite Data Representation**.
 
 ### Fixed Point Numbers
@@ -77,6 +78,7 @@ Since computers have limited memory, it cannot store a number with infinite digi
 ---
 
 # The Propagation of Error
+
 - In numerical computation, the values used in a calculation are often approximated. 
 - So, the error $e$ is $e = x - \overline{x}$, where $x$ is the **true value** and $\overline{x}$ is the **approximated value**.
 - In terms of magnitude, $|e| = |x - \overline{x}|$
@@ -130,16 +132,13 @@ It is the quantity $t$ that must be added to the true representation of the quan
 | Max absolute error: | Max absolute error: | Relative error: | Relative error: |
 | $\vert dz \vert \le \vert dx \vert + \vert dy \vert$ | $\vert dz \vert \le \vert dx \vert + \vert dy \vert$ |  $\vert \frac{dz}{z} \vert \le \vert \frac{dx}{x} \vert + \vert \frac{dy}{y} \vert$ | $\vert \frac{dz}{z} \vert \le \vert \frac{dx}{x} \vert + \vert \frac{dy}{y} \vert$ |
 
-### Error Propagation Exercises
-
-#### Exercise 1
+### Exercise 1
 $x = \sqrt{10} = 3.16227766$ and by chopping/rounding off, we get $\overline{x} = 3.1623$. Find the absolute error, relative error and percentage error.
 - Absolute error $= |x - \overline{x}| = 3.16227766 - 3.1623 = 0.00002234$.
 - Relative error $= \frac{2.234 \times 10^{-5}}{3.16227766} = 7.06 \times 10^{-6}$
 - Percentage error $= 7.06 \times 10^{-4}\%$.
 
-#### Exercise - HW
-
+### Exercise - H.W.
 1. $y = x^3$, where $x = 2$, with error as $0.01$. Find approximate and relative error.
 2. $z = x + y$, where $x = 10 \pm 0.1$ and $y = 20 \pm 0.2$. Find maximum error in $z$.
 3. $A = L.W$, where $L = 20 + 0.1$ cm and $W = 10 + 0.05$ cm. Find in A, the maximum error and relative error.
@@ -155,6 +154,7 @@ It refers to the degree of consistency or fineness of the numerical representati
 ---
 
 # Solutions of Non-linear Equations (Root Finding Methods)
+
 - Non-linear equations are equations that can be generally written as $f(x) = 0$, where $f(x)$ is non-linear in $x$.
 - Examples:
     - $x^2 - x = 0$
@@ -196,7 +196,7 @@ It refers to the degree of consistency or fineness of the numerical representati
 | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
 | **f(x)** | -105 | 15 | 3 | -3 | 13 | 105 |
 
--   - From the above, we find that equation $f(x) = 0$ has roots in the intervals $(-1, 0)$, $(0, 1)$, and $(1, 2)$.
+- From the above, we find that equation $f(x) = 0$ has roots in the intervals $(-1, 0)$, $(0, 1)$, and $(1, 2)$.
     - The exact roots are $-0.5$, $0.5$, and $1.5$.
 - Example 2: 
     - Obtain intervals which contain the root of the equation $f(x) = \cos(x) - x.e^x$
@@ -205,9 +205,9 @@ It refers to the degree of consistency or fineness of the numerical representati
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | **f(x)** | 1 | 0.0532 | -2.1700 | -6.6518 | -13.1982 |
 
--   - The above equation has roots in the interval $(0.5, 1)$.
+- The above equation has roots in the interval $(0.5, 1)$.
     - The exact root is $0.5177573637...$
-
+	
 ---
 
 ## Bisection Method
@@ -226,9 +226,7 @@ This method is used on the repeated applications of the intermediate value theor
 - Until stopping criteria is satisfied,
 - Return $c$
 
-### Exercises on Bisection Method
-
-#### Exercise 1
+### Exercise 1
 Perform four iterations of the bisection method to find the approximate root of the equation $f(x) = x^3 - x - 1 = 0$.
 - Initial intervals $a = 1$ and $b = 2$
 - $f(1) = -1$, $f(2) = 5$
@@ -256,7 +254,7 @@ Perform four iterations of the bisection method to find the approximate root of 
     - So, root lies in the interval $(1.3125, 1.375)$.
 - Approximate value of the root, $r \approx \frac{1.3125 + 1.375}{2} = 1.34375$
 
-#### Exercise 2
+### Exercise 2
 Perform five iterations of the bisection method to obtain the smallest possible positive root of the equation $f(x) = x^3 - 5x + 1 = 0$.
 - Initial intervals $a = 0$ and $b = 1$
 - $f(0) = (0)^3 - 5(0) + 1 = 1$
@@ -290,7 +288,7 @@ Perform five iterations of the bisection method to obtain the smallest possible 
     - So, root lies in the interval $(0.1875, 0.21875)$.
 - Approximate value of the root, $r \approx \frac{0.1875 + 0.21875}{2} = 0.203125$
 
-#### Exercise - H.W
+### Exercise - H.W.
 1. Perform five iterations of the bisection method to find the approximate root of the equation $f(x) = \cos(x) - x.e^x = 0$.
 
 ### Error Bound for Bisection Method
@@ -372,7 +370,7 @@ Perform five iterations of the bisection method to obtain the smallest possible 
 
 > If the approximations are such that $f_k.f_{k-1} \lt 0$, then the other method is known as **Regula Falsi Method**.
 
-### Exercises on Secant and Regula Falsi Methods
+### Exercise on Secant and Regula Falsi Methods
 The real root of the equation $f(x) = x^3 - 5x + 1 = 0$ lies in the interval $(0, 1)$. Perform four iterations of the Secant Method and the Regula Falsi Method to obtain the root.
 
 #### Using Secant Method
@@ -464,9 +462,7 @@ Instead of using a second line secant through the two points, Newton-Raphson use
 - Derivative can become zero or very small.
 - Multiple roots can reduce the usual conversions rates.
 
-### Exercises on Newton-Raphson Method
-
-#### Exercise 1
+### Exercise 1
 Let $f(x) = x^3 - x - 1 = 0$. Assume an initial approximation of $x_0 = 1.5$. Perform four iterations using Newton-Raphson Method.
 - $f'(x) = 3x^2 - 1$
 - Initial approximation, $x_0 = 1.5$
@@ -492,13 +488,13 @@ Let $f(x) = x^3 - x - 1 = 0$. Assume an initial approximation of $x_0 = 1.5$. Pe
     - $x_4 = 1.324719$
 - Approximate value of the root, $r \approx 1.324719$
 
-#### Exercise - H.W
+### Exercise - H.W.
 1. Let $f(x) = x^3 - 5x + 1 = 0$. Assume an initial approximation of $x_0 = 0.5$. Perform four iterations using Newton-Raphson Method.
 2. Approximate the value of $(17)^{\frac{1}{3}}$. Assume an initial approximation of $x_0 = 2$. Perform four iterations using Newton-Raphson Method.
 
-#### Exercise - Matrix Iteration
+### Exercise - Matrix Iteration
 Obtain the complex roots of the equation $f(z) = z^3 + 1 = 0$ correct to eight decimal places. Use the initial approximation of the root as $(x_0, y_0) = (0.25, 0.25)$. Compare the exact values of the roots which is $(1 \pm \frac{i\sqrt{3}}{2})$.
-- Substituting $z = x + iy$ in the eqaution:
+- Substituting $z = x + iy$ in the equation:
     - $(x + iy)^3 + 1 = (x^3 - 3xy^2 + 1) + i(3x^2y - y^3) = 0$
     - Here, $U(x, y) = x^3 - 3xy^2 + 1$ and $V(x,y) = 3x^2y - y^3$
 - Formulating the Jacobian Matrix:
@@ -573,7 +569,7 @@ Instead of fitting a straight line, it fits a quadratic, polynomial through thre
     - $f_{k} = a_0x_{k}^{2} + a_1x_{k} + a_2$
 
 - Determining $a_0$, $a_1$, and $a_2$ from the equation,
-$$\begin{vmatrix} f(x) & x^2 & x & 1 \\ f_{k-2} & x^2_{k-2} & x_{k-2} & 1 \\ f_{k-1} & x^2_{k-1} & x_{k-1} & 1 \\ f_{k} & x^2_{k} & x_{k} & 1 \end{vmatrix}$$
+- $\begin{vmatrix} f(x) & x^2 & x & 1 \\ f_{k-2} & x^2_{k-2} & x_{k-2} & 1 \\ f_{k-1} & x^2_{k-1} & x_{k-1} & 1 \\ f_{k} & x^2_{k} & x_{k} & 1 \end{vmatrix}$
 
 - $f(x) = \frac{(x - x_{k-1})(x - x_k)}{(x_{k-2} - x_{k-1})(x_{k-2} - x_k)}.f_{k-2} + \frac{(x - x_{k-2})(x - x_k)}{(x_{k-1} - x_{k-2})(x_{k-1} - x_k)}.f_{k-1} + \frac{(x - x_{k-2})(x - x_{k-1})}{(x_{k} - x_{k-2})(x_{k} - x_{k-1})}.f_{k} = 0$
 
@@ -595,7 +591,7 @@ $$\begin{vmatrix} f(x) & x^2 & x & 1 \\ f_{k-2} & x^2_{k-2} & x_{k-2} & 1 \\ f_{
 - $x_{k+1} = x_k + (x_k - x_{k-1})\lambda_{k+1}$
 - Or, $x_{k+1} = x_k + h_k\lambda_{k+1}$
 
-#### Exercise 1
+### Exercise 1
 Perform three iterations of the Muller's Method to find the smallest positive root of the equation $f(x) = x^3 - 5x + 1 = 0$
 - The smallest root lies in the interval $(0, 1)$.
 - Let $x_0 = 0$, $x_1 = 0.5$, and $x_2 = 1$.
@@ -668,7 +664,7 @@ In this method, we will transform an equation into a suitable form and repeatedl
 - The root of the original equation is then a fixed point of $g(x)$, provided the rearrangement preserves the relevant solutions.
 - Ex: $x^3 - x - 1 = 0 \to x^3 = x + 1 \to x = (x+1)^{1/3}$
 - The fixed point iteration formula is
-$$x_{n+1} = g(x_n)$$
+    - $x_{n+1} = g(x_n)$
 
 ### Algorithm of Fixed Point Iteration Method
 - **Step 1:** Choose an initial guess $x_0$.
@@ -677,7 +673,7 @@ $$x_{n+1} = g(x_n)$$
 - **Step 4:** Check whether $|x_{n+1} - x_n| < \epsilon$.
 - **Step 5:** If satisfied, stop; otherwise repeat Step 3.
 
-### Example
+### Exercise 1
 Find the root of $x^3 - x - 1 = 0$ using the fixed-point iteration method. Take $x_0 = 1$ and perform 5 iterations.
 - $x^3 - x - 1 = 0 \Rightarrow x^3 = x + 1 \Rightarrow x = (x+1)^{1/3}$
 - $g(x) = (x+1)^{1/3}$
@@ -718,7 +714,7 @@ Find the root of $x^3 - x - 1 = 0$ using the fixed-point iteration method. Take 
 - Convergence may be slow.
 - A small change between successive approximations does not, by itself, guarantee that the true error is small.
 
-### Exercises - H.W.
+### Exercise - H.W.
 1. Use Fixed Point Iteration to solve $x^2 + x - 2 = 0$, using $x = (2 - x)^{1/2}$ and $x_0 = 1.5$, and perform 3 iterations.
 2. Explain why choosing a different rearrangement of the same equation may change convergence.
 
@@ -734,9 +730,9 @@ Let us assume we know some values of function $(x_0, y_0), (x_1, y_1), (x_2, y_2
 
 > **Interpolation** estimates a value *inside* the range of known data points. Example: $x = 10$ and $x = 30$ are given, find $x = 20$.
 > 
-> **Experpolation** estimates a value *outside* the known range. Example: $x = 10$ and $x = 30$ are given, find $x = 60$.
+> **Extrapolation** estimates a value *outside* the known range. Example: $x = 10$ and $x = 30$ are given, find $x = 60$.
 
-### Polynomial Interpolation
+## Polynomial Interpolation
 - Suppose we have '$n + 1$' data points, $(x_0, y_0), (x_1, y_1), (x_2, y_2), \dots (x_n, y_n)$.
 - Based on that we can construct a polynomial of degree at most $n$:
     - $P_n(x) = a_0 + a_1x + a_2x^2 + \dots a_nx^n$
@@ -745,13 +741,13 @@ Let us assume we know some values of function $(x_0, y_0), (x_1, y_1), (x_2, y_2
     - A polynomial of degree at most 1: $P_1(x) = a_0 + a_1x$.
     - A polynomial of degree at most 2: $P_2(x) = a_0 + a_1x + a_2x^2$.
 
-#### Exercise: Two Point Interpolation
+### Exercise: Two Point Interpolation
 Let $f(1) = 2$ and $f(3) = 6$. Find $f(2)$ using linear interpolation.
 - We know, $P_1(x) = a + bx$
 - $P(1) = 2, \therefore a + b = 2$
 - $P(3) = 6, \therefore a + 3b = 6$
 - Subtracting them, $2b = 4, \therefore b = 2$
-- Substituing $b$ we get, $a = 0$
+- Substituting $b$ we get, $a = 0$
 
 ## Linear Interpolation
 - For two data points $(x_0, y_0)$ and $(x_1, y_1)$, the linear interpolation formula is:
@@ -759,9 +755,9 @@ Let $f(1) = 2$ and $f(3) = 6$. Find $f(2)$ using linear interpolation.
 
 ---
 
-## Larange Interpolation
+## Lagrange Interpolation
 - Suppose we have $(n + 1)$ data points, $(x_0, y_0), (x_1, y_1), (x_2, y_2), \dots (x_n, y_n)$.
-- The Larange Interpolation Formula:
+- The Lagrange Interpolation Formula:
     - $P_n(x) = \Sigma_{i = 0}^{n} y_iL_i(x)$
     - Where, $L_i(x) = \Pi_{j = 0, j \ne i}^{n} \frac{x - x_j}{x_i - x_j}$
 - Example: For three points $(x_0, y_0), (x_1, y_1), and (x_2, y_2)$.
@@ -770,9 +766,7 @@ Let $f(1) = 2$ and $f(3) = 6$. Find $f(2)$ using linear interpolation.
     - $L_2 = \frac{(x - x_0)(x - x_1)}{(x_2 - x_0)(x_2 - x_1)}$
     - $P_2(x) = y_0L_0(x) + y_1L_1(x) + y_2L_2(x)$
 
-### Exercises
-
-#### Exercise 1
+### Exercise 1
 
 | $x$ | $1$ | $2$ | $4$ |
 | :-- | :-- | :-- | :-- |
@@ -785,17 +779,17 @@ Find f(3) using Linear Interpolation.
 - $P_2(3) = 1 \times -\frac{1}{3} + 4 \times 1 + 16 \times \frac{1}{3} = \frac{27}{3}$
 - $\therefore f(3) = 9$
 
-### Advantages of Larange Interpolation
+### Advantages of Lagrange Interpolation
 - Simple direct formula.
 - No need to solve simultaneous equations for the coefficients.
 - Works with unequally spaced data points.
 - Easy to use when only one interpolation value is required.
 
-### Limitations of Larange Interpolation
+### Limitations of Lagrange Interpolation
 - Formula becomes lengthy when many points are used.
 - If a new data point is added, the polynomial generally has to be reconstructed.
-- Repeated calculations can become combursome.
-- For many data points, Newton divided differences are often more convinient.
+- Repeated calculations can become cumbersome.
+- For many data points, Newton divided differences are often more convenient.
 
 ---
 
@@ -866,11 +860,9 @@ Find f(3) using Linear Interpolation.
 - Suppose the knows data points $(x_0,y_0), (x_1,y_1), \dots, (x_n,y_n)$ with equal spacing $h$:
     - $p = \frac{x - x_0}{h}$
 - Then the **N.F.I.F** is:
-$$f(x) \approx P_n(x) = y_0 + p\,\Delta y_0 + \frac{p(p-1)}{2!}\Delta^2 y_0 + \frac{p(p-1)(p-2)}{3!}\Delta^3 y_0 + \cdots + \frac{p(p-1)(p-2)\cdots(p-n+1)}{n!}\Delta^n y_0$$
+- $f(x) \approx P_n(x) = y_0 + p\,\Delta y_0 + \frac{p(p-1)}{2!}\Delta^2 y_0 + \frac{p(p-1)(p-2)}{3!}\Delta^3 y_0 + \cdots + \frac{p(p-1)(p-2)\cdots(p-n+1)}{n!}\Delta^n y_0$
 
-### Exercises
-
-#### Exercise 1
+### Exercise 1
 Find $f(1.5)$ using N.F Interpolation, using the table above where $x_0=0$ and $h=1$.
 - $p = \dfrac{x - x_0}{h} = \dfrac{1.5 - 0}{1} = 1.5$
 - $f(1.5) \approx P_n(1.5) = y_0 + p\,\Delta y_0 + \dfrac{p(p-1)}{2!}\Delta^2y_0$
@@ -878,7 +870,7 @@ Find $f(1.5)$ using N.F Interpolation, using the table above where $x_0=0$ and $
 - $f(1.5) = 1 + 1.5 + 0.75 = 3.25$
 - $\therefore f(1.5) = 3.25$
 
-#### Exercise 2
+### Exercise 2
 
 | $x$ | $10$ | $20$ | $30$ | $40$ | $50$ |
 | :-- | :-- | :-- | :-- | :-- | :-- |
@@ -891,18 +883,18 @@ Find $f(25)$ using N.F.I method.
 - $f(25) = 100 + 450 + 75 = 625$
 - $\therefore f(25) = 625$
 
-#### Exercises - H.W
+### Exercise - H.W.
 1. Find $f(2.5)$ using Newton Forward Interpolation.
 
-    | $x$ | $1$ | $2$ | $3$ | $4$ |
-    | :-- | :-- | :-- | :-- | :-- |
-    | $y$ | $1$ | $8$ | $27$ | $64$ |
+| $x$ | $1$ | $2$ | $3$  | $4$  |
+| :-- | :-- | :-- | :--- | :--- |
+| $y$ | $1$ | $8$ | $27$ | $64$ |
 
 2. Find $f(12)$ using Newton Forward Interpolation.
 
-    | $x$ | $10$ | $15$ | $20$ | $25$ |
-    | :-- | :-- | :-- | :-- | :-- |
-    | $f(x)$ | $100$ | $225$ | $400$ | $625$ |
+| $x$    | $10$  | $15$  | $20$  | $25$  |
+| :----- | :---- | :---- | :---- | :---- |
+| $f(x)$ | $100$ | $225$ | $400$ | $625$ |
 
 3. Explain why Newton Forward Interpolation is used when the required value is near the beginning of the equally spaced table.
 
@@ -913,17 +905,17 @@ Find $f(25)$ using N.F.I method.
 - Suppose the data points $x_0, x_1, x_2, \dots x_n$ are equally spaced with $x_i = x_0 + ih$, as before.
 - Newton Backward Interpolation builds the polynomial starting from the last point $(x_n, y_n)$, so it is used when the required value lies near the end of the table.
 
-    | $x$ | $0$ | $1$ | $2$ | $3$ | $4$ |
-    | :-- | :-- | :-- | :-- | :-- | :-- |
-    | $f(x)$ | $1$ | $2$ | $5$ | $10$ | $17$ |
+| $x$    | $0$ | $1$ | $2$ | $3$  | $4$  |
+| :----- | :-- | :-- | :-- | :--- | :--- |
+| $f(x)$ | $1$ | $2$ | $5$ | $10$ | $17$ |
 
 ### Backward Difference Operator
 - The backward difference operator is represented by $\nabla$, and $\nabla f(x) = f(x) - f(x-h)$.
 - For a set of equally spaced data $(x_0,y_0), (x_1,y_1), \dots, (x_n,y_n)$:
 
-    | $x$ | $x_0$ | $x_1$ | $x_2$ | $x_3$ |
-    | :-- | :-- | :-- | :-- | :-- |
-    | $y$ | $y_0$ | $y_1$ | $y_2$ | $y_3$ |
+| $x$ | $x_0$ | $x_1$ | $x_2$ | $x_3$ |
+| :-- | :-- | :-- | :-- | :-- |
+| $y$ | $y_0$ | $y_1$ | $y_2$ | $y_3$ |
 
 - First backward difference: $\nabla y_i = y_i - y_{i-1}$
     - $\nabla y_1 = y_1 - y_0$
@@ -951,24 +943,21 @@ Find $f(25)$ using N.F.I method.
 
 - **Final difference table:**
 
-    | $x$ | $y$ | $\nabla y$ | $\nabla^2 y$ | $\nabla^3 y$ |
-    | :-- | :-- | :-- | :-- | :-- |
-    | 0 | 1 | | | | |
-    | 1 | 2 | 1 | | |
-    | 2 | 5 | 3 | 2 | |
-    | 3 | 10 | 5 | 2 | 0 |
-    | 4 | 17 | 7 | 2 | 0 |
+| $x$ | $y$ | $\nabla y$ | $\nabla^2 y$ | $\nabla^3 y$ |     |
+| :-- | :-- | :--------- | :----------- | :----------- | --- |
+| 0   | 1   |            |              |              |     |
+| 1   | 2   | 1          |              |              |     |
+| 2   | 5   | 3          | 2            |              |     |
+| 3   | 10  | 5          | 2            | 0            |     |
+| 4   | 17  | 7          | 2            | 0            |     |
 
 ### Newton Backward Interpolation Formula (N.B.I.F)
 - Suppose the known data points $(x_0,y_0), (x_1,y_1), \dots, (x_n,y_n)$ with equal spacing $h$:
     - $p = \dfrac{x - x_n}{h}$
 - Then the N.B.I.F is:
+- $f(x) \approx P_n(x) = y_n + p\,\nabla y_n + \frac{p(p+1)}{2!}\nabla^2 y_n + \frac{p(p+1)(p+2)}{3!}\nabla^3 y_n + \cdots + \frac{p(p+1)(p+2)\cdots(p+n-1)}{n!}\nabla^n y_n$
 
-$$f(x) \approx P_n(x) = y_n + p\,\nabla y_n + \frac{p(p+1)}{2!}\nabla^2 y_n + \frac{p(p+1)(p+2)}{3!}\nabla^3 y_n + \cdots + \frac{p(p+1)(p+2)\cdots(p+n-1)}{n!}\nabla^n y_n$$
-
-### Exercises
-
-#### Exercise 1
+### Exercise 1
 Find $f(3.5)$ using N.B. Interpolation, using the table above.
 - $p = \dfrac{x - x_n}{h} = \dfrac{3.5 - 4}{1} = -0.5$
 - $f(3.5) \approx P_n(3.5) = y_n + p\,\nabla y_n + \dfrac{p(p+1)}{2!}\nabla^2y_n$
@@ -987,9 +976,9 @@ Find $f(3.5)$ using N.B. Interpolation, using the table above.
 - General divided difference: 
     - $f[x_i, \cdots x_{i + k}] = \frac{f[x_{i + 1}, \cdots x_{i + k}] - f[x_i, \cdots x_{i + k - 1}]}{x_{i + k} - x_i}$
 
-    | $x$ | $1$ | $2$ | $4$ | $7$ |
-    | :-- | :-- | :-- | :-- | :-- |
-    | $f(x)$ | $1$ | $4$ | $16$ | $19$ |
+| $x$    | $1$ | $2$ | $4$  | $7$  |
+| :----- | :-- | :-- | :--- | :--- |
+| $f(x)$ | $1$ | $4$ | $16$ | $19$ |
 
 ### Divided Difference Table
 - First divided difference: 
@@ -1004,19 +993,17 @@ Find $f(3.5)$ using N.B. Interpolation, using the table above.
 
 - **Final Difference Table:**
 
-    | $x$ | $y$ | $\Delta y$ | $\Delta^2 y$ | $\Delta^3 y$ |
-    | :-- | :-- | :-- | :-- | :-- |
-    | $1$ | $1$ | $3$ | $1$ | -$\frac{1}{3}$ |
-    | $2$ | $4$ | $6$ | $-1$ | |
-    | $4$ | $16$ | $1$ | | |
-    | $7$ | $19$ | | | |
+| $x$ | $y$  | $\Delta y$ | $\Delta^2 y$ | $\Delta^3 y$   |
+| :-- | :--- | :--------- | :----------- | :------------- |
+| $1$ | $1$  | $3$        | $1$          | -$\frac{1}{3}$ |
+| $2$ | $4$  | $6$        | $-1$         |                |
+| $4$ | $16$ | $1$        |              |                |
+| $7$ | $19$ |            |              |                |
 
 ### Divided Difference Formula
-$$P_n(x) = f[x_0] + (x - x_0)f[x_0, x_1] + (x - x_0)(x - x_1)f[x_0, x_1, x_2] + (x - x_0)(x - x_1)(x - x_2)f[x_0, x_1, x_2, x_3] + \cdots (x - x_0) \cdots (x - x_{n - 1})f[x_0, x_1, \cdots x_n]$$
+- $P_n(x) = f[x_0] + (x - x_0)f[x_0, x_1] + (x - x_0)(x - x_1)f[x_0, x_1, x_2] + (x - x_0)(x - x_1)(x - x_2)f[x_0, x_1, x_2, x_3] + \cdots (x - x_0) \cdots (x - x_{n - 1})f[x_0, x_1, \cdots x_n]$
 
-### Exercises
-
-#### Exercise 1
+### Exercise 1
 Construct the divided difference table for the data
     
 | $x$ | $0.5$ | $1.5$ | $3.0$ | $5.0$ | $6.5$ | $8.0$ |
@@ -1024,7 +1011,7 @@ Construct the divided difference table for the data
 | $f(x)$ | $1.625$ | $5.875$ | $31.0$ | $131.0$ | $282.125$ | $521.0$ |
 
 Hence, find the interpolating polynomial and approximation to the value of $f(7)$.
-- Frst divided differences:
+- First divided differences:
     - $f[0.5, 1.5] = \frac{5.875 - 1.625}{1.5 - 0.5} = 4.25$
     - $f[1.5, 3.0] = \frac{31.0 - 5.875}{3.0 - 1.5} = 16.75$
     - $f[3.0, 5.0] = \frac{131.0 - 31.0}{5.0 - 3.0} = 50$
@@ -1047,14 +1034,14 @@ Hence, find the interpolating polynomial and approximation to the value of $f(7)
 
 - Divided difference table:
 
-    |$x$ | $f[x]$ | 1st | 2nd | 3rd | 4th | 5th |
-    | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
-    | $0.5$ | $1.625$ | $4.25$ | $5$ | $1$ | $0$ | $0$ |
-    | $1.5$ | $5.875$ | $16.75$ | $9.5$ | $1$ | $0$ | |
-    | $3.0$ | $31.0$ | $50$ | $14.5$ | $1$ | | |
-    | $5.0$ | $131.0$ | $100.75$ | $19.5$ | | | |
-    | $6.5$ | $282.125$ | $159.25$ | | | | |
-    | $8.0$ | $521.0$ | | | | | |
+| $x$   | $f[x]$    | 1st      | 2nd    | 3rd | 4th | 5th |
+| :---- | :-------- | :------- | :----- | :-- | :-- | :-- |
+| $0.5$ | $1.625$   | $4.25$   | $5$    | $1$ | $0$ | $0$ |
+| $1.5$ | $5.875$   | $16.75$  | $9.5$  | $1$ | $0$ |     |
+| $3.0$ | $31.0$    | $50$     | $14.5$ | $1$ |     |     |
+| $5.0$ | $131.0$   | $100.75$ | $19.5$ |     |     |     |
+| $6.5$ | $282.125$ | $159.25$ |        |     |     |     |
+| $8.0$ | $521.0$   |          |        |     |     |     |
 
 - $P_3(x) = 1.625 + 4.25(x - 0.5) + 5(x - 0.5)(x - 1.5) + 1\cdot(x - 0.5)(x - 1.5)(x - 3.0)$
     - $5(x-0.5)(x-1.5) = 5x^2 - 10x + 3.75$
@@ -1065,10 +1052,195 @@ Hence, find the interpolating polynomial and approximation to the value of $f(7)
     - $P_3(7) = 7^3 + 7 + 1 = 351$
 
 
-#### Exercise - H.W
+### Exercise - H.W.
 1. Construct the difference table for the sequence of values $f(x) = (0, 0, 0, \epsilon, 0, 0, 0)$, where $\epsilon$ is an error. Also show that:
     1. The error spreads and increases in magnitude as the order of difference increases.
     2. The errors in each column have binomial coefficients.
+
+---
+
+## Spline Interpolation
+- When many data points are available, using a high degree polynomial can become computationally complicated and may produce unwanted oscillations.
+- Spline interpolation solves this problem by using different low degree polynomials over small sub-intervals and joining them smoothly.
+- Historically, craftsmen used flexible strips called 'splines' to draw smooth curves through specified points.
+- The mathematical idea is similar, i.e., construct a curve that passes through the data points while maintaining suitable continuity and smoothness.
+
+- Consider data points $(x_0, y_0), (x_1, y_1), \dots, (x_n, y_n)$, where $x_0 < x_1 < \dots < x_n$.
+- These points divide the interval $[x_0, x_n]$ into smaller intervals:
+    - $[x_0, x_1], [x_1, x_2], \dots, [x_{n-1}, x_n]$
+- Instead of fitting one polynomial over the entire interval, construct one polynomial on each sub-interval.
+- The representation of Spline Function is as:
+    - $F(x) = \begin{cases} P_1(x) & ; \ x_0 \le x \le x_1 \\ P_2(x) & ; \ x_1 \le x \le x_2 \\ \vdots & \\ P_n(x) & ; \ x_{n-1} \le x \le x_n \end{cases}$
+- The function must satisfy the interpolation condition:
+    - $F(x_i) = f_i$ ; $i = 0, 1, \dots, n$
+    - where $f_i = f(x_i)$
+- The points $x_1, x_2, \dots, x_{n-1}$ are called internal nodes or knots.
+- These are the points where adjacent polynomial pieces meet.
+
+### Types of Spline Function
+1. Linear: $P_i(x) = a_ix + b_i$
+2. Quadratic: $P_i(x) = a_ix^2 + b_ix + c_i$
+3. Cubic: $P_i(x) = a_ix^3 + b_ix^2 + c_ix + d_i$
+
+### Linear Spline Interpolation
+- Suppose two consecutive data points are $(x_{i-1}, y_{i-1})$ and $(x_i, y_i)$.
+- On the interval $[x_{i-1}, x_i]$, assume a straight line polynomial $P_i(x) = a_ix + b_i$.
+- Since the line passes through both points:
+    - $a_ix_{i-1} + b_i = y_{i-1}$ and $a_ix_i + b_i = y_i$
+- Subtract:
+    - $a_i(x_i - x_{i-1}) = y_i - y_{i-1}$
+    - $a_i = \dfrac{y_i - y_{i-1}}{x_i - x_{i-1}}$
+- $P_i(x) = a_ix + b_i = a_i(x - x_{i-1}) + y_{i-1}$:
+- $P_i(x) = \frac{y_i - y_{i-1}}{x_i - x_{i-1}}(x - x_{i-1}) + y_{i-1}$
+- This formula is used for $x_{i-1} \le x \le x_i$.
+
+#### Exercise 1
+Construct a linear spline for the data. Estimate $f(2)$.
+
+| $x$ | $0$ | $1$ | $3$ |
+| :-- | :-- | :-- | :-- |
+| $f(x)$ | $1$ | $3$ | $2$ |
+
+- **Step 1:** First interval $[0, 1]$, using $(0, 1)$ and $(1, 3)$
+    - $P_1(x) = 1 + \dfrac{3 - 1}{1 - 0}(x - 0)$
+    - $P_1(x) = 1 + 2x$ ; $0 \le x \le 1$
+- **Step 2:** Second interval $[1, 3]$, using $(1, 3)$ and $(3, 2)$
+    - $P_2(x) = 3 + \dfrac{2 - 3}{3 - 1}(x - 1)$
+    - $P_2(x) = 3.5 - 0.5x$ ; $1 \le x \le 3$
+- $F(x) = \begin{cases} 1 + 2x & ; \ 0 \le x \le 1 \\ 3.5 - 0.5x & ; \ 1 \le x \le 3 \end{cases}$
+- $x = 2$ lies in $[1, 3]$:
+- $f(2) = 3.5 - 0.5(2) = 3.5 - 1 = 2.5$
+- $\therefore f(2) = 2.5$
+
+#### Exercise 2
+Construct a linear spline for $(0, 2), (2, 6), (4, 4)$. Estimate $f(3)$.
+
+| $x$ | $0$ | $2$ | $4$ |
+| :-- | :-- | :-- | :-- |
+| $f(x)$ | $2$ | $6$ | $4$ |
+
+- **Step 1:** First interval $[0, 2]$, using $(0, 2)$ and $(2, 6)$
+    - $P_1(x) = \dfrac{6 - 2}{2 - 0}(x - 0) + 2$
+    - $P_1(x) = 2x + 2$
+- **Step 2:** Second interval $[2, 4]$, using $(2, 6)$ and $(4, 4)$
+    - $P_2(x) = \dfrac{4 - 6}{4 - 2}(x - 2) + 6$
+    - $P_2(x) = -x + 2 + 6 = 8 - x$
+- $F(x) = \begin{cases} 2x + 2 & ; \ 0 \le x \le 2 \\ 8 - x & ; \ 2 \le x \le 4 \end{cases}$
+- $x = 3$ lies in $[2, 4]$:
+- $f(3) = 8 - 3 = 5$
+- $\therefore f(3) = 5$
+
+### Quadratic Spline Interpolation
+- For interval $[x_{i-1}, x_i]$,
+    - let $P_i(x) = a_ix^2 + b_ix + c_i$
+    - where $a_i, b_i, c_i$ are constants to be determined.
+- A quadratic spline must satisfy three types of conditions:
+1. **Interpolation conditions:**
+    - At each data point, the spline must pass through the given value: $P_i(x_i) = f_i$.
+    - Each piece passes through both of its end points: $P_i(x_{i-1}) = f_{i-1}$ and $P_i(x_i) = f_i$.
+    - At the internal knot $x_i$, the adjacent pieces must both pass through the same data point:
+    - $P_i(x_i) = P_{i+1}(x_i) = f_i$
+2. **First Derivative Continuity:**
+    - The slope of adjacent pieces must match at every internal knot: $P_i'(x_i) = P_{i+1}'(x_i)$
+    - Since $P_i'(x) = 2a_ix + b_i$, we obtain
+    - $2a_ix_i + b_i = 2a_{i+1}x_i + b_{i+1}$
+3. **Additional Boundary Condition:**
+    - $F''(x_0) = 0$
+    - Since $P_1''(x) = 2a_1$, we get $2a_1 = 0 \Rightarrow a_1 = 0$.
+
+#### Exercise 1
+Construct a quadratic spline satisfying $F''(x_0) = 0$. Estimate $f(2.5)$.
+
+| $x$ | $0$ | $1$ | $2$ | $3$ |
+| :-- | :-- | :-- | :-- | :-- |
+| $f(x)$ | $1$ | $2$ | $33$ | $244$ |
+
+- **Step 1:** The interval $[0, 3]$ is divided into $[0, 1], [1, 2], [2, 3]$.
+    - Assume:
+    - $P_1(x) = a_1x^2 + b_1x + c_1$ ; $0 \le x \le 1$
+    - $P_2(x) = a_2x^2 + b_2x + c_2$ ; $1 \le x \le 2$
+    - $P_3(x) = a_3x^2 + b_3x + c_3$ ; $2 \le x \le 3$
+- **Step 2:** Apply the boundary condition
+    - $F''(0) = 0$ and $P_1''(x) = 2a_1$
+    - $2a_1 = 0 \Rightarrow a_1 = 0$
+    - Therefore, $P_1(x) = b_1x + c_1$
+- **Step 3:** Determine the first polynomial
+    - At $x = 0$: $P_1(0) = 1 \Rightarrow c_1 = 1$
+    - At $x = 1$: $P_1(1) = 2 \Rightarrow b_1 + c_1 = 2$
+    - Using $c_1 = 1$: $b_1 + 1 = 2 \Rightarrow b_1 = 1$
+    - So, $P_1(x) = x + 1$
+- **Step 4:** Determine the second polynomial
+    - At $x = 1$: 
+        - $P_2(1) = a_2(1)^2 + b_2(1) + c_2 = a_2 + b_2 + c_2 = 2 \quad - eq.1$
+    - At $x = 2$: 
+        - $P_2(2) = a_2(2)^2 + b_2(2) + c_2 = 4a_2 + 2b_2 + c_2 = 33 \quad - eq.2$
+    - $P_1'(x_1) = P_2'(x_1)$:
+        - $\dfrac{d}{dx}(x + 1) = \dfrac{d}{dx}(a_2x^2 + b_2x + c_2)$ at $x = 1$
+        - $1 = 2a_2 + b_2 \quad - eq.3$
+    - $\times 2$: $4a_2 + 2b_2 = 2$
+    - Substitute into $eq.2$:
+        - $2 + c_2 = 33$
+        - $c_2 = 31$
+    - From $eq.3$: 
+        - $b_2 = 1 - 2a_2$
+    - Substitute into $eq.1$:
+        - $a_2 + 1 - 2a_2 + 31 = 2$
+        - $1 - a_2 + 31 = 2$
+        - $a_2 = 30$
+    - Substitute into $eq.1$:
+        - $30 + b_2 + 31 = 2$
+        - $b_2 = -59$
+    - So, $P_2(x) = 30x^2 - 59x + 31$
+- **Step 5:** Determine the third polynomial
+    - At $x = 2$: 
+        - $P_3(2) = a_3(2)^2 + b_3(2) + c_3 = 33$
+        - $4a_3 + 2b_3 + c_3 = 33 \quad - eq.1$
+    - At $x = 3$: 
+        - $P_3(3) = a_3(3)^2 + b_3(3) + c_3 = 244$
+        - $9a_3 + 3b_3 + c_3 = 244 \quad - eq.2$
+    - $P_2'(2) = P_3'(2)$:
+        - $2a_2(2) + b_2 = 2a_3(2) + b_3$
+        - $4a_2 + b_2 = 4a_3 + b_3$
+        - $4(30) - 59 = 4a_3 + b_3$
+        - $61 = 4a_3 + b_3 \quad - eq.3$
+    - $eq.2 - eq.1$: 
+        - $5a_3 + b_3 = 211 \quad - eq.4$
+    - $eq.4 - eq.3$: 
+        - $a_3 = 150$
+    - From $eq.3$: 
+        - $b_3 = 61 - 4(150) = -539$
+    - From $eq.1$: 
+        - $4(150) + 2(-539) + c_3 = 33$
+        - $600 - 1078 + c_3 = 33$
+        - $c_3 = 511$
+    - So, $P_3(x) = 150x^2 - 539x + 511$
+- **Step 6:** Spline function and estimate
+    - $F(x) = \begin{cases} x + 1 & ; \ 0 \le x \le 1 \\ 30x^2 - 59x + 31 & ; \ 1 \le x \le 2 \\ 150x^2 - 539x + 511 & ; \ 2 \le x \le 3 \end{cases}$
+    - $x = 2.5$ lies in $[2, 3]$:
+    - $f(2.5) = 150(2.5)^2 - 539(2.5) + 511 = 937.5 - 1347.5 + 511 = 101$
+- $\therefore f(2.5) = 101$
+
+### Cubic Spline Interpolation
+- $P_i(x) = a_ix^3 + b_ix^2 + c_ix + d_i$
+1. **Interpolation condition:** $F(x_i) = f_i$
+2. **First derivative continuity:** $P_i'(x_i) = P_{i+1}'(x_i)$
+3. **Second derivative continuity:** $P_i''(x_i) = P_{i+1}''(x_i)$
+
+### Advantages of Spline Interpolation
+- Uses low degree polynomials over smaller intervals.
+- Avoids relying on one high degree polynomial for the whole dataset.
+- Provides local control for the interpolating curve.
+- Cubic splines provide smooth first & second derivatives.
+- Suitable for interpolating large sets of tabulated data.
+
+### Limitations of Spline Interpolation
+- Requires continuity conditions & suitable boundary conditions.
+- Computing coefficients involves solving equations.
+- Extrapolation outside the data interval may be unreliable.
+- A spline is not automatically more accurate than every global polynomial; accuracy depends on the data and the construction.
+
+### Exercise - H.W.
+1. Construct a quadratic spline for $(0, 1), (1, 2), (2, 5)$ using $F''(0) = 0$.
 
 ---
 
@@ -1083,7 +1255,7 @@ Hence, find the interpolating polynomial and approximation to the value of $f(7)
 - No product of variables such as $xy$.
 - No powers such as $x^2, x^3$, etc.
 - No functions such as $\sin(x), e^x$, etc.
-- Ex:
+- Examples:
     - $2x + 3y = 5$ is a linear equation.
     - $x^2 + 6 = y$ is not a linear equation.
     - $xy + z = 6$ is not a linear equation.
@@ -1176,7 +1348,7 @@ Hence, find the interpolating polynomial and approximation to the value of $f(7)
 $\det A = (2)(-1) - (1)(1) = -3 \neq 0$
     - $\therefore$ the system has a unique solution.
 
-### Exercises - H.W
+### Exercise - H.W.
 1. Convert the following system into matrix form. Identify $A$, $X$ & $B$. Also write the augmented matrix.
     - $2x + 3y - z = 5$
     - $x - 2y + 4z = 7$
@@ -1209,7 +1381,7 @@ $\det A = (2)(-1) - (1)(1) = -3 \neq 0$
 - **Operation 3:** Add a multiple of one row to another row. $R_i \to R_i + kR_j$
     - Ex: $R_2 \to R_2 - 2R_1$
 
-#### Example
+### Exercise 1
 Find the solution using the Gaussian Elimination Method.
     - $x + y + z = 6$
     - $2x + 3y + z = 11$
@@ -1240,11 +1412,11 @@ Find the solution using the Gaussian Elimination Method.
 - Calculate the multiplier $m_{i1} = \dfrac{a_{i1}}{a_{11}}$ and perform $R_i \to R_i - m_{i1}R_1$ for $i = 2, 3, \dots, n$.
 - Then move to the second pivot $a_{22}^{(new)}$ and eliminate the elements below it.
 
->> **Pivot:**
->> A pivot is the key element which is used to eliminate the entries below it.
->> For $\begin{bmatrix} 2 & 1 & -1 \\ 0 & 3 & 4 \\ 0 & 0 & 5 \end{bmatrix}$, the pivots are $2, 3, 5$.
+> **Pivot:**
+> A pivot is the key element which is used to eliminate the entries below it.
+> For $\begin{bmatrix} 2 & 1 & -1 \\ 0 & 3 & 4 \\ 0 & 0 & 5 \end{bmatrix}$, the pivots are $2, 3, 5$.
 
-### Exercises - H.W
+### Exercise - H.W.
 1. Solve using the Gaussian Elimination Method.
     - $2x + y + z = 10$
     - $4x - 6y + 3z = -2$
@@ -1258,7 +1430,7 @@ Find the solution using the Gaussian Elimination Method.
 ---
 
 ## Gauss-Jordan Method
-$$[A \mid B] \to [I \mid X]$$
+- $[A \mid B] \to [I \mid X]$
 - In Gauss-Jordan, we continue eliminating both:
     - below the pivot, and
     - above the pivot.
@@ -1271,7 +1443,7 @@ $$[A \mid B] \to [I \mid X]$$
 - **Operation 2:** Multiply a row by a non-zero constant. $R_i \to kR_i$, $k \neq 0$
 - **Operation 3:** Add a multiple of one row to another. $R_i \to R_i + kR_j$
 
-### Example
+### Exercise 1
 - Solve using Gauss-Jordan Method
     - $x + y + z = 6$
     - $2x + 3y + z = 11$
@@ -1300,7 +1472,7 @@ $$[A \mid B] \to [I \mid X]$$
     - $\left[\begin{array}{ccc|c} a_{11} & a_{12} & a_{13} & b_1 \\ a_{21} & a_{22} & a_{23} & b_2 \\ a_{31} & a_{32} & a_{33} & b_3 \end{array}\right]$ 
     - becomes $\left[\begin{array}{ccc|c} 1 & 0 & 0 & x \\ 0 & 1 & 0 & y \\ 0 & 0 & 1 & z \end{array}\right]$
 
-### Exercises - H.W
+### Exercise - H.W.
 1. Solve using Gauss-Jordan Method
     - $2x + y - z = 8$
     - $x + 2y + z = 7$
@@ -1309,7 +1481,7 @@ $$[A \mid B] \to [I \mid X]$$
 ---
 
 ## LU Decomposition
-$$A = LU$$
+- $A = LU$
 - $A \to$ original coefficient matrix
 - $L \to$ lower triangular matrix
 - $U \to$ upper triangular matrix
@@ -1335,7 +1507,7 @@ $$A = LU$$
 - $l_{32} = \dfrac{a_{32} - l_{31}u_{12}}{u_{22}}$
 - $u_{33} = a_{33} - l_{31}u_{13} - l_{32}u_{23}$
 
-### Example
+### Exercise 1
 - Solve using LU Decomposition
     - $x + y + z = 6$
     - $2x + 3y + z = 11$
@@ -1378,7 +1550,7 @@ $$A = LU$$
 - Pivoting may require a permutation matrix, giving $PA = LU$ rather than a simple $A = LU$.
 - Factorization requires order of $n^3$ arithmetic operations for a dense $n \times n$ matrix.
 
-### Exercises - H.W
+### Exercise - H.W.
 1. Solve using L.U. Decomposition.
     - $2x + y = 5$
     - $4x + 3y = 11$

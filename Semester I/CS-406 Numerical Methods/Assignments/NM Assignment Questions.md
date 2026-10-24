@@ -67,3 +67,5 @@
 21. Use Fixed Point Iteration to solve $x^2 + x - 2 = 0$, using $x = (2 - x)^{1/2}$ and $x_0 = 1.5$, and perform 3 iterations.
 
 22. Explain why choosing a different rearrangement of the same equation may change convergence.
+
+23. Construct a quadratic spline for $(0, 1), (1, 2), (2, 5)$ using $F''(0) = 0$.
