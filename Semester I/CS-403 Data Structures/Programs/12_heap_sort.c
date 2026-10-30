@@ -1,15 +1,19 @@
 /*
-1. Write a C program to implement Heap Sort.
-2. Write a C program to create a Max Heap from a given array.
-3. Write a C program to create a Min Heap from a given array.
-4. Write a C program to sort an array in ascending order using Heap Sort.
-5. Write a C program to sort an array in descending order using Heap Sort.
+1. Implementation of Heap Sort to sort an array in ascending order using Max Heap.
+2. Implementation of Heap Sort to sort an array in descending order using Min Heap.
 */
 
 #include <stdio.h>
 
+void print_array(int A[], int n)
+{
+    for (int i = 0; i < n; i++)
+        printf("%d ", A[i]);
+    printf("\n");
+}
 
-/* Function to create Max Heap from a given array */
+
+// 1. Implementation of Heap Sort to sort an array in ascending order using Max Heap.
 void max_heapify(int A[], int n, int i)
 {
     int largest = i;
@@ -26,15 +30,20 @@ void max_heapify(int A[], int n, int i)
         int temp = A[i];
         A[i] = A[largest];
         A[largest] = temp;
-        max_heapify(A, largest, n);
+        max_heapify(A, n, largest);
     }
 }
 
-/* Function to sort array in Ascending Order using Heap Sort */
 void heap_sort_ascending(int A[], int n)
 {
+    int count = 0;
     for (int i = n / 2 - 1; i >= 0; i--)
+    {
+        count++;
         max_heapify(A, n, i);
+        printf(">> Max Heapify Operation #%d: ", count);
+        print_array(A, n);
+    }
     for (int end = n - 1; end > 0; end--)
     {
         int temp = A[0];
@@ -44,7 +53,8 @@ void heap_sort_ascending(int A[], int n)
     }
 }
 
-/* Function to create Min Heap from a given Array */
+
+// 2. Implementation of Heap Sort to sort an array in descending order using Min Heap.
 void min_heapify(int A[], int n, int i)
 {
     int smallest = i;
@@ -61,15 +71,20 @@ void min_heapify(int A[], int n, int i)
         int temp = A[i];
         A[i] = A[smallest];
         A[smallest] = temp;
-        min_heapify(A, smallest, n);
+        min_heapify(A, n, smallest);
     }
 }
 
-/* Function to sort array in Desending Order using Heap Sort */
 void heap_sort_descending(int A[], int n)
 {
+    int count = 0;
     for (int i = n / 2 - 1; i >= 0; i--)
+    {
         min_heapify(A, n, i);
+        count++;
+        printf(">> Max Heapify Operation #%d: ", count);
+        print_array(A, n);
+    }
     for (int end = n - 1; end > 0; end--)
     {
         int temp = A[0];
@@ -79,18 +94,11 @@ void heap_sort_descending(int A[], int n)
     }
 }
 
-/* Function to Print Array */
-void print_array(int A[], int n)
-{
-    printf(">> ");
-    for (int i = 0; i < n; i++)
-        printf("%d ", A[i]);
-    printf("\n");
-}
-
 
 int main()
 {
+    printf("\n");
+    printf("TASK: Implementation of Heap Sort\n");
     printf("----------\n");
     int n;
     printf("Enter the number of elements: ");
@@ -101,19 +109,27 @@ int main()
         printf(">> Enter element #%d: ", i + 1);
         scanf("%d", &A[i]);
     }
-    printf("\n");
 
+    printf("----------\n");
+    printf("Unsorted Array: ");
+    print_array(A, n);
+    printf("----------\n\n");
+
+    printf("TASK 1: Heap Sort using Max Heap: \n");
     printf("----------\n");
     heap_sort_ascending(A, n);
-    printf("Sorted in Ascending Order using Heap Sort: ");
+    printf("----------\n");
+    printf("Sorted in Ascending Order: ");
     print_array(A, n);
-    printf("\n");
-
+    printf("----------\n\n");
+    
+    printf("TASK 2: Heap Sort using Min Heap: \n");
     printf("----------\n");
     heap_sort_descending(A, n);
-    printf("Sorted in Descending Order using Heap Sort: ");
+    printf("----------\n");
+    printf("Sorted in Descending Order: ");
     print_array(A, n);
-    printf("\n");
+    printf("----------\n\n");
 
     return 0;
 }
