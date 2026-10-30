@@ -1,6 +1,6 @@
 # CS 406: Numerical Methods
 
-Taught by [Prof. Anuj Sachan](https://www.jnu.ac.in/content/anujsachan)
+Taught by [Dr. Anuj Sachan](https://www.jnu.ac.in/content/anujsachan)
 
 ### References
 - [Numerical Methods for Scientific and Engineering Computation by M. K. Jain, S. R. K. Iyengar, and R. K. Jain](https://archive.org/details/numericalmethods00jain_0)
