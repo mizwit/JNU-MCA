@@ -424,3 +424,30 @@ $\left[\begin{array}{cc|c} 2 & 1 & 3 \\ 0 & 0 & 4 \end{array}\right]$
     - $a_2 = c_2 - 1 = 2$, $\quad b_2 = 1 - 2(2) = -3$
     - $P_2(x) = 2x^2 - 3x + 3$
 - $F(x) = \begin{cases} x + 1 & ; \ 0 \le x \le 1 \\ 2x^2 - 3x + 3 & ; \ 1 \le x \le 2 \end{cases}$
+
+---
+
+### 24. Find the roots of $T_3(x) = 4x^3 - 3x$.
+- **Method 1:** Solve $T_3(x) = 0$
+    - $4x^3 - 3x = 0$
+    - $x(4x^2 - 3) = 0$
+    - $x = 0$ or $x^2 = \dfrac{3}{4}$ 
+    - $x = 0$ or $x = \pm\dfrac{\sqrt{3}}{2}$
+- **Method 2:** Using $x_k = \cos\left(\dfrac{(2k - 1)\pi}{2n}\right)$ with $n = 3$, $k = 1, 2, 3$
+    - $x_1 = \cos\left(\dfrac{\pi}{6}\right) = \dfrac{\sqrt{3}}{2}$
+    - $x_2 = \cos\left(\dfrac{3\pi}{6}\right) = \cos\left(\dfrac{\pi}{2}\right) = 0$
+    - $x_3 = \cos\left(\dfrac{5\pi}{6}\right) = -\dfrac{\sqrt{3}}{2}$
+- $\therefore$ the roots are $x = -\dfrac{\sqrt{3}}{2},\ 0,\ \dfrac{\sqrt{3}}{2}$.
+
+---
+
+### 25. Express $x^4$ as a combination of Chebyshev polynomials.
+- $T_4(x) = 8x^4 - 8x^2 + 1$
+- $x^4 = \dfrac{T_4(x) + 8x^2 - 1}{8}$
+- From $T_2(x) = 2x^2 - 1$: 
+    - $x^2 = \dfrac{T_2(x) + 1}{2}$
+    - So, $8x^2 = 4T_2(x) + 4$
+- $x^4 = \dfrac{T_4(x) + 4T_2(x) + 3}{8}$
+- $\therefore x^4 = \dfrac{3}{8}T_0(x) + \dfrac{1}{2}T_2(x) + \dfrac{1}{8}T_4(x)$
+
+---

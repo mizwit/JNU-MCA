@@ -1557,3 +1557,99 @@ Find the solution using the Gaussian Elimination Method.
 2. Why is LU Decomposition particularly useful when several systems have the same coefficient matrix but different right hand side vectors?
 
 ---
+
+# Approximation of Functions
+
+- In function approximation, our objective is to find a simpler function that represents another function accurately over an interval, even if it does not pass through every data point.
+- If $f(x) = e^x$ over an interval, the approximation error at $x$ is $E(x) = f(x) - P_n(x)$.
+    - $P_n(x)$ is the approximating polynomial.
+- Maximum absolute error: $\displaystyle\max_{a \le x \le b} |f(x) - P_n(x)|$
+
+## Chebyshev Polynomials
+- Chebyshev Polynomials are a special family of polynomials denoted by $T_0(x), T_1(x), T_2(x), \dots$
+- They are defined on $[-1, 1]$ using the cosine function.
+- $T_n(x) = \cos(n\cos^{-1}x)$, where $n = 0, 1, 2, \dots$
+- First few Chebyshev polynomials:
+    - For $n = 0$: 
+        - $T_0(x) = \cos(0) = 1$
+    - For $n = 1$: 
+        - $T_1(x) = \cos(\cos^{-1}x) = x$
+    - For $n = 2$: using $\cos 2\theta = 2\cos^2\theta - 1$
+        - $T_2(x) = 2x^2 - 1$
+    - For $n = 3$: using $\cos 3\theta = 4\cos^3\theta - 3\cos\theta$
+        - $T_3(x) = 4x^3 - 3x$
+    - For $n = 4$: using $\cos 4\theta = 8\cos^4\theta - 8\cos^2\theta + 1$
+        - $T_4(x) = 8x^4 - 8x^2 + 1$
+
+| Degree $n$ | Chebyshev Polynomials |
+| :-- | :-- |
+| $0$ | $T_0(x) = 1$ |
+| $1$ | $T_1(x) = x$ |
+| $2$ | $T_2(x) = 2x^2 - 1$ |
+| $3$ | $T_3(x) = 4x^3 - 3x$ |
+| $4$ | $T_4(x) = 8x^4 - 8x^2 + 1$ |
+
+### Recurrence Relation
+- $T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)$
+- For $n \ge 1$, with $T_0(x) = 1$, $T_1(x) = x$ (base case).
+
+### Property 1: Bounded values
+- The values lie between $-1$ and $+1$ on $[-1, 1]$.
+- $T_n(x) = \cos(n\cos^{-1}x)$
+- $|T_n(x)| \le 1$, $\quad -1 \le x \le 1$
+
+### Property 2: Alternating extreme values
+- The Chebyshev Polynomials oscillate between $+1$ and $-1$ over $[-1, 1]$.
+- Eg: $T_2(x) = 2x^2 - 1$
+    - At $x = -1, 0, 1$:
+    - $T_2(-1) = 1$, $\quad T_2(0) = -1$, $\quad T_2(1) = 1$
+
+### Property 3: Roots of Chebyshev Polynomials
+- $x_k = \cos\left(\dfrac{(2k - 1)\pi}{2n}\right)$ ; $k = 1, 2, 3, \dots, n$.
+
+### Chebyshev Polynomial Approximation of a Function
+- A polynomial approximation can be expressed as
+- $f(x) \approx P_n(x) = \sum_{k=0}^{n} a_kT_k(x)$
+- Hence, the coefficients are:
+    - $a_0 = \frac{1}{\pi}\int_{-1}^{1}\frac{f(x)}{\sqrt{1 - x^2}}\,dx$
+- And for $k \ge 1$,
+    - $a_k = \frac{2}{\pi}\int_{-1}^{1}\frac{f(x)T_k(x)}{\sqrt{1 - x^2}}\,dx$
+
+### Advantages of Chebyshev Polynomials
+- Chebyshev polynomials are bounded on $[-1, 1]$.
+- They have useful recurrence relations.
+- They can produce accurate approximations with relatively low polynomial degree.
+- Chebyshev interpolation nodes can reduce unwanted oscillations.
+- They are useful in numerical analysis, scientific computation and approximation theory.
+
+### Limitations of Chebyshev Polynomials
+- A change of intervals is generally needed for domains other than $[-1, 1]$.
+- Computing expansion coefficients may require integration or numerical evaluation.
+- The accuracy depends on the function, interval and degree of approximation.
+- A Chebyshev expansion is not automatically accurate for every function when truncated to a finite number of terms.
+
+### Exercise 1
+Using the Chebyshev polynomials, obtain the least squares approximation of second degree for $f(x) = x^4$ on the interval $[-1, 1]$.
+- Given $f(x) = x^4$, $\quad -1 \le x \le 1$.
+- $T_0(x) = 1$, $\quad T_1(x) = x$, $\quad T_2(x) = 2x^2 - 1$, $\quad T_4(x) = 8x^4 - 8x^2 + 1$.
+- From $T_2(x)$: 
+    - $x^2 = \dfrac{T_2(x) + 1}{2}$
+- $x^4 = \dfrac{1}{4}\left(T_2(x) + 1\right)^2$
+- $x^4 = \dfrac{1}{4}\left[T_2^2(x) + 2T_2(x) + 1\right]$
+- From $T_4(x) = 2T_2^2(x) - 1$: 
+    - $T_2^2(x) = \dfrac{T_4(x) + 1}{2}$
+- $x^4 = \dfrac{3}{8}T_0(x) + \dfrac{1}{2}T_2(x) + \dfrac{1}{8}T_4(x)$
+
+- $P_2(x) = c_0T_0(x) + c_1T_1(x) + c_2T_2(x)$
+- So, $c_0 = \dfrac{3}{8}$, $\quad c_1 = 0$, $\quad c_2 = \dfrac{1}{2}$.
+- So, $P_2(x) = \frac{3}{8}T_0(x) + \frac{1}{2}T_2(x)$
+    - $P_2(x) = \frac{3}{8}(1) + \frac{1}{2}(2x^2 - 1)$
+    - $P_2(x) = \frac{3}{8} + x^2 - \frac{1}{2}$
+    - $P_2(x) = x^2 - \frac{1}{8}$
+- $\therefore P_2(x) = x^2 - \dfrac{1}{8}$
+
+### Exercise - H.W.
+1. Find the roots of $T_3(x) = 4x^3 - 3x$.
+2. Express $x^4$ as a combination of Chebyshev polynomials.
+
+---

@@ -69,3 +69,7 @@
 22. Explain why choosing a different rearrangement of the same equation may change convergence.
 
 23. Construct a quadratic spline for $(0, 1), (1, 2), (2, 5)$ using $F''(0) = 0$.
+
+24. Find the roots of $T_3(x) = 4x^3 - 3x$.
+
+25. Express $x^4$ as a combination of Chebyshev polynomials.
