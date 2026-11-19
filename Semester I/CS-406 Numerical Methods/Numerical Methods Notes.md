@@ -15,11 +15,11 @@ Taught by [Dr. Anuj Sachan](https://www.jnu.ac.in/content/anujsachan)
 
 ---
 
-# Finite Data Representation
+# **Finite Data Representation**
 
 Since computers have limited memory, it cannot store a number with infinite digits such as $\pi$ or $\frac{1}{3}$. This introduces the fundamental concept of **Finite Data Representation**.
 
-### Fixed Point Numbers
+## **Fixed Point Numbers**
 - A method where a specific number of digits is permanently assigned to the integer part and a specific to the fractional part.
 - The decimal part never moves.
 - Examples:
@@ -27,13 +27,13 @@ Since computers have limited memory, it cannot store a number with infinite digi
     - $1234 = 1 \times 10^3 + 2 \times 10^2 + 3 \times 10^1 + 4 \times 10^0$
     - $0.6251 = 6 \times 10^{-1} + 2 \times 10^{-2} + 5 \times 10^{-3} + 1 \times 10^{-4}$
 
-#### Decimal Number System
+### **Decimal Number System**
 - Decimal Number System has **base 10** with digits $0, 1, 2, 3, 4, 5, 6, 7, 8, 9$.
 - Any decimal number $N$ can be written as
     - $N = d_{n-1}d_{n-2}...d_{1}d_{0}.d{-1}{-2}...d_{-m}$
     - $(N)_{10} = d_{n-1} \times 10^{n-1} + ... + d_1 \times 10^{1} + d_{0} \times 10^{0} + d_{-1} \times 10^{-1} + ... + d_{-m} \times 10^{-m}$
 
-#### Binary Number System
+### **Binary Number System**
 - Binary Number System has **base 2** with digits $0, 1$ called as **bits**.
 - Any binary number $N$ can be written as
     - $N = b_{n-1}b_{n-2}...b_{1}b_{0}.b{-1}{-2}...b_{-m}$
@@ -41,7 +41,7 @@ Since computers have limited memory, it cannot store a number with infinite digi
 - Exercises:
     - Binary to Decimal conversion and vice versa.
 
-#### Octal Number System
+### **Octal Number System**
 - Octal Number System has **base 8** with digits $0, 1, 2, 3, 4, 5, 6, 7$.
 - Any octal number $N$ can be written as
     - $N = o_{n-1}o_{n-2}...o_{1}o_{0}.o{-1}{-2}...o_{-m}$
@@ -50,7 +50,7 @@ Since computers have limited memory, it cannot store a number with infinite digi
     - Octal to Decimal conversion and vice versa.
     - Octal to Binary conversion and vice versa.
 
-#### Hexadecimal Number System
+### **Hexadecimal Number System**
 - Hexadecimal Number System has **base 16** with digits $0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F$.
 - Any hexadecimal number $N$ can be written as
     - $N = h_{n-1}h_{n-2}...h_{1}h_{0}.h{-1}{-2}...h_{-m}$
@@ -60,44 +60,51 @@ Since computers have limited memory, it cannot store a number with infinite digi
     - Hexadecimal to Binary conversion and vice versa.
     - Hexadecimal to Octal conversion and vice versa.
 
-### Floating Point Numbers
+## **Floating Point Numbers**
 - A method where the decimal part can float or move to adapt to the scale of the number.
 - $x = \pm m \times b^e$, where $m$ is mantissa, $b$ is base, and $e$ is exponent.
 - Example: $1234.56 = 1.23456 \times 10^3$
-- Exercise: Subtract two floating point numbers $0.36143447 \times 10^7$ and $0.36132346 \times 10^7$
-    - $0.36143447 \times 10^7 - 0.36132346 \times 10^7 = 0.00011101 \times 10^7$
-- **Normalized floating point numbers** are numbers whose fractional part has been shifted to remove any redundant zeroes and save space
-    - Example: $0.00011101 \times 10^7 \rightarrow 0.11101 \times 10^4$
-- Exercise: Add two floating point numbers $0.123 \times 10^3$ and $0.456 \times 10^2$
-    - $0.123 \times 10^3 \rightarrow 1.23 \times 10^2$
-    - $0.123 \times 10^3 + 0.456 \times 10^2 = 1.686 \times 10^2$
-    - $1.686 \times 10^2 \rightarrow 0.1686 \times 10^3$
-    - $0.1686 \times 10^3 \approx 0.169 \times 10^3$ (by roundoff)
-    - $0.1686 \times 10^3 \approx 0.168 \times 10^3$ (by chopping)
+
+### **Normalized Floating Point Numbers** 
+- Normalized floating point numbers are numbers whose fractional part has been shifted to remove any redundant zeroes and save space.
+- Example: $0.00011101 \times 10^7 \rightarrow 0.11101 \times 10^4$
+
+### **Exercise 1**
+Subtract two floating point numbers $0.36143447 \times 10^7$ and $0.36132346 \times 10^7$
+- $= 0.36143447 \times 10^7 - 0.36132346 \times 10^7$
+- $= 0.00011101 \times 10^7$
+
+### **Exercise 2** 
+Add two floating point numbers $0.123 \times 10^3$ and $0.456 \times 10^2$
+- $0.123 \times 10^3 \rightarrow 1.23 \times 10^2$
+- $0.123 \times 10^3 + 0.456 \times 10^2 = 1.686 \times 10^2$
+- $1.686 \times 10^2 \rightarrow 0.1686 \times 10^3$
+- $0.1686 \times 10^3 \approx 0.169 \times 10^3$ (by roundoff)
+- $0.1686 \times 10^3 \approx 0.168 \times 10^3$ (by chopping)
 
 ---
 
-# The Propagation of Error
+# **The Propagation of Error**
 
 - In numerical computation, the values used in a calculation are often approximated. 
 - So, the error $e$ is $e = x - \overline{x}$, where $x$ is the **true value** and $\overline{x}$ is the **approximated value**.
 - In terms of magnitude, $|e| = |x - \overline{x}|$
 - The error which is machine dependent is called **machine epsilon**.
 
-### Inherent Error
+### **Inherent Error**
 It is the quantity which is already present in the statement of the problem before its solution.
 
-### The Round-off Error
+### **The Round-off Error**
 It is the quantity $R$ which must be added to the finite representation of a computed number in order to make it the true representation of that number.
 
-### The Truncation Error
+### **The Truncation Error**
 It is the quantity $t$ that must be added to the true representation of the quantity in order for the result to be exactly equal to the quantity we are seeking to generate.
 
-### Propagation of Error in One Variable
+### **Propagation of Error in One Variable**
 - Consider $y = f(x)$. If $x$ contains an error, then the calculated value of $y$ will also contain an error.
 - The propagation of an error is the process by which errors present in input data or intermediate computations effect the accuracy of the final computed result.
 
-### Absolute Error
+### **Absolute Error**
 - Let $y = f(x)$ and $x$ contain a small error $dx$.
 - From Taylor Expansion, $f(x + dx) \approx f(x) + f'(x).dx$
 - We know, $dy = f(x + dx) - f(x)$
@@ -109,7 +116,7 @@ It is the quantity $t$ that must be added to the true representation of the quan
     - $dy = (2 \times 10) \times 0.1$
     - $dy = 2$
 
-### Relative Error
+### **Relative Error**
 - $|\frac{dy}{y}| = |\frac{x.f'(x)}{f(x)}|.|\frac{dx}{x}|$
 - From the previous example:
     - $\frac{x.f'(x)}{f(x)} = \frac{x.2x}{x^2} = 2$
@@ -117,7 +124,7 @@ It is the quantity $t$ that must be added to the true representation of the quan
     - $\frac{dy}{y} = 0.02$
     - Approximately $2\%$ error in  $x^2$.
 
-### Propagation of Error in Several Variables
+### **Propagation of Error in Several Variables**
 - Consider, $z = f(x, y)$
 - $dz = \frac{\partial f}{\partial x}.dx + \frac{\partial f}{\partial y}.dy$
 - The maximum possible absolute error can be computed as:
@@ -132,28 +139,28 @@ It is the quantity $t$ that must be added to the true representation of the quan
 | Max absolute error: | Max absolute error: | Relative error: | Relative error: |
 | $\vert dz \vert \le \vert dx \vert + \vert dy \vert$ | $\vert dz \vert \le \vert dx \vert + \vert dy \vert$ |  $\vert \frac{dz}{z} \vert \le \vert \frac{dx}{x} \vert + \vert \frac{dy}{y} \vert$ | $\vert \frac{dz}{z} \vert \le \vert \frac{dx}{x} \vert + \vert \frac{dy}{y} \vert$ |
 
-### Exercise 1
+### **Exercise 1**
 $x = \sqrt{10} = 3.16227766$ and by chopping/rounding off, we get $\overline{x} = 3.1623$. Find the absolute error, relative error and percentage error.
 - Absolute error $= |x - \overline{x}| = 3.16227766 - 3.1623 = 0.00002234$.
 - Relative error $= \frac{2.234 \times 10^{-5}}{3.16227766} = 7.06 \times 10^{-6}$
 - Percentage error $= 7.06 \times 10^{-4}\%$.
 
-### Exercise - H.W.
+### **Exercise - H.W.**
 1. $y = x^3$, where $x = 2$, with error as $0.01$. Find approximate and relative error.
 2. $z = x + y$, where $x = 10 \pm 0.1$ and $y = 20 \pm 0.2$. Find maximum error in $z$.
 3. $A = L.W$, where $L = 20 + 0.1$ cm and $W = 10 + 0.05$ cm. Find in A, the maximum error and relative error.
 
-### Accuracy
+### **Accuracy**
 It refers to how close an approximate value is to the true or exact value.
 
-### Precision
+### **Precision**
 It refers to the degree of consistency or fineness of the numerical representation or measurements.
 
 > If measurements are close to one another, they are precise, but they are not necessarily accurate.
 
 ---
 
-# Solutions of Non-linear Equations (Root Finding Methods)
+# **Solutions of Non-linear Equations (Root Finding Methods)**
 
 - Non-linear equations are equations that can be generally written as $f(x) = 0$, where $f(x)$ is non-linear in $x$.
 - Examples:
@@ -167,7 +174,7 @@ It refers to the degree of consistency or fineness of the numerical representati
     - For $x = -2$, $f(-2) = 0$
     - So, roots are $\pm 2$
 
-### Geometrical Interpretation
+### **Geometrical Interpretation**
 - Let $y = f(x)$ and $f(x) = 0$. So, $y = 0$. Therefore, a root is the point where $y = f(x)$ intersects the x-axis.
 - Consider $y = f(x) = x^3 - x - 1 = 0$
     - f(1) = 1 - 1 - 1 = -1
@@ -176,16 +183,14 @@ It refers to the degree of consistency or fineness of the numerical representati
     - So, we know a root exists somewhere in $1 \lt x \lt 2$
 - **Root finding problem:** Given $f(x)$, find $x = r$ such that $f(r) = 0$.
 
-### Types of Root Finding Methods
-
+### **Types of Root Finding Methods**
 1. **Bracketing Method:** In this method, first we identify the interval $[a, b]$ such that a root is known to lie inside it.
     - Example: Bisection Method
-
 2. **Open Methods:** These methods do not necessarily maintain interval containing the root.
     - Example: Newton-Raphson Method, Secant Method, Fixed Point Iteration.
     - They converge much faster but they may also fail if the initial approximation is not suitable.
 
-### Initial Approximations
+### **Initial Approximations**
 - Initial approximations to the root are often known from the physical consideration of the problem. Otherwise, graphical methods are generally used to obtain initial approximations to the root.
 - Another commonly used method to obtain the initial approximation to the root is based on intermediate value theorem.
 - **The Intermediate Value Theorem** states that if $f(x)$ is a continuous function on some interval $[a, b]$ and $f(a).f(b) \lt 0$, then the equation $f(x) = 0$ has at least one real root or an odd number of real roots in the interval $[a, b]$.
@@ -210,10 +215,10 @@ It refers to the degree of consistency or fineness of the numerical representati
 	
 ---
 
-## Bisection Method
+## **Bisection Method**
 This method is used on the repeated applications of the intermediate value theorem.
 
-### Pseudocode
+### **Pseudocode**
 - Given $f(x)$, $a$, $b$:
 - Check $f(a).f(b) \lt 0$
 - Repeat $c = \frac{a + b}{2}$
@@ -226,7 +231,7 @@ This method is used on the repeated applications of the intermediate value theor
 - Until stopping criteria is satisfied,
 - Return $c$
 
-### Exercise 1
+### **Exercise 1**
 Perform four iterations of the bisection method to find the approximate root of the equation $f(x) = x^3 - x - 1 = 0$.
 - Initial intervals $a = 1$ and $b = 2$
 - $f(1) = -1$, $f(2) = 5$
@@ -254,7 +259,7 @@ Perform four iterations of the bisection method to find the approximate root of 
     - So, root lies in the interval $(1.3125, 1.375)$.
 - Approximate value of the root, $r \approx \frac{1.3125 + 1.375}{2} = 1.34375$
 
-### Exercise 2
+### **Exercise 2**
 Perform five iterations of the bisection method to obtain the smallest possible positive root of the equation $f(x) = x^3 - 5x + 1 = 0$.
 - Initial intervals $a = 0$ and $b = 1$
 - $f(0) = (0)^3 - 5(0) + 1 = 1$
@@ -288,10 +293,10 @@ Perform five iterations of the bisection method to obtain the smallest possible 
     - So, root lies in the interval $(0.1875, 0.21875)$.
 - Approximate value of the root, $r \approx \frac{0.1875 + 0.21875}{2} = 0.203125$
 
-### Exercise - H.W.
+### **Exercise - H.W.**
 1. Perform five iterations of the bisection method to find the approximate root of the equation $f(x) = \cos(x) - x.e^x = 0$.
 
-### Error Bound for Bisection Method
+### **Error Bound for Bisection Method**
 - How accurate is the Bisection Method?
 - For the initial interval $(a, b)$, the interval length is $b - a$. 
 - After one iteration, the interval length becomes $\frac{b - a}{2}$.
@@ -315,16 +320,16 @@ Perform five iterations of the bisection method to obtain the smallest possible 
 - $n + 1 \ge \frac{\log(\frac{b - a}{\epsilon})}{\log(2)}$
 - So, $n \ge \frac{\log(\frac{b - a}{\epsilon})}{\log(2)} - 1$.
 
-### Priori Error in Bisection Method
+### **Priori Error in Bisection Method**
 - **Priori Error** is an error estimate defined before or independently of the actual approximation.
 - For bisection method, $|x_n - r| \le \frac{b - a}{2^{n+1}}$
 
-### Posteriori Error in Bisection Method
+### **Posteriori Error in Bisection Method**
 - **Posteriori Error** is an estimate based on the current numerical results.
 - For bisection method, if the current interval is $(a_n, b_n)$, then $|x_n - r| \le \frac{b_n - a_n}{2}$.
 - This tells us how accurate our current approximation is.
 
-### Convergence of Bisection Method
+### **Convergence of Bisection Method**
 - Bisection is a convergent method under standard assumptions that:
     1. $f(x)$ is a continuous function between the interval $(a, b)$.
     2. $f(a).f(b) \lt 0$.
@@ -333,7 +338,7 @@ Perform five iterations of the bisection method to obtain the smallest possible 
 
 ---
 
-## Secant Method
+## **Secant Method**
 - If $f(x)$ is a first degree equation in $x$, then it can be readily solved. The iteration method which will produce the exact results whenever function of $f(x) = 0$ is a first degree equation is given by:
     - $f(x) = a_0x + a_1 = 0$
     - $x = -\frac{a_1}{a_0}$
@@ -348,7 +353,7 @@ Perform five iterations of the bisection method to obtain the smallest possible 
 - Now, instead of taking the midpoint, draw a straight line using the following two points $(x_{k - 1}, f(x_{k - 1}))$ and $(x_k, f(x_k))$.
 - The point where this line intersects the x-axis is taken as the next approximation.
 
-### Derivation of the Secant Formula:
+### **Derivation of the Secant Formula:**
 - The slope between the two points $(x_{k - 1}, f(x_{k - 1}))$ and $(x_k, f(x_k))$ is given by $m = \frac{f(x_k) - f(x_{k - 1})}{x_k - x_{k - 1}}$.
 - The equation of the line through $(x_k, f(x_k))$ is given by $y - f(x_k) = m(x - x_k)$.
 - $y - f(x_k) = \frac{f(x_k) - f(x_{k - 1})}{x_k - x_{k - 1}}(x - x_k)$
@@ -357,20 +362,20 @@ Perform five iterations of the bisection method to obtain the smallest possible 
 - $x - x_k = \frac{-f(x_k)(x_k - x_{k - 1})}{f(x_k) - f(x_{k - 1})}$
 - $x_{k + 1} = x_k - \frac{(x_k - x_{k - 1})}{f(x_k) - f(x_{k - 1})}.f(x_k)$
 
-### Advantages of the Secant Method
+### **Advantages of the Secant Method**
 - Does not require derivative $f'(x)$.
 - Usually much faster than bisection method.
 - Uses function values more intelligently than bisection method.
 - Easy to implement.
 
-### Limitations of the Secant Method
+### **Limitations of the Secant Method**
 - Convergence is not guaranteed for arbitrary initial guesses.
 - The approximation can move away from the root.
 - It may encounter division by a very small quantity if $f(x_k) - f(x_{k - 1})$ is approximately zero.
 
 > If the approximations are such that $f_k.f_{k-1} \lt 0$, then the other method is known as **Regula Falsi Method**.
 
-### Exercise on Secant and Regula Falsi Methods
+### **Exercise on Secant and Regula Falsi Methods**
 The real root of the equation $f(x) = x^3 - 5x + 1 = 0$ lies in the interval $(0, 1)$. Perform four iterations of the Secant Method and the Regula Falsi Method to obtain the root.
 
 #### Using Secant Method
@@ -433,7 +438,7 @@ The real root of the equation $f(x) = x^3 - 5x + 1 = 0$ lies in the interval $(0
 
 ---
 
-## Newton-Raphson Method
+## **Newton-Raphson Method**
 Instead of using a second line secant through the two points, Newton-Raphson uses the tangent line at the current point to estimate where the function crosses the x-axis.
 - Let us consider a current approximation $x_k$.
 - Instead of considering the entire curve, i.e., $y = f(x)$, we draw its tangent line.
@@ -444,25 +449,25 @@ Instead of using a second line secant through the two points, Newton-Raphson use
 - $\therefore -f(x_k) = f'(x_k).(x - x_k)$
 - $x_{k + 1} = x_k - \frac{f(x_k)}{f'(x_k)}$, where $x_k$ is the initial approximation and $x_{k + 1}$ is the new approximation.
 
-### Convergence of Newton-Raphson Method
+### **Convergence of Newton-Raphson Method**
 - Newton-Raphson is a fast method, but it is not globally guaranteed to converge for initial guesses.
 - Its excellent convergence behaviour is mainly a local property near a suitable root.
 - A poor initial sum can cause the method to diverge, oscillate, move towards another root, or maybe encounter a point where the derivative of $f$, $f'(x) = 0$ make very large jumps.
 
-### Advantages of Newton-Raphson Method
+### **Advantages of Newton-Raphson Method**
 - Very fast near the root.
 - Usually requires fewer iterations.
 - Simple iteration formula.
 - Does not require bracketing intervals like bisection or Regula falsi methods.
 - Useful for many non-linear problems.
 
-### Limitations of Newton-Raphson Method
+### **Limitations of Newton-Raphson Method**
 - Derivative is required.
 - Poor initial guess can cause failure.
 - Derivative can become zero or very small.
 - Multiple roots can reduce the usual conversions rates.
 
-### Exercise 1
+### **Exercise 1**
 Let $f(x) = x^3 - x - 1 = 0$. Assume an initial approximation of $x_0 = 1.5$. Perform four iterations using Newton-Raphson Method.
 - $f'(x) = 3x^2 - 1$
 - Initial approximation, $x_0 = 1.5$
@@ -488,11 +493,11 @@ Let $f(x) = x^3 - x - 1 = 0$. Assume an initial approximation of $x_0 = 1.5$. Pe
     - $x_4 = 1.324719$
 - Approximate value of the root, $r \approx 1.324719$
 
-### Exercise - H.W.
+### **Exercise - H.W.**
 1. Let $f(x) = x^3 - 5x + 1 = 0$. Assume an initial approximation of $x_0 = 0.5$. Perform four iterations using Newton-Raphson Method.
 2. Approximate the value of $(17)^{\frac{1}{3}}$. Assume an initial approximation of $x_0 = 2$. Perform four iterations using Newton-Raphson Method.
 
-### Exercise - Matrix Iteration
+### **Exercise - Matrix Iteration**
 Obtain the complex roots of the equation $f(z) = z^3 + 1 = 0$ correct to eight decimal places. Use the initial approximation of the root as $(x_0, y_0) = (0.25, 0.25)$. Compare the exact values of the roots which is $(1 \pm \frac{i\sqrt{3}}{2})$.
 - Substituting $z = x + iy$ in the equation:
     - $(x + iy)^3 + 1 = (x^3 - 3xy^2 + 1) + i(3x^2y - y^3) = 0$
@@ -533,7 +538,7 @@ Obtain the complex roots of the equation $f(z) = z^3 + 1 = 0$ correct to eight d
 
 ---
 
-## Summary of Root-Finding Methods
+## **Summary of Root-Finding Methods**
 
 | **Feature** | **Bisection** | **Secant** | **Regula Falsi** | **Newton-Raphson** |
 | :--- | :--- | :--- | :--- | :--- |
@@ -547,7 +552,7 @@ Obtain the complex roots of the equation $f(z) = z^3 + 1 = 0$ correct to eight d
 | **Speed near root** | Slow | Fast | Moderate/ variable | **Very fast** |
 | **Approx order** | $(1)$ | $(1.618)$ | Variable/ typically linear | $(2)$ locally |
 
-### Final Summary of Root-Finding Methods
+### **Final Summary of Root-Finding Methods**
 
 | **Method** | **Bracket?** | **Derivative?** | **Convergence** | **Main Strength** |
 | :--- | :--- | :--- | :--- | :--- |
@@ -558,7 +563,7 @@ Obtain the complex roots of the equation $f(z) = z^3 + 1 = 0$ correct to eight d
 
 ---
 
-## Muller's Method
+## **Muller's Method**
 Instead of fitting a straight line, it fits a quadratic, polynomial through three points.
 
 - Lets consider a function $f(x) = a_0x^2 + a_1x + a_2 = 0$, which is a polynomial of degree two.
@@ -591,7 +596,7 @@ Instead of fitting a straight line, it fits a quadratic, polynomial through thre
 - $x_{k+1} = x_k + (x_k - x_{k-1})\lambda_{k+1}$
 - Or, $x_{k+1} = x_k + h_k\lambda_{k+1}$
 
-### Exercise 1
+### **Exercise 1**
 Perform three iterations of the Muller's Method to find the smallest positive root of the equation $f(x) = x^3 - 5x + 1 = 0$
 - The smallest root lies in the interval $(0, 1)$.
 - Let $x_0 = 0$, $x_1 = 0.5$, and $x_2 = 1$.
@@ -630,14 +635,14 @@ Perform three iterations of the Muller's Method to find the smallest positive ro
     - $x_5 = x_4 + h_4\lambda_5 = 0.201183 + (0.009326)(0.049093) = 0.201641$
 - Approximate value of root, $r \approx 0.201641$
 
-### Advantages of Muller's Method
+### **Advantages of Muller's Method**
 - Does not require derivative.
 - Uses quadratic approximations.
 - Can find complex roots.
 - Does not require a bracketing interval.
 - Can be applied to general non-linear equations.
 
-### Limitations of Muller's Method
+### **Limitations of Muller's Method**
 - Requires three initial approximations.
 - More computationally complicated.
 - Numerical issues can occur.
@@ -645,11 +650,11 @@ Perform three iterations of the Muller's Method to find the smallest positive ro
 
 ---
 
-## Fixed-Point Iteration Method
+## **Fixed-Point Iteration Method**
 
 In this method, we will transform an equation into a suitable form and repeatedly substitute the previous approximation to obtain the next approximation.
 
-### Fixed Point
+### **Fixed Point**
 - Suppose we have a function $g(x)$. 
 - A number $r$ is called a fixed point of $g(x)$ if $g(r) = r$.
 - Ex: $g(x) = \dfrac{x+2}{3}$
@@ -658,7 +663,7 @@ In this method, we will transform an equation into a suitable form and repeatedl
     - $g(1) = \dfrac{1+2}{3} = 1$.
     - Hence, $x = 1$ is a fixed point.
 
-### Conversion of an Equation into Fixed Point Form
+### **Conversion of an Equation into Fixed Point Form**
 - Let us assume we have an equation $f(x) = 0$.
 - First, we rearrange it into the form $x = g(x)$.
 - The root of the original equation is then a fixed point of $g(x)$, provided the rearrangement preserves the relevant solutions.
@@ -666,14 +671,14 @@ In this method, we will transform an equation into a suitable form and repeatedl
 - The fixed point iteration formula is
     - $x_{n+1} = g(x_n)$
 
-### Algorithm of Fixed Point Iteration Method
+### **Algorithm of Fixed Point Iteration Method**
 - **Step 1:** Choose an initial guess $x_0$.
 - **Step 2:** Rewrite $f(x) = 0$ as $x = g(x)$.
 - **Step 3:** Calculate $x_{n+1} = g(x_n)$.
 - **Step 4:** Check whether $|x_{n+1} - x_n| < \epsilon$.
 - **Step 5:** If satisfied, stop; otherwise repeat Step 3.
 
-### Exercise 1
+### **Exercise 1**
 Find the root of $x^3 - x - 1 = 0$ using the fixed-point iteration method. Take $x_0 = 1$ and perform 5 iterations.
 - $x^3 - x - 1 = 0 \Rightarrow x^3 = x + 1 \Rightarrow x = (x+1)^{1/3}$
 - $g(x) = (x+1)^{1/3}$
@@ -694,7 +699,7 @@ Find the root of $x^3 - x - 1 = 0$ using the fixed-point iteration method. Take 
     - $x_5 = g(x_4) = (1.324269+1)^{1/3} = (2.324269)^{1/3} \approx 1.324633$
 - Approximate value of the root, $r \approx 1.324633$
 
-### Convergence of Fixed Point Iteration Method
+### **Convergence of Fixed Point Iteration Method**
 - Convergence depends on the choice of $g(x)$ and the initial approximation.
 - A common sufficient condition for convergence is $|g'(x)| \le K < 1$ throughout the interval containing the fixed point, with $g$ mapping that interval into itself.
 - This condition means that the magnitude of the derivative must remain below $1$ throughout the interval.
@@ -702,25 +707,25 @@ Find the root of $x^3 - x - 1 = 0$ using the fixed-point iteration method. Take 
 - If $|g'(r)| > 1$, the fixed point is locally repelling.
 - If $|g'(r)| = 1$, this test is inconclusive; further analysis is needed.
 
-### Advantages of Fixed Point Iteration
+### **Advantages of Fixed Point Iteration**
 - Simple to understand and implement.
 - Does not require direct evaluation of $f'(x)$.
 - Each iteration is straightforward.
 - Can be effective when a suitable rearrangement is available.
 
-### Limitations of Fixed Point Iteration
+### **Limitations of Fixed Point Iteration**
 - The method may diverge for an unsuitable $g(x)$.
 - The choice of rearrangement can determine whether the method converges.
 - Convergence may be slow.
 - A small change between successive approximations does not, by itself, guarantee that the true error is small.
 
-### Exercise - H.W.
+### **Exercise - H.W.**
 1. Use Fixed Point Iteration to solve $x^2 + x - 2 = 0$, using $x = (2 - x)^{1/2}$ and $x_0 = 1.5$, and perform 3 iterations.
 2. Explain why choosing a different rearrangement of the same equation may change convergence.
 
 ---
 
-# Interpolation
+# **Interpolation**
 
 Let us assume we know some values of function $(x_0, y_0), (x_1, y_1), (x_2, y_2) \dots$. But we do not know the value of that function at some point lying in between the known points. **Interpolation** is the process of estimating that unknown value.
 - **Definition:** Interpolation is the process of estimating the value of a function at an intermediate point using known data points.
@@ -732,7 +737,7 @@ Let us assume we know some values of function $(x_0, y_0), (x_1, y_1), (x_2, y_2
 > 
 > **Extrapolation** estimates a value *outside* the known range. Example: $x = 10$ and $x = 30$ are given, find $x = 60$.
 
-## Polynomial Interpolation
+## **Polynomial Interpolation**
 - Suppose we have '$n + 1$' data points, $(x_0, y_0), (x_1, y_1), (x_2, y_2), \dots (x_n, y_n)$.
 - Based on that we can construct a polynomial of degree at most $n$:
     - $P_n(x) = a_0 + a_1x + a_2x^2 + \dots a_nx^n$
@@ -741,7 +746,7 @@ Let us assume we know some values of function $(x_0, y_0), (x_1, y_1), (x_2, y_2
     - A polynomial of degree at most 1: $P_1(x) = a_0 + a_1x$.
     - A polynomial of degree at most 2: $P_2(x) = a_0 + a_1x + a_2x^2$.
 
-### Exercise: Two Point Interpolation
+### **Exercise: Two Point Interpolation**
 Let $f(1) = 2$ and $f(3) = 6$. Find $f(2)$ using linear interpolation.
 - We know, $P_1(x) = a + bx$
 - $P(1) = 2, \therefore a + b = 2$
@@ -749,13 +754,13 @@ Let $f(1) = 2$ and $f(3) = 6$. Find $f(2)$ using linear interpolation.
 - Subtracting them, $2b = 4, \therefore b = 2$
 - Substituting $b$ we get, $a = 0$
 
-## Linear Interpolation
+## **Linear Interpolation**
 - For two data points $(x_0, y_0)$ and $(x_1, y_1)$, the linear interpolation formula is:
     - $y = y_0 + \frac{x - x_0}{x_1 - x_0}(y_1 - y_0)$
 
 ---
 
-## Lagrange Interpolation
+## **Lagrange Interpolation**
 - Suppose we have $(n + 1)$ data points, $(x_0, y_0), (x_1, y_1), (x_2, y_2), \dots (x_n, y_n)$.
 - The Lagrange Interpolation Formula:
     - $P_n(x) = \Sigma_{i = 0}^{n} y_iL_i(x)$
@@ -766,7 +771,7 @@ Let $f(1) = 2$ and $f(3) = 6$. Find $f(2)$ using linear interpolation.
     - $L_2 = \frac{(x - x_0)(x - x_1)}{(x_2 - x_0)(x_2 - x_1)}$
     - $P_2(x) = y_0L_0(x) + y_1L_1(x) + y_2L_2(x)$
 
-### Exercise 1
+### **Exercise 1**
 
 | $x$ | $1$ | $2$ | $4$ |
 | :-- | :-- | :-- | :-- |
@@ -779,13 +784,13 @@ Find f(3) using Linear Interpolation.
 - $P_2(3) = 1 \times -\frac{1}{3} + 4 \times 1 + 16 \times \frac{1}{3} = \frac{27}{3}$
 - $\therefore f(3) = 9$
 
-### Advantages of Lagrange Interpolation
+### **Advantages of Lagrange Interpolation**
 - Simple direct formula.
 - No need to solve simultaneous equations for the coefficients.
 - Works with unequally spaced data points.
 - Easy to use when only one interpolation value is required.
 
-### Limitations of Lagrange Interpolation
+### **Limitations of Lagrange Interpolation**
 - Formula becomes lengthy when many points are used.
 - If a new data point is added, the polynomial generally has to be reconstructed.
 - Repeated calculations can become cumbersome.
@@ -793,7 +798,7 @@ Find f(3) using Linear Interpolation.
 
 ---
 
-## Newton Forward Interpolation
+## **Newton Forward Interpolation**
 - Suppose the values of the data points are $x_0, x_1, x_2, \dots x_n$ and $x_1 - x_0 = x_2 - x_1 = x_3 - x_2 = \dots x_n - x_{n - 1} = h$, then the data is called **equally spaced**.
 
 | $x$ | $0$ | $1$ | $2$ | $3$ | $4$ | $5$ | $6$ |
@@ -802,7 +807,7 @@ Find f(3) using Linear Interpolation.
 
 - Therefore, $x_i = x_0 + ih \forall i = 0, 1, 2, \dots n$.
 
-### Forward Difference Operator
+### **Forward Difference Operator**
 - The forward difference operator is represented by $\Delta$, and $\Delta f(x) = f(x+h) - f(x)$.
 - For a set of equally spaced data $(x_0,y_0), (x_1,y_1), \dots, (x_n,y_n)$:
 
@@ -820,7 +825,7 @@ Find f(3) using Linear Interpolation.
 - **Third forward difference:** $\Delta^3 y_i = \Delta^2 y_{i+1} - \Delta^2 y_i$
     - $\Delta^3 y_0 = \Delta^2 y_1 - \Delta^2 y_0$
 
-### Forward Difference Table
+### **Forward Difference Table**
 
 | $x$ | $0$ | $1$ | $2$ | $3$ | $4$ |
 | :-- | :-- | :-- | :-- | :-- | :-- |
@@ -856,13 +861,13 @@ Find f(3) using Linear Interpolation.
 - Constant 3rd differences indicate a polynomial of degree $3$, that means a cubic polynomial.
 - In this example, since $\Delta^2y$ is constant at $2$, the underlying function is exactly quadratic.
 
-### Newton Forward Interpolation Formula (N.F.I.F)
+### **Newton Forward Interpolation Formula (N.F.I.F)**
 - Suppose the knows data points $(x_0,y_0), (x_1,y_1), \dots, (x_n,y_n)$ with equal spacing $h$:
     - $p = \frac{x - x_0}{h}$
 - Then the **N.F.I.F** is:
 - $f(x) \approx P_n(x) = y_0 + p\,\Delta y_0 + \frac{p(p-1)}{2!}\Delta^2 y_0 + \frac{p(p-1)(p-2)}{3!}\Delta^3 y_0 + \cdots + \frac{p(p-1)(p-2)\cdots(p-n+1)}{n!}\Delta^n y_0$
 
-### Exercise 1
+### **Exercise 1**
 Find $f(1.5)$ using N.F Interpolation, using the table above where $x_0=0$ and $h=1$.
 - $p = \dfrac{x - x_0}{h} = \dfrac{1.5 - 0}{1} = 1.5$
 - $f(1.5) \approx P_n(1.5) = y_0 + p\,\Delta y_0 + \dfrac{p(p-1)}{2!}\Delta^2y_0$
@@ -870,7 +875,7 @@ Find $f(1.5)$ using N.F Interpolation, using the table above where $x_0=0$ and $
 - $f(1.5) = 1 + 1.5 + 0.75 = 3.25$
 - $\therefore f(1.5) = 3.25$
 
-### Exercise 2
+### **Exercise 2**
 
 | $x$ | $10$ | $20$ | $30$ | $40$ | $50$ |
 | :-- | :-- | :-- | :-- | :-- | :-- |
@@ -883,7 +888,7 @@ Find $f(25)$ using N.F.I method.
 - $f(25) = 100 + 450 + 75 = 625$
 - $\therefore f(25) = 625$
 
-### Exercise - H.W.
+### **Exercise - H.W.**
 1. Find $f(2.5)$ using Newton Forward Interpolation.
 
 | $x$ | $1$ | $2$ | $3$  | $4$  |
@@ -900,7 +905,7 @@ Find $f(25)$ using N.F.I method.
 
 ---
 
-## Newton Backward Interpolation
+## **Newton Backward Interpolation**
 
 - Suppose the data points $x_0, x_1, x_2, \dots x_n$ are equally spaced with $x_i = x_0 + ih$, as before.
 - Newton Backward Interpolation builds the polynomial starting from the last point $(x_n, y_n)$, so it is used when the required value lies near the end of the table.
@@ -909,7 +914,7 @@ Find $f(25)$ using N.F.I method.
 | :----- | :-- | :-- | :-- | :--- | :--- |
 | $f(x)$ | $1$ | $2$ | $5$ | $10$ | $17$ |
 
-### Backward Difference Operator
+### **Backward Difference Operator**
 - The backward difference operator is represented by $\nabla$, and $\nabla f(x) = f(x) - f(x-h)$.
 - For a set of equally spaced data $(x_0,y_0), (x_1,y_1), \dots, (x_n,y_n)$:
 
@@ -927,7 +932,7 @@ Find $f(25)$ using N.F.I method.
 - Third backward difference: $\nabla^3 y_i = \nabla^2 y_i - \nabla^2 y_{i-1}$
     - $\nabla^3 y_3 = \nabla^2 y_3 - \nabla^2 y_2$
 
-### Backward Difference Table
+### **Backward Difference Table**
 - 1st backward differences:
     - $\nabla y_1 = 2 - 1 = 1$
     - $\nabla y_2 = 5 - 2 = 3$
@@ -951,13 +956,13 @@ Find $f(25)$ using N.F.I method.
 | 3   | 10  | 5          | 2            | 0            |     |
 | 4   | 17  | 7          | 2            | 0            |     |
 
-### Newton Backward Interpolation Formula (N.B.I.F)
+### **Newton Backward Interpolation Formula (N.B.I.F)**
 - Suppose the known data points $(x_0,y_0), (x_1,y_1), \dots, (x_n,y_n)$ with equal spacing $h$:
     - $p = \dfrac{x - x_n}{h}$
 - Then the N.B.I.F is:
 - $f(x) \approx P_n(x) = y_n + p\,\nabla y_n + \frac{p(p+1)}{2!}\nabla^2 y_n + \frac{p(p+1)(p+2)}{3!}\nabla^3 y_n + \cdots + \frac{p(p+1)(p+2)\cdots(p+n-1)}{n!}\nabla^n y_n$
 
-### Exercise 1
+### **Exercise 1**
 Find $f(3.5)$ using N.B. Interpolation, using the table above.
 - $p = \dfrac{x - x_n}{h} = \dfrac{3.5 - 4}{1} = -0.5$
 - $f(3.5) \approx P_n(3.5) = y_n + p\,\nabla y_n + \dfrac{p(p+1)}{2!}\nabla^2y_n$
@@ -967,7 +972,7 @@ Find $f(3.5)$ using N.B. Interpolation, using the table above.
 
 ---
 
-## Newton Divided Difference Interpolation
+## **Newton Divided Difference Interpolation**
 
 - First divided difference: 
     - $f[x_0, x_1] = \frac{f(x_1) - f(x_0)}{x_1 - x_0}$
@@ -980,7 +985,7 @@ Find $f(3.5)$ using N.B. Interpolation, using the table above.
 | :----- | :-- | :-- | :--- | :--- |
 | $f(x)$ | $1$ | $4$ | $16$ | $19$ |
 
-### Divided Difference Table
+### **Divided Difference Table**
 - First divided difference: 
     - $f[1, 2] = \frac{f(2) - f(1)}{2 - 1} = 3$
     - $f[2, 4] = \frac{f(4) - f(2)}{4 - 2} = 6$
@@ -1000,10 +1005,10 @@ Find $f(3.5)$ using N.B. Interpolation, using the table above.
 | $4$ | $16$ | $1$        |              |                |
 | $7$ | $19$ |            |              |                |
 
-### Divided Difference Formula
+### **Divided Difference Formula**
 - $P_n(x) = f[x_0] + (x - x_0)f[x_0, x_1] + (x - x_0)(x - x_1)f[x_0, x_1, x_2] + (x - x_0)(x - x_1)(x - x_2)f[x_0, x_1, x_2, x_3] + \cdots (x - x_0) \cdots (x - x_{n - 1})f[x_0, x_1, \cdots x_n]$
 
-### Exercise 1
+### **Exercise 1**
 Construct the divided difference table for the data
     
 | $x$ | $0.5$ | $1.5$ | $3.0$ | $5.0$ | $6.5$ | $8.0$ |
@@ -1052,14 +1057,14 @@ Hence, find the interpolating polynomial and approximation to the value of $f(7)
     - $P_3(7) = 7^3 + 7 + 1 = 351$
 
 
-### Exercise - H.W.
+### **Exercise - H.W.**
 1. Construct the difference table for the sequence of values $f(x) = (0, 0, 0, \epsilon, 0, 0, 0)$, where $\epsilon$ is an error. Also show that:
     1. The error spreads and increases in magnitude as the order of difference increases.
     2. The errors in each column have binomial coefficients.
 
 ---
 
-## Spline Interpolation
+## **Spline Interpolation**
 - When many data points are available, using a high degree polynomial can become computationally complicated and may produce unwanted oscillations.
 - Spline interpolation solves this problem by using different low degree polynomials over small sub-intervals and joining them smoothly.
 - Historically, craftsmen used flexible strips called 'splines' to draw smooth curves through specified points.
@@ -1077,12 +1082,12 @@ Hence, find the interpolating polynomial and approximation to the value of $f(7)
 - The points $x_1, x_2, \dots, x_{n-1}$ are called internal nodes or knots.
 - These are the points where adjacent polynomial pieces meet.
 
-### Types of Spline Function
+### **Types of Spline Function**
 1. Linear: $P_i(x) = a_ix + b_i$
 2. Quadratic: $P_i(x) = a_ix^2 + b_ix + c_i$
 3. Cubic: $P_i(x) = a_ix^3 + b_ix^2 + c_ix + d_i$
 
-### Linear Spline Interpolation
+### **Linear Spline Interpolation**
 - Suppose two consecutive data points are $(x_{i-1}, y_{i-1})$ and $(x_i, y_i)$.
 - On the interval $[x_{i-1}, x_i]$, assume a straight line polynomial $P_i(x) = a_ix + b_i$.
 - Since the line passes through both points:
@@ -1130,7 +1135,7 @@ Construct a linear spline for $(0, 2), (2, 6), (4, 4)$. Estimate $f(3)$.
 - $f(3) = 8 - 3 = 5$
 - $\therefore f(3) = 5$
 
-### Quadratic Spline Interpolation
+### **Quadratic Spline Interpolation**
 - For interval $[x_{i-1}, x_i]$,
     - let $P_i(x) = a_ix^2 + b_ix + c_i$
     - where $a_i, b_i, c_i$ are constants to be determined.
@@ -1220,33 +1225,33 @@ Construct a quadratic spline satisfying $F''(x_0) = 0$. Estimate $f(2.5)$.
     - $f(2.5) = 150(2.5)^2 - 539(2.5) + 511 = 937.5 - 1347.5 + 511 = 101$
 - $\therefore f(2.5) = 101$
 
-### Cubic Spline Interpolation
+### **Cubic Spline Interpolation**
 - $P_i(x) = a_ix^3 + b_ix^2 + c_ix + d_i$
 1. **Interpolation condition:** $F(x_i) = f_i$
 2. **First derivative continuity:** $P_i'(x_i) = P_{i+1}'(x_i)$
 3. **Second derivative continuity:** $P_i''(x_i) = P_{i+1}''(x_i)$
 
-### Advantages of Spline Interpolation
+### **Advantages of Spline Interpolation**
 - Uses low degree polynomials over smaller intervals.
 - Avoids relying on one high degree polynomial for the whole dataset.
 - Provides local control for the interpolating curve.
 - Cubic splines provide smooth first & second derivatives.
 - Suitable for interpolating large sets of tabulated data.
 
-### Limitations of Spline Interpolation
+### **Limitations of Spline Interpolation**
 - Requires continuity conditions & suitable boundary conditions.
 - Computing coefficients involves solving equations.
 - Extrapolation outside the data interval may be unreliable.
 - A spline is not automatically more accurate than every global polynomial; accuracy depends on the data and the construction.
 
-### Exercise - H.W.
+### **Exercise - H.W.**
 1. Construct a quadratic spline for $(0, 1), (1, 2), (2, 5)$ using $F''(0) = 0$.
 
 ---
 
-# System of Linear Equations
+# **System of Linear Equations**
 
-### Linear Equation
+### **Linear Equation**
 - A linear equation in one variable has the form $ax = b$, where $a$ and $b$ are known constants and $x$ is unknown.
 - Ex: $2x = 6 \Rightarrow x = 3$.
 - A linear equation in two variables is $a_1x_1 + a_2x_2 = b$.
@@ -1261,14 +1266,14 @@ Construct a quadratic spline satisfying $F''(x_0) = 0$. Estimate $f(2.5)$.
     - $xy + z = 6$ is not a linear equation.
     - $x\sin x + y$ is not a linear equation.
 
-### System of Linear Equations
+### **System of Linear Equations**
 - Suppose we have more than one linear equation involving the same unknowns.
 - Ex: $2x + y = 5$ and $x - y = 1$.
 - General form:
     - $a_{11}x_1 + a_{12}x_2 = b_1$
     - $a_{21}x_1 + a_{22}x_2 = b_2$
 
-### Matrix Form
+### **Matrix Form**
 - Writing all equations separately becomes inconvenient when $n$ becomes large. 
 - Therefore, we use matrices.
 - Ex: $2x + 3y = 8$ and $4x + 5y = 14$.
@@ -1288,14 +1293,14 @@ Construct a quadratic spline satisfying $F''(x_0) = 0$. Estimate $f(2.5)$.
     - $2x + y + 3z = 12$
     - $\begin{bmatrix} 3 & 2 & -1 \\ 1 & -4 & 2 \\ 2 & 1 & 3 \end{bmatrix}\begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} 7 \\ -1 \\ 12 \end{bmatrix}$
 
-### Augmented Matrix
+### **Augmented Matrix**
 - There is another very useful representation.
 - Ex: $2x + 3y = 8$ and $4x + 5y = 14$.
     - $A = \begin{bmatrix} 2 & 3 \\ 4 & 5 \end{bmatrix}$,
     - $B = \begin{bmatrix} 8 \\ 14 \end{bmatrix}$
 - $[A \mid B] = \left[\begin{array}{cc|c} 2 & 3 & 8 \\ 4 & 5 & 14 \end{array}\right]$
 
-### Direct vs Iterative Methods
+### **Direct vs Iterative Methods**
 
 #### Direct Methods
 - Direct methods attempt to obtain the solution through a finite sequence of algebraic operations.
@@ -1310,7 +1315,7 @@ Construct a quadratic spline satisfying $F''(x_0) = 0$. Estimate $f(2.5)$.
 - Until the solution satisfies our chosen tolerance.
 - Eg: Jacobi method, Gauss-Seidel method.
 
-### Geometrical Interpretation
+### **Geometrical Interpretation**
 - Consider $a_1x + b_1y = c_1$ and $a_2x + b_2y = c_2$. 
 - Each equation represents a straight line.
 - There are 3 possibilities:
@@ -1331,15 +1336,15 @@ Construct a quadratic spline satisfying $F''(x_0) = 0$. Estimate $f(2.5)$.
 - Two equations represent the same line.
 - Eg: $x + y = 2$ and $2x + 2y = 4$.
 
-### Consistent and Inconsistent Systems
+### **Consistent and Inconsistent Systems**
 - A system is consistent if it has at least one solution (unique or infinitely many solutions). Otherwise it is inconsistent.
 - A system is called inconsistent if it has no solution.
 
-### Square and Non-Square Systems
+### **Square and Non-Square Systems**
 - Square: number of unknowns is the same as the number of equations given.
 - Non-square: number of equations given is less than the number of unknowns $\to$ cannot find a unique solution.
 
-### Determinant and Uniqueness
+### **Determinant and Uniqueness**
 - For a square system $AX = B$:
 - If $\det A \neq 0$, then $A$ is non-singular and the system has a unique solution.
 - If $\det A = 0$, then $A$ is singular and the system does not have a unique solution.
@@ -1348,7 +1353,7 @@ Construct a quadratic spline satisfying $F''(x_0) = 0$. Estimate $f(2.5)$.
 $\det A = (2)(-1) - (1)(1) = -3 \neq 0$
     - $\therefore$ the system has a unique solution.
 
-### Exercise - H.W.
+### **Exercise - H.W.**
 1. Convert the following system into matrix form. Identify $A$, $X$ & $B$. Also write the augmented matrix.
     - $2x + 3y - z = 5$
     - $x - 2y + 4z = 7$
@@ -1359,7 +1364,7 @@ $\det A = (2)(-1) - (1)(1) = -3 \neq 0$
 
 ---
 
-## Gaussian Elimination Method
+## **Gaussian Elimination Method**
 
 - Suppose we have,
     - $a_{11}x_1 + a_{12}x_2 + a_{13}x_3 = b_1$
@@ -1373,7 +1378,7 @@ $\det A = (2)(-1) - (1)(1) = -3 \neq 0$
     - $u_{33}x_3 = c_3$
 - This is an upper triangular system.
 
-### Elementary Row Operations
+### **Elementary Row Operations**
 - **Operation 1:** Interchange two rows. $R_1 \leftrightarrow R_2$
     - Ex: $\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \leftrightarrow \begin{bmatrix} 3 & 4 \\ 1 & 2 \end{bmatrix}$
 - **Operation 2:** Multiply a row by a non-zero constant. $R_2 \to kR_2$, $k \neq 0$
@@ -1381,7 +1386,7 @@ $\det A = (2)(-1) - (1)(1) = -3 \neq 0$
 - **Operation 3:** Add a multiple of one row to another row. $R_i \to R_i + kR_j$
     - Ex: $R_2 \to R_2 - 2R_1$
 
-### Exercise 1
+### **Exercise 1**
 Find the solution using the Gaussian Elimination Method.
     - $x + y + z = 6$
     - $2x + 3y + z = 11$
@@ -1406,7 +1411,7 @@ Find the solution using the Gaussian Elimination Method.
     - $x = 1$
 - $\therefore x = 1,\ y = 2,\ z = 3$
 
-### General Gaussian Elimination Algorithm
+### **General Gaussian Elimination Algorithm**
 - For $AX = B$, we transform the augmented matrix $[A \mid B]$ into $[U \mid C]$, where $U$ is the upper triangular matrix.
 - For the first pivot $a_{11}$:
 - Calculate the multiplier $m_{i1} = \dfrac{a_{i1}}{a_{11}}$ and perform $R_i \to R_i - m_{i1}R_1$ for $i = 2, 3, \dots, n$.
@@ -1416,7 +1421,7 @@ Find the solution using the Gaussian Elimination Method.
 > A pivot is the key element which is used to eliminate the entries below it.
 > For $\begin{bmatrix} 2 & 1 & -1 \\ 0 & 3 & 4 \\ 0 & 0 & 5 \end{bmatrix}$, the pivots are $2, 3, 5$.
 
-### Exercise - H.W.
+### **Exercise - H.W.**
 1. Solve using the Gaussian Elimination Method.
     - $2x + y + z = 10$
     - $4x - 6y + 3z = -2$
@@ -1429,7 +1434,7 @@ Find the solution using the Gaussian Elimination Method.
 
 ---
 
-## Gauss-Jordan Method
+## **Gauss-Jordan Method**
 - $[A \mid B] \to [I \mid X]$
 - In Gauss-Jordan, we continue eliminating both:
     - below the pivot, and
@@ -1438,12 +1443,12 @@ Find the solution using the Gaussian Elimination Method.
 - $I = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$
 - Therefore, $[A \mid B] \to [I \mid X]$.
 
-### Elementary Row Operations
+### **Elementary Row Operations**
 - **Operation 1:** Interchange rows. $R_i \leftrightarrow R_j$
 - **Operation 2:** Multiply a row by a non-zero constant. $R_i \to kR_i$, $k \neq 0$
 - **Operation 3:** Add a multiple of one row to another. $R_i \to R_i + kR_j$
 
-### Exercise 1
+### **Exercise 1**
 - Solve using Gauss-Jordan Method
     - $x + y + z = 6$
     - $2x + 3y + z = 11$
@@ -1465,14 +1470,14 @@ Find the solution using the Gaussian Elimination Method.
     - $\left[\begin{array}{ccc|c} 1 & 0 & 0 & 1 \\ 0 & 1 & 0 & 2 \\ 0 & 0 & 1 & 3 \end{array}\right]$
 - Therefore, $x = 1$, $y = 2$ and $z = 3$.
 
-### General Structure of Gauss-Jordan Method
+### **General Structure of Gauss-Jordan Method**
 - $[A \mid B]$ for an $n \times n$ system.
 - We perform row operations until: $[I \mid X]$
 - For a $3 \times 3$ system:
     - $\left[\begin{array}{ccc|c} a_{11} & a_{12} & a_{13} & b_1 \\ a_{21} & a_{22} & a_{23} & b_2 \\ a_{31} & a_{32} & a_{33} & b_3 \end{array}\right]$ 
     - becomes $\left[\begin{array}{ccc|c} 1 & 0 & 0 & x \\ 0 & 1 & 0 & y \\ 0 & 0 & 1 & z \end{array}\right]$
 
-### Exercise - H.W.
+### **Exercise - H.W.**
 1. Solve using Gauss-Jordan Method
     - $2x + y - z = 8$
     - $x + 2y + z = 7$
@@ -1480,13 +1485,13 @@ Find the solution using the Gaussian Elimination Method.
 
 ---
 
-## LU Decomposition
+## **LU Decomposition**
 - $A = LU$
 - $A \to$ original coefficient matrix
 - $L \to$ lower triangular matrix
 - $U \to$ upper triangular matrix
 
-### Basic Concept
+### **Basic Concept**
 - $AX = B$
 - Using LU Decomposition:
     - $AX = B \Rightarrow LUX = B$
@@ -1495,7 +1500,7 @@ Find the solution using the Gaussian Elimination Method.
     - $LY = B$ to find $Y$
     - $UX = Y$ to find $X$
 
-### General Structure of LU Decomposition
+### **General Structure of LU Decomposition**
 - For a $3 \times 3$ system, $A = LU$ where:
     - $A = \begin{bmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{bmatrix}$
     - $L = \begin{bmatrix} 1 & 0 & 0 \\ l_{21} & 1 & 0 \\ l_{31} & l_{32} & 1 \end{bmatrix}$,
@@ -1507,7 +1512,7 @@ Find the solution using the Gaussian Elimination Method.
 - $l_{32} = \dfrac{a_{32} - l_{31}u_{12}}{u_{22}}$
 - $u_{33} = a_{33} - l_{31}u_{13} - l_{32}u_{23}$
 
-### Exercise 1
+### **Exercise 1**
 - Solve using LU Decomposition
     - $x + y + z = 6$
     - $2x + 3y + z = 11$
@@ -1538,19 +1543,19 @@ Find the solution using the Gaussian Elimination Method.
     - $3z = 9$
 - So, $z = 3$, $y = 2$, $x = 1$.
 
-### Advantages of LU Decomposition
+### **Advantages of LU Decomposition**
 - Useful for solving multiple systems with the same coefficient matrix.
 - Separates factorization from solving the system.
 - Can be used to calculate determinants and matrix inverses.
 - Uses forward and back substitution after factorization.
 
-### Limitations of LU Decomposition
+### **Limitations of LU Decomposition**
 - Factorization can fail without pivoting, if a required pivot is zero.
 - Small pivots can cause numerical instability.
 - Pivoting may require a permutation matrix, giving $PA = LU$ rather than a simple $A = LU$.
 - Factorization requires order of $n^3$ arithmetic operations for a dense $n \times n$ matrix.
 
-### Exercise - H.W.
+### **Exercise - H.W.**
 1. Solve using L.U. Decomposition.
     - $2x + y = 5$
     - $4x + 3y = 11$
@@ -1558,14 +1563,18 @@ Find the solution using the Gaussian Elimination Method.
 
 ---
 
-# Approximation of Functions
+## **Jacobi and Gauss Seidel Method** *(Self-learning)*
+
+---
+
+# **Approximation of Functions**
 
 - In function approximation, our objective is to find a simpler function that represents another function accurately over an interval, even if it does not pass through every data point.
 - If $f(x) = e^x$ over an interval, the approximation error at $x$ is $E(x) = f(x) - P_n(x)$.
     - $P_n(x)$ is the approximating polynomial.
 - Maximum absolute error: $\displaystyle\max_{a \le x \le b} |f(x) - P_n(x)|$
 
-## Chebyshev Polynomials
+## **Chebyshev Polynomials**
 - Chebyshev Polynomials are a special family of polynomials denoted by $T_0(x), T_1(x), T_2(x), \dots$
 - They are defined on $[-1, 1]$ using the cosine function.
 - $T_n(x) = \cos(n\cos^{-1}x)$, where $n = 0, 1, 2, \dots$
@@ -1589,25 +1598,25 @@ Find the solution using the Gaussian Elimination Method.
 | $3$ | $T_3(x) = 4x^3 - 3x$ |
 | $4$ | $T_4(x) = 8x^4 - 8x^2 + 1$ |
 
-### Recurrence Relation
+### **Recurrence Relation**
 - $T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)$
 - For $n \ge 1$, with $T_0(x) = 1$, $T_1(x) = x$ (base case).
 
-### Property 1: Bounded values
+### **Property 1: Bounded values**
 - The values lie between $-1$ and $+1$ on $[-1, 1]$.
 - $T_n(x) = \cos(n\cos^{-1}x)$
 - $|T_n(x)| \le 1$, $\quad -1 \le x \le 1$
 
-### Property 2: Alternating extreme values
+### **Property 2: Alternating extreme values**
 - The Chebyshev Polynomials oscillate between $+1$ and $-1$ over $[-1, 1]$.
 - Eg: $T_2(x) = 2x^2 - 1$
     - At $x = -1, 0, 1$:
     - $T_2(-1) = 1$, $\quad T_2(0) = -1$, $\quad T_2(1) = 1$
 
-### Property 3: Roots of Chebyshev Polynomials
+### **Property 3: Roots of Chebyshev Polynomials**
 - $x_k = \cos\left(\dfrac{(2k - 1)\pi}{2n}\right)$ ; $k = 1, 2, 3, \dots, n$.
 
-### Chebyshev Polynomial Approximation of a Function
+### **Chebyshev Polynomial Approximation of a Function**
 - A polynomial approximation can be expressed as
 - $f(x) \approx P_n(x) = \sum_{k=0}^{n} a_kT_k(x)$
 - Hence, the coefficients are:
@@ -1615,20 +1624,20 @@ Find the solution using the Gaussian Elimination Method.
 - And for $k \ge 1$,
     - $a_k = \frac{2}{\pi}\int_{-1}^{1}\frac{f(x)T_k(x)}{\sqrt{1 - x^2}}\,dx$
 
-### Advantages of Chebyshev Polynomials
+### **Advantages of Chebyshev Polynomials**
 - Chebyshev polynomials are bounded on $[-1, 1]$.
 - They have useful recurrence relations.
 - They can produce accurate approximations with relatively low polynomial degree.
 - Chebyshev interpolation nodes can reduce unwanted oscillations.
 - They are useful in numerical analysis, scientific computation and approximation theory.
 
-### Limitations of Chebyshev Polynomials
+### **Limitations of Chebyshev Polynomials**
 - A change of intervals is generally needed for domains other than $[-1, 1]$.
 - Computing expansion coefficients may require integration or numerical evaluation.
 - The accuracy depends on the function, interval and degree of approximation.
 - A Chebyshev expansion is not automatically accurate for every function when truncated to a finite number of terms.
 
-### Exercise 1
+### **Exercise 1**
 Using the Chebyshev polynomials, obtain the least squares approximation of second degree for $f(x) = x^4$ on the interval $[-1, 1]$.
 - Given $f(x) = x^4$, $\quad -1 \le x \le 1$.
 - $T_0(x) = 1$, $\quad T_1(x) = x$, $\quad T_2(x) = 2x^2 - 1$, $\quad T_4(x) = 8x^4 - 8x^2 + 1$.
@@ -1648,8 +1657,264 @@ Using the Chebyshev polynomials, obtain the least squares approximation of secon
     - $P_2(x) = x^2 - \frac{1}{8}$
 - $\therefore P_2(x) = x^2 - \dfrac{1}{8}$
 
-### Exercise - H.W.
+### **Exercise - H.W.**
 1. Find the roots of $T_3(x) = 4x^3 - 3x$.
 2. Express $x^4$ as a combination of Chebyshev polynomials.
+
+---
+
+# **Numerical Differentiation and Integration**
+
+## **Numerical Differentiation**
+
+### **Forward Difference Formula**
+- $f'(x) \approx \frac{f(x+h) - f(x)}{h}$
+    - $f'(x)$: approximate first derivative at $x$.
+    - $f(x+h)$: function value at the next point.
+    - $f(x)$: function value at the given point.
+    - $h$: small interval or step size.
+- **When to use:** when function values are available at the current point and the next point.
+
+#### Exercise 1
+Calculate the first derivative of $f(x) = x^2 + 2x + 1$ at $x = 2$, taking $h = 0.1$, using the forward difference formula.
+- $f'(2) \approx \dfrac{f(2.1) - f(2)}{0.1}$
+- $f'(2) \approx \dfrac{(2.1)^2 + 2(2.1) + 1 - (2)^2 - 2(2) - 1}{0.1}$
+- $f'(2) \approx \dfrac{4.41 + 4.2 + 1 - 4 - 4 - 1}{0.1}$
+- $f'(2) \approx 6.1$
+
+### **Backward Difference Formula**
+- $f'(x) \approx \frac{f(x) - f(x-h)}{h}$
+    - $f'(x)$: approximate first derivative at $x$.
+    - $f(x)$: function value at a given point.
+    - $f(x-h)$: function value at the previous point.
+    - $h$: small interval or step size.
+- **When to use:** when function values are available at the current point and the previous point.
+
+#### Exercise 1
+Calculate the first derivative of $f(x) = x^2 + 2x + 1$ at $x = 2$, taking $h = 0.1$, using the backward difference formula.
+- $f'(2) \approx \dfrac{f(2) - f(1.9)}{0.1}$
+- $f(2) = 9$ and $f(1.9) = 8.41$
+- $f'(2) \approx \dfrac{9 - 8.41}{0.1} = \dfrac{0.59}{0.1}$
+- $f'(2) \approx 5.9$
+
+### **Central Difference Formula**
+- $f'(x) \approx \frac{f(x+h) - f(x-h)}{2h}$
+    - $f'(x)$: approximate first derivative at $x$.
+    - $f(x+h)$: function value at the next step.
+    - $f(x-h)$: function value at the previous point.
+    - $h$: small interval or step size.
+
+#### Exercise 1
+Calculate the first derivative of $f(x) = x^2 + 2x + 1$ at $x = 2$, taking $h = 0.1$, using the central difference formula.
+- $f(2.1) = 9.61$ and $f(1.9) = 8.41$
+- $f'(2) \approx \dfrac{f(2.1) - f(1.9)}{2(0.1)} = \dfrac{9.61 - 8.41}{0.2} = \dfrac{1.20}{0.2}$
+- $f'(2) \approx 6$
+
+### **Numerical Differentiation using Tabulated Data**
+- When a mathematical expression is not given, we can calculate the derivative directly from a table of values.
+- Formula for central difference:
+- $f'(x_i) \approx \frac{y_{i+1} - y_{i-1}}{2h}$
+    - $f'(x_i)$: the point at which the derivative is required.
+    - $y_{i+1}$: function value at the next point.
+    - $y_{i-1}$: function value at the previous point.
+    - $h$: equal spacing between consecutive $x$-values.
+
+#### Exercise 1
+Given the following table, calculate $f'(1.2)$ using the central difference formula.
+
+| $x$ | $1$ | $1.1$ | $1.2$ | $1.3$ | $1.4$ |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| $f(x)$ | $1$ | $1.21$ | $1.44$ | $1.69$ | $1.96$ |
+
+- Given $x_i = 1.2$ and $h = 0.1$.
+- $f'(1.2) \approx \dfrac{f(1.3) - f(1.1)}{2(0.1)} = \dfrac{1.69 - 1.21}{0.2}$
+- $f'(1.2) \approx \dfrac{0.48}{0.2}$
+- $f'(1.2) \approx 2.4$
+
+### **Second Derivative using Central Difference Formula**
+- $f''(x) \approx \frac{f(x+h) - 2f(x) + f(x-h)}{h^2}$
+    - $f''(x)$: approximate second derivative at $x$.
+    - $f(x+h)$: function value at the next point.
+    - $f(x)$: function value at the given point.
+    - $f(x-h)$: function value at the previous point.
+    - $h$: small interval or step size.
+
+#### Exercise 1
+Calculate the second derivative of $f(x) = x^2 + 2x + 1$ at $x = 2$, taking $h = 0.1$, using the central difference formula.
+- $f''(2) \approx \dfrac{f(2.1) - 2f(2) + f(1.9)}{(0.1)^2}$
+- $f''(2) \approx \dfrac{9.61 - 18 + 8.41}{0.01}$
+- $f''(2) \approx \dfrac{0.02}{0.01}$
+- $f''(2) \approx 2$
+
+---
+
+## **Numerical Integration**
+
+### **Trapezoidal Rule**
+- It uses only 2 function values, at the 2 end points.
+- Formula:
+- $I \approx \frac{b - a}{2}\left[f(a) + f(b)\right]$
+    - $I$: approximate value of the definite integral $\int_a^b f(x)\,dx$.
+    - $b$: upper limit of integration.
+    - $a$: lower limit of integration.
+    - $f(a)$: function value at the lower limit.
+    - $f(b)$: function value at the upper limit.
+- Alternatively,
+- $I \approx \frac{h}{2}(y_0 + y_1), \quad h = b - a$
+    - $h$: width of the interval.
+
+#### Exercise 1
+Evaluate the following integral using the Trapezoidal Rule: $I = \displaystyle\int_0^1 x^2\,dx$.
+- $f(0) = 0$ and $f(1) = 1$
+- $I \approx \dfrac{1 - 0}{2}\left(f(0) + f(1)\right)$
+- $I \approx \dfrac{1}{2}(0 + 1)$
+- $I \approx 0.5$
+
+#### Exercise 2 
+Evaluate the following integral using the Trapezoidal Rule: $I = \displaystyle\int_0^2 (x^2 + 1)\,dx$.
+- $f(0) = 1$ and $f(2) = 5$
+- $I \approx \dfrac{2 - 0}{2}\left(f(0) + f(2)\right)$
+- $I \approx \dfrac{2}{2}(1 + 5)$
+- $I \approx 6$
+
+### **Composite Trapezoidal Rule**
+- $I \approx \frac{h}{2}\left[y_0 + 2(y_1 + y_2 + \cdots + y_{n-1}) + y_n\right]$
+- Interval width: $h = \dfrac{b - a}{n}$, where $n$ is the number of sub-intervals.
+
+#### Exercise 1
+Evaluate the following integral using the Composite Trapezoidal Rule with $n = 4$: $I = \displaystyle\int_0^1 x^2\,dx$.
+- $f(x) = x^2$, $a = 0$, $b = 1$, $n = 4$, and $h = \dfrac{1}{4} = 0.25$.
+- $I \approx \dfrac{0.25}{2}\left[f(0) + 2\left(f(0.25) + f(0.5) + f(0.75)\right) + f(1)\right]$
+- $f(0) = 0$, $\ f(0.25) = 0.0625$, $\ f(0.5) = 0.25$, $\ f(0.75) = 0.5625$, $\ f(1) = 1$
+- $I \approx 0.125\left[0 + 2(0.0625 + 0.25 + 0.5625) + 1\right]$
+- $I \approx 0.125\left[2(0.875) + 1\right] = 0.125 \times 2.75$
+- $I \approx 0.34375$
+
+### **Simpson’s $\dfrac{1}{3}$ Rule**
+- $I \approx \frac{h}{3}\left(y_0 + 4y_1 + y_2\right)$
+- Alternatively,
+- $I \approx \frac{b - a}{6}\left[y_0 + 4y_1 + y_2\right]$
+    - $h = \dfrac{b - a}{2}$
+
+### **Simpson’s $\dfrac{3}{8}$ Rule**
+- $I \approx \frac{3h}{8}\left(y_0 + 3y_1 + 3y_2 + y_3\right)$
+- Alternatively,
+- $I \approx \frac{b - a}{8}\left[y_0 + 3y_1 + 3y_2 + y_3\right]$
+    - $h = \dfrac{b - a}{3}$
+
+---
+
+# **Ordinary Differential Equations**
+
+- An ordinary differential equation (ODE) is an equation involving an unknown function and its derivatives.
+- Ex: $\dfrac{dy}{dx} = x + y$
+- To solve this equation, we generally require an initial condition.  
+- Formula:
+    - $\frac{dy}{dx} = f(x, y)$, with initial condition $y(x_0) = y_0$
+
+## **Euler Method**
+- It is a numerical technique which is used to find the approximate value of the solution of an initial value problem.
+- The Euler Method Formula is:
+    - $y_{n+1} = y_n + hf(x_n, y_n)$
+- The next value of the independent variable is
+    - $x_{n+1} = x_n + h$
+
+### **Exercise 1**
+Using Euler’s method, find the approximate value of $y$ at $x = 0.2$. Equation: $\dfrac{dy}{dx} = x + y$ with initial condition $y(0) = 1$, $x_0 = 0$, $y_0 = 1$, $h = 0.1$.
+- $f(x, y) = x + y$, $\quad x_0 = 0$, $\quad y_0 = 1$, $\quad h = 0.1$
+- **Iteration 1:**
+    - $f(x_0, y_0) = 0 + 1 = 1$
+    - $y_1 = y_0 + hf(x_0, y_0) = 1 + 0.1(1) = 1.1$
+    - $x_1 = x_0 + h = 0 + 0.1 = 0.1$
+- **Iteration 2:**
+    - $f(x_1, y_1) = 1.1 + 0.1 = 1.2$
+    - $y_2 = y_1 + hf(x_1, y_1) = 1.1 + 0.1(1.2) = 1.1 + 0.12 = 1.22$
+    - $x_2 = x_1 + h = 0.1 + 0.1 = 0.2$
+- $\therefore y(0.2) \approx 1.22$
+
+### **Exercise 2**
+Using Euler’s method, find the approximate value of $y$ at $x = 0.3$, given $\dfrac{dy}{dx} = x^2 + y$, $x_0 = 0$, $y_0 = 1$, $h = 0.1$.
+- **Iteration 1:**
+    - $f(x_0, y_0) = 0^2 + 1 = 1$
+    - $y_1 = y_0 + hf(x_0, y_0) = 1 + 0.1(1) = 1.1$
+    - $x_1 = x_0 + h = 0.1$
+- **Iteration 2:**
+    - $f(x_1, y_1) = (0.1)^2 + 1.1 = 0.01 + 1.1 = 1.11$
+    - $y_2 = y_1 + hf(x_1, y_1) = 1.1 + 0.1(1.11) = 1.1 + 0.111 = 1.211$
+    - $x_2 = x_1 + h = 0.1 + 0.1 = 0.2$
+- **Iteration 3:**
+    - $f(x_2, y_2) = (0.2)^2 + 1.211 = 0.04 + 1.211 = 1.251$
+    - $y_3 = y_2 + hf(x_2, y_2) = 1.211 + 0.1(1.251) = 1.211 + 0.1251 = 1.3361$
+    - $x_3 = x_2 + h = 0.3$
+- $\therefore y(0.3) \approx 1.3361$
+
+### **Exercise 3**
+Using Euler’s method, calculate $y(0.4)$ for $\dfrac{dy}{dx} = x - y$. Given $y(0) = 2$, $h = 0.2$, $x_0 = 0$.
+- $f(x, y) = x - y$, $\quad x_0 = 0$, $\quad y_0 = 2$, $\quad h = 0.2$
+- **Iteration 1:**
+    - $f(x_0, y_0) = 0 - 2 = -2$
+    - $y_1 = y_0 + hf(x_0, y_0) = 2 + 0.2(-2) = 2 - 0.4 = 1.6$
+    - $x_1 = x_0 + h = 0.2$
+- **Iteration 2:**
+    - $f(x_1, y_1) = 0.2 - 1.6 = -1.4$
+    - $y_2 = y_1 + hf(x_1, y_1) = 1.6 + 0.2(-1.4) = 1.6 - 0.28 = 1.32$
+    - $x_2 = x_1 + h = 0.4$
+- $\therefore y(0.4) \approx 1.32$
+
+---
+
+## **Runge-Kutta Method**
+
+### **I. Second-Order Runge-Kutta Method or Midpoint Method**
+- Formula: Consider a first order differential equation
+    - $\frac{dy}{dx} = f(x, y)$
+    - with initial condition $y(x_0) = y_0$.
+- Formula:
+    - $k_1 = hf(x_n, y_n)$
+    - $k_2 = hf\left(x_n + \dfrac{h}{2},\ y_n + \dfrac{k_1}{2}\right)$
+- The next value of $y$ is:
+    - $y_{n+1} = y_n + k_2$
+    - $x_{n+1} = x_n + h$
+
+#### Exercise 1
+Find $y(0.2)$, $\dfrac{dy}{dx} = x + y$, $x_0 = 0$, $y_0 = 1$, $h = 0.1$.
+- **Iteration 1:**
+    - $k_1 = hf(x_0, y_0) = 0.1(0 + 1) = 0.1$
+    - $k_2 = hf\left(x_0 + \dfrac{h}{2},\ y_0 + \dfrac{k_1}{2}\right) = 0.1\,f(0.05,\ 1.05) = 0.1(1.1) = 0.11$
+    - $y_1 = y_0 + k_2 = 1 + 0.11 = 1.11$
+    - $x_1 = x_0 + h = 0.1$
+- **Iteration 2:**
+    - $k_1 = hf(x_1, y_1) = 0.1(0.1 + 1.11) = 0.121$
+    - $k_2 = hf\left(x_1 + \dfrac{h}{2},\ y_1 + \dfrac{k_1}{2}\right) = 0.1\,f(0.15,\ 1.1705) = 0.1(1.3205) = 0.13205$
+    - $y_2 = y_1 + k_2 = 1.11 + 0.13205 = 1.24205$
+    - $x_2 = x_1 + h = 0.2$
+- $\therefore y(0.2) \approx 1.24205$
+
+### **II. Fourth-Order Runge-Kutta Method (RK4)**
+- For $\dfrac{dy}{dx} = f(x, y)$, the four intermediate values are calculated as:
+    - $k_1 = hf(x_n, y_n)$
+    - $k_2 = hf\left(x_n + \dfrac{h}{2},\ y_n + \dfrac{k_1}{2}\right)$
+    - $k_3 = hf\left(x_n + \dfrac{h}{2},\ y_n + \dfrac{k_2}{2}\right)$
+    - $k_4 = hf\left(x_n + h,\ y_n + k_3\right)$
+- The next value of $y$ is:
+    - $y_{n+1} = y_n + \frac{1}{6}\left(k_1 + 2k_2 + 2k_3 + k_4\right)$
+    - And $x_{n+1} = x_n + h$.
+
+#### Exercise 1 
+Find $y(0.1)$, $\dfrac{dy}{dx} = x + y$, $x_0 = 0$, $y_0 = 1$, $h = 0.1$.
+- $k_1 = hf(x_0, y_0) = 0.1(0 + 1) = 0.1$
+- $k_2 = hf\left(x_0 + \dfrac{h}{2},\ y_0 + \dfrac{k_1}{2}\right) = 0.1\,f(0.05,\ 1.05) = 0.1(1.1) = 0.11$
+- $k_3 = hf\left(x_0 + \dfrac{h}{2},\ y_0 + \dfrac{k_2}{2}\right) = 0.1\,f(0.05,\ 1.055) = 0.1(1.105) = 0.1105$
+- $k_4 = hf\left(x_0 + h,\ y_0 + k_3\right) = 0.1\,f(0.1,\ 1.1105) = 0.1(1.2105) = 0.12105$
+- $y_1 = 1 + \dfrac{1}{6}\left(0.1 + 2(0.11) + 2(0.1105) + 0.12105\right)$
+- $y_1 = 1 + \dfrac{0.66205}{6} = 1 + 0.110342$
+- $\therefore y(0.1) \approx 1.110342$
+
+---
+
+## **Multi-step Method** *(Self-learning)*
+The two important types are:
+1. Adams–Bashforth Method (Explicit Method)
+2. Adams–Moulton Method (Implicit Method)
 
 ---
